@@ -1,0 +1,2603 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>Noa - 22 Missions</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Audiowide&family=DM+Serif+Display&family=Russo+One&family=Bebas+Neue&family=Righteous&family=Saira:wght@400;600;700&family=Syne:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --g:#10B981;--gd:#065f46;--gbg:#021a10;
+  --p:#8B5CF6;--pd:#4c1d95;--pbg:#1a0f3a;
+  --r:#EF4444;--rbg:#2d1212;
+  --pk:#EC4899;--pkbg:#2d1228;
+  --o:#F97316;--obg:#2d1a06;
+  --s:#111114;--s2:#1a1a1f;--br:#2a2a35;
+  --t2:#9ca3af;--bg:#060608;
+}
+html,body{background:var(--bg);color:#fff;font-family:"Syne","Segoe UI",sans-serif;min-height:100vh;overflow-x:hidden}html.no-scroll,html.no-scroll body{overflow:hidden;height:100vh}*::-webkit-scrollbar{display:none}*{scrollbar-width:none;-ms-overflow-style:none}
+body{max-width:480px;margin:0 auto}
+.k-brand-e{font-family:"Bebas Neue",sans-serif;letter-spacing:4px;font-size:14px}
+.k-brand-k{font-family:"DM Serif Display",serif;letter-spacing:2px;font-size:10px}
+.k-screen-num,.bt-artist,.congrats div{font-family:"Cormorant Garamond","Times New Roman",serif;letter-spacing:.5px}
+.bpm-num{font-family:"Syne","Segoe UI",sans-serif;letter-spacing:0px;font-weight:800}
+h1,h2,h3,#cg-title{font-family:"Bebas Neue","Righteous",sans-serif;letter-spacing:3px;font-weight:400}.sh-title{font-family:"DM Serif Display",serif;font-style:italic;letter-spacing:1px;font-weight:400}
+h1,h2,h3,#cg-title{color:#fff;text-shadow:0 0 6px #fff,0 0 16px currentColor,0 0 36px currentColor}.sh-title{color:#fff}
+
+@keyframes neonPulse{
+  0%,100%{opacity:1;filter:brightness(1)}
+  50%{opacity:.92;filter:brightness(1.15)}
+}
+
+@keyframes neonFlicker{
+  0%,100%{opacity:1}
+  91%{opacity:1}
+  92%{opacity:.82}
+  93%{opacity:1}
+  95%{opacity:.88}
+  96%{opacity:1}
+}
+.page{display:none;flex-direction:column;min-height:100vh;padding-bottom:68px}.page#page-home{height:100vh;min-height:unset;overflow:hidden}
+.page.active{display:flex}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#0a0a0d;border-top:1px solid var(--br);display:flex;z-index:100;padding:5px 0 10px}
+.nb{flex:1;background:none;border:none;color:#444;font-size:9px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 0;transition:color .2s;font-family:"Righteous","Syne",sans-serif;letter-spacing:.5px}
+.nb i{font-size:20px}
+.nb.act{color:var(--p);text-shadow:0 0 8px var(--p),0 0 18px var(--p)}
+#ov-force{display:none;position:fixed;inset:0;background:var(--bg);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:32px;text-align:center;overflow:hidden;pointer-events:none;visibility:hidden}
+#ov-force.show{display:flex;pointer-events:auto;visibility:visible}
+#ov-force::before{content:'';position:absolute;width:360px;height:360px;border-radius:50%;background:conic-gradient(from 0deg,var(--p),var(--g),var(--pk),var(--o),var(--p));filter:blur(70px);opacity:.45;animation:spin 6s linear infinite}
+#ov-force::after{content:'';position:absolute;width:240px;height:240px;border-radius:50%;background:conic-gradient(from 180deg,var(--o),var(--pk),var(--p),var(--g),var(--o));filter:blur(50px);opacity:.35;animation:spin 4s linear infinite reverse}
+#ov-force>*{position:relative;z-index:1}
+@keyframes hueCycle{0%{filter:hue-rotate(0deg) drop-shadow(0 0 18px var(--p))}50%{filter:hue-rotate(180deg) drop-shadow(0 0 22px var(--pk))}100%{filter:hue-rotate(360deg) drop-shadow(0 0 18px var(--p))}}
+#ov-force .ph-anim{animation:phoneRot 1.2s ease-in-out infinite alternate,hueCycle 3s linear infinite}
+.pt-toggle{display:inline-flex;align-items:center;gap:4px;background:var(--p);border:none;border-radius:20px;padding:6px 12px;font-size:10px;font-weight:600;letter-spacing:.5px;color:#fff;cursor:pointer;white-space:nowrap;transition:all .2s;box-shadow:0 0 12px var(--p),0 0 24px rgba(139,92,246,.5)}
+.pt-toggle i{font-size:13px}
+.pt-toggle.on{background:#6d28d9;color:#fff;box-shadow:0 0 12px rgba(139,92,246,.7)}
+@keyframes phoneRot{0%{transform:rotate(0deg)}100%{transform:rotate(90deg)}}
+.ph-anim{animation:phoneRot 1.2s ease-in-out infinite alternate;display:inline-block}
+.confetti-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9998;overflow:hidden}
+.cpiece{position:absolute;width:8px;height:8px;top:-10px;opacity:0}
+@keyframes cfall{0%{transform:translateY(-10px) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:var(--s2);border:1px solid var(--br);border-radius:12px;padding:10px 16px;font-size:13px;z-index:9500;opacity:0;transition:opacity .3s;pointer-events:none;max-width:320px;text-align:center}
+.toast.show{opacity:1}
+.sh{padding:14px 16px 8px;display:flex;align-items:center;gap:10px;position:sticky;top:0;background:var(--bg);z-index:10;border-bottom:1px solid var(--br)}
+.sh-title{font-size:17px;font-weight:600;flex:1}
+.back{background:none;border:none;color:var(--t2);cursor:pointer;padding:4px;border-radius:8px;line-height:0}
+.chip{display:inline-flex;align-items:center;gap:3px;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:500}
+.cg{background:var(--gbg);color:var(--g);border:1px solid var(--gd);box-shadow:0 0 6px rgba(16,185,129,.4),inset 0 0 4px rgba(16,185,129,.1)}
+.cp{background:var(--pbg);color:var(--p);border:1px solid var(--pd);box-shadow:0 0 6px rgba(139,92,246,.4),inset 0 0 4px rgba(139,92,246,.1)}
+.cr{background:var(--rbg);color:var(--r)}
+.co{background:var(--obg);color:var(--o)}
+.cpk{background:var(--pkbg);color:var(--pk)}
+.pb{height:3px;background:var(--br);border-radius:2px;overflow:hidden;margin:4px 16px 0}
+.pf{height:100%;border-radius:2px;transition:width .6s}
+.btn{display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--br);background:transparent;color:#fff;padding:10px 14px;border-radius:10px;cursor:pointer;font-size:13px;font-weight:600;transition:all .18s;width:100%;margin-top:8px;letter-spacing:.5px}
+.btn:active{transform:scale(.97)}
+.btng{border-color:var(--gd);color:var(--g)}.btng:hover{background:var(--gbg)}
+.btnp{border-color:var(--pd);color:var(--p)}.btnp:hover{background:var(--pbg)}
+.btnr{border-color:#7f1d1d;color:var(--r)}
+.btno{border-color:#7c2d12;color:var(--o)}.btno:hover{background:var(--obg)}
+.btnpk{border-color:#831843;color:var(--pk)}.btnpk:hover{background:var(--pkbg)}
+.ml{padding:10px 14px;display:flex;flex-direction:column;gap:10px}
+.mc{background:var(--s);border:1px solid var(--br);border-radius:14px;padding:14px;transition:all .2s}
+.mc.done{border-color:var(--gd);background:rgba(16,185,129,.05)}
+.mc.donep{border-color:var(--pd);background:rgba(139,92,246,.05)}
+.mc.locked{opacity:.28;pointer-events:none}
+.mt{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px}
+.mtitle{font-size:17px;font-weight:400;margin-top:4px;font-family:"Bangers","Righteous",sans-serif;font-style:normal;letter-spacing:1.5px;color:#fff}.mtitle-tech{font-family:"Bangers","Righteous",sans-serif;font-style:normal;letter-spacing:1.5px;font-size:17px;font-weight:400;color:#fff}
+.mdesc{font-size:12px;color:var(--t2);margin-top:3px;line-height:1.5;font-family:"Saira","Syne",sans-serif;font-style:normal}
+.fz{border:1px dashed var(--br);border-radius:10px;padding:14px;text-align:center;cursor:pointer;margin-top:8px;position:relative;overflow:hidden;transition:all .2s}
+.fz:hover{border-color:var(--p);background:rgba(139,92,246,.05)}
+.fz input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.fn{font-size:11px;color:var(--g);margin-top:4px;display:none}
+/* HOME */
+.console-home{padding:8px 10px;display:flex;flex-direction:column;gap:5px;height:calc(100vh - 68px);overflow:hidden}
+.info-bar{display:flex;align-items:center;justify-content:space-between;background:var(--s);border:1px solid var(--br);border-radius:10px;padding:6px 10px}
+.bpm-num{font-size:22px;font-weight:400;color:var(--g);font-family:"Russo One","DM Serif Display",sans-serif;letter-spacing:2px;font-variant-numeric:tabular-nums;text-shadow:0 0 8px var(--g),0 0 20px #00ff88,0 0 40px #00ff88}
+.bpm-lbl{font-size:7px;color:var(--t2);letter-spacing:3px;text-align:center;font-family:"DM Serif Display",serif}
+.cdj-row{display:flex;gap:4px;align-items:stretch}
+.cdj-unit{flex:1;background:var(--s);border:1px solid var(--br);border-radius:12px;padding:5px 4px;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;transition:all .2s}
+.cdj-unit:hover{border-color:var(--pd)}
+.jog{width:70px;height:70px;border-radius:50%;position:relative;flex-shrink:0}
+.jog-outer{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#2a2a38,#0d0d10);border:3px solid #3a3a5a;box-shadow:0 0 0 5px #1a1a1f,0 0 12px rgba(139,92,246,.2)}
+.jog-ridges{position:absolute;inset:4px;border-radius:50%;background:repeating-conic-gradient(#1e1e28 0deg 5deg,#111114 5deg 10deg);animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.jog-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:24px;height:24px;border-radius:50%;background:var(--s2);border:2px solid var(--br);display:flex;align-items:center;justify-content:center;z-index:2}
+.mixer-center{background:var(--s);border:1px solid var(--br);border-radius:12px;padding:5px 6px;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:72px}
+.fdr{display:flex;flex-direction:column;align-items:center;gap:3px}
+.fdr input[type=range]{writing-mode:vertical-lr;direction:rtl;height:48px;accent-color:var(--g);cursor:pointer}
+.fdr-l{font-size:7px;color:var(--t2)}
+.knob-h{width:32px;height:32px;border-radius:50%;background:var(--s2);border:2px solid var(--gd);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 6px rgba(16,185,129,.3)}
+.action-row{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.ab{border-radius:10px;border:1px solid;padding:6px 4px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;transition:all .18s;background:var(--s);position:relative}
+.ab:active{transform:scale(.94)}
+.ab i{font-size:16px}
+.ab span{font-size:8px;text-align:center;line-height:1.3}
+.ab.ag{border-color:var(--gd);color:var(--g);box-shadow:0 0 10px rgba(16,185,129,.35),0 0 20px rgba(16,185,129,.15)}
+.ab.ag:hover{background:var(--gbg)}
+.ab.ap{border-color:var(--pd);color:var(--p);box-shadow:0 0 10px rgba(139,92,246,.35),0 0 20px rgba(139,92,246,.15)}
+.ab.ap:hover{background:var(--pbg)}
+.ab.ao{border-color:#7c2d12;color:var(--o);box-shadow:0 0 10px rgba(249,115,22,.35),0 0 20px rgba(249,115,22,.15)}
+.spec-row{display:flex;gap:4px}
+.sp{flex:1;background:var(--s);border:1px solid var(--br);border-radius:10px;padding:5px 3px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;transition:all .18s}
+.sp:hover{background:var(--s2)}
+.sp i{font-size:18px;color:var(--t2)}
+.sp span{font-size:8px;color:var(--t2);text-align:center}
+/* KORG */
+.korg-wrap{padding:10px}
+.korg-body{background:linear-gradient(175deg,#1e3d64 0%,#172f4e 50%,#102035 100%);border-radius:18px;padding:12px;border:2px solid #2a4a6e;box-shadow:0 8px 32px rgba(0,0,0,.8),0 2px 8px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.1),inset 0 -2px 0 rgba(0,0,0,.3);transform:perspective(800px) rotateX(1deg)}
+.k-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;gap:6px}
+.k-screen{background:#000;border:2px solid #0a2540;border-radius:6px;padding:6px 8px;width:100px;box-shadow:inset 0 0 8px rgba(0,200,100,.1)}
+.k-screen-num{font-size:16px;font-weight:700;color:#00ff88;letter-spacing:3px;font-family:"DM Serif Display",serif;text-shadow:0 0 8px #00ff88}
+.k-screen-txt{font-size:8px;color:#00bb55;margin-top:2px;line-height:1.4;font-family:monospace}
+.k-screen-bar{height:3px;background:#003311;border-radius:2px;margin-top:4px;overflow:hidden}
+.k-screen-fill{height:100%;background:#00ff88;border-radius:2px;box-shadow:0 0 4px #00ff88;transition:width .5s}
+.k-brand{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.k-brand-e{font-size:12px;color:#4a90d9;letter-spacing:3px;font-weight:700;text-shadow:0 0 6px rgba(74,144,217,.5)}
+.k-brand-k{font-size:10px;color:#6ba3d6;letter-spacing:2px}
+.slbl-row{display:flex;margin-bottom:2px}
+.slbl{flex:1;text-align:center;font-size:6px;color:#5a8ab6;text-transform:uppercase}
+.knobs-row{display:flex;gap:5px;align-items:center;margin-bottom:4px}
+.kw{display:flex;flex-direction:column;align-items:center;gap:2px;flex:1}
+.kbig{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#5a5a7a,#1a1a2e);border:2px solid #3a3a6a;cursor:pointer;position:relative;transition:transform .1s;box-shadow:0 2px 4px rgba(0,0,0,.5),0 0 6px rgba(100,100,255,.2)}
+.kbig::after{content:"";position:absolute;top:4px;left:50%;transform:translateX(-50%);width:2px;height:7px;background:rgba(255,255,255,.8);border-radius:1px}
+.kbig:active{transform:rotate(25deg) scale(.95)}
+.kbig:hover{box-shadow:0 0 14px rgba(100,150,255,.7),0 0 28px rgba(100,150,255,.3),inset 0 1px 0 rgba(255,255,255,.1)}
+.ksml{width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#4a4a6a,#151525);border:1.5px solid #2a2a4a;cursor:pointer;position:relative;box-shadow:0 0 4px rgba(80,80,200,.2)}
+.ksml::after{content:"";position:absolute;top:3px;left:50%;transform:translateX(-50%);width:1.5px;height:5px;background:rgba(180,180,180,.7);border-radius:1px}
+.ksml:active{transform:rotate(25deg) scale(.95)}
+.ksml:hover{box-shadow:0 0 6px rgba(80,80,200,.4)}
+.klbl{font-size:6px;color:#5a8ab6}
+.sbtns{display:flex;gap:2px;margin-bottom:3px}
+.sbtn{height:13px;flex:1;border-radius:2px;border:1px solid #1a3a5a;background:#0a1825;cursor:pointer;font-size:5.5px;color:#3a6a9a;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.sbtn:active,.sbtn.lit{background:#1a3a5a;color:#6ab0ff;box-shadow:0 0 4px #3a7aaa,0 0 1px #6ab0ff}
+.sbtn.lit-r{background:#3a0a0a;color:#ff5555;box-shadow:0 0 4px #aa2222}
+.sbtn.lit-b{background:#0a0a3a;color:#5555ff;box-shadow:0 0 4px #2222aa}
+.transport{display:flex;gap:4px;align-items:center;margin-bottom:6px;padding:4px 0}
+.tbtn{width:26px;height:18px;border-radius:3px;border:1px solid #2a3a4a;background:#0d1e30;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:9px;color:#4a7aaa;transition:all .15s}
+.tbtn:active{background:#1a3a5a}
+.tbtn.play{background:#0a2a18;border-color:#0a5028;color:#00cc66;box-shadow:0 0 6px rgba(0,200,100,.3)}
+.tbtn.play.on{background:#0a5028;box-shadow:0 0 10px #00cc66}
+.tbtn.rec{background:#2a0a0a;border-color:#5a0a0a;color:#ff3333;box-shadow:0 0 6px rgba(255,50,50,.3)}
+.tbtn.rec.on{background:#5a0a0a;box-shadow:0 0 14px #ff3333,0 0 28px rgba(255,51,51,.6);animation:recPulse 1s infinite}
+.tbtn.stop{background:#1a1a0a;border-color:#3a3a0a;color:#aaaa22}
+@keyframes recPulse{0%,100%{opacity:1}50%{opacity:.6}}
+.led-strip{display:flex;gap:3px;flex:1;justify-content:flex-end;align-items:center}
+.led{width:5px;height:5px;border-radius:50%;background:#111;border:1px solid #1a1a1a;transition:all .3s}
+.led.g{background:#00ff66;box-shadow:0 0 10px #00ff66,0 0 22px #00ff66,0 0 40px rgba(0,255,102,.7)}
+.led.r{background:#ff2222;box-shadow:0 0 10px #ff2222,0 0 22px #ff2222,0 0 40px rgba(255,34,34,.7)}
+.led.b{background:#2244ff;box-shadow:0 0 10px #2244ff,0 0 22px #2244ff,0 0 40px rgba(34,68,255,.7)}
+.led.o{background:#ff8800;box-shadow:0 0 10px #ff8800,0 0 22px #ff8800,0 0 40px rgba(255,136,0,.7)}
+.bpm-k{font-size:7px;color:#4a7aaa;margin-left:4px;font-family:"DM Serif Display",serif;letter-spacing:1px}
+.pads-area{display:flex;gap:6px;margin-bottom:6px}
+.touchpad{width:64px;height:64px;background:#050508;border:2px solid #0a1a2a;border-radius:6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex-shrink:0;transition:all .2s}
+.touchpad.on{background:#0a1428;border-color:#1a3a6a;box-shadow:inset 0 0 12px rgba(0,80,200,.15),0 0 8px rgba(0,80,200,.3)}
+.touchpad i{font-size:16px;color:#1a3a6a;transition:color .2s}
+.touchpad.on i{color:#4a8aff;text-shadow:0 0 6px #4a8aff}
+.pads-grid-k{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;flex:1}
+.pad-k{aspect-ratio:1;border-radius:5px;border:1px solid #111;background:#080810;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:7.5px;font-weight:700;transition:all .12s;position:relative;overflow:hidden}
+.pad-k::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .1s}
+.pad-k:active{transform:scale(.88)}
+.pad-k.locked-k{opacity:.18;cursor:not-allowed}
+.pad-k.cr{border-color:#3a0808}.pad-k.cr::before{background:rgba(255,40,40,.25)}.pad-k.cr.on{box-shadow:0 0 18px #ff2222,0 0 40px #ff2222,0 0 60px rgba(255,34,34,.5),inset 0 0 14px rgba(255,40,40,.5);border-color:#ff2222;color:#ff6666;text-shadow:0 0 8px #ff2222}
+.pad-k.cg{border-color:#083a08}.pad-k.cg::before{background:rgba(40,255,40,.25)}.pad-k.cg.on{box-shadow:0 0 18px #00ff66,0 0 40px #00ff66,0 0 60px rgba(0,255,102,.5),inset 0 0 14px rgba(40,255,40,.5);border-color:#00ff66;color:#66ff66;text-shadow:0 0 8px #00ff66}
+.pad-k.cb{border-color:#08083a}.pad-k.cb::before{background:rgba(40,40,255,.25)}.pad-k.cb.on{box-shadow:0 0 18px #2244ff,0 0 40px #2244ff,0 0 60px rgba(34,68,255,.5),inset 0 0 14px rgba(40,40,255,.5);border-color:#4466ff;color:#8899ff;text-shadow:0 0 8px #4466ff}
+.pad-k.co2{border-color:#3a1a08}.pad-k.co2::before{background:rgba(255,140,40,.25)}.pad-k.co2.on{box-shadow:0 0 18px #ff8800,0 0 40px #ff8800,0 0 60px rgba(255,136,0,.5),inset 0 0 14px rgba(255,140,40,.5);border-color:#ff8800;color:#ffaa44;text-shadow:0 0 8px #ff8800}
+.pad-k.cp2{border-color:#1a083a}.pad-k.cp2::before{background:rgba(140,40,255,.25)}.pad-k.cp2.on{box-shadow:0 0 18px #9933ff,0 0 40px #9933ff,0 0 60px rgba(153,51,255,.5),inset 0 0 14px rgba(140,40,255,.5);border-color:#9933ff;color:#bb77ff;text-shadow:0 0 8px #9933ff}
+.pad-txt-k{z-index:1;pointer-events:none;text-align:center;line-height:1.2}
+.fx-section{background:rgba(0,0,0,.3);border:1px solid #1a2a3a;border-radius:10px;padding:10px;margin-bottom:6px}
+.fx-title{font-size:8px;color:#5a8ab6;letter-spacing:3px;margin-bottom:8px;text-align:center;font-family:"DM Serif Display",serif}
+.fx-row{display:flex;justify-content:space-around;align-items:flex-end}
+.fx-fader{display:flex;flex-direction:column;align-items:center;gap:4px}
+.fx-fader input[type=range]{writing-mode:vertical-lr;direction:rtl;height:70px;accent-color:var(--g);cursor:pointer}
+.fx-lbl{font-size:7px;color:#5a8ab6;letter-spacing:1px}
+.vol-knob{width:40px;height:40px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#3a5a7a,#0a1a2a);border:2px solid var(--gd);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 8px rgba(16,185,129,.4)}
+.vol-knob:hover{box-shadow:0 0 14px rgba(16,185,129,.7)}
+.pads-section{background:rgba(0,0,0,.3);border:1px solid #1a2a3a;border-radius:10px;padding:10px;margin-bottom:6px}
+.pads-title{font-size:8px;color:#5a8ab6;letter-spacing:3px;margin-bottom:6px;text-align:center;font-family:"DM Serif Display",serif}
+.pads-pl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.pad-pl{aspect-ratio:1;border-radius:7px;border:1px solid #111;background:#080810;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;transition:all .12s;text-align:center;padding:3px}
+.pad-pl:active{transform:scale(.88)}
+.dance-master-btn{background:linear-gradient(135deg,var(--pbg),#0f1a30);border:1px solid var(--pd);border-radius:12px;padding:12px;display:flex;align-items:center;gap:10px;cursor:pointer;margin-bottom:8px;box-shadow:0 0 10px rgba(139,92,246,.2);transition:all .2s}
+.dance-master-btn:hover{box-shadow:0 0 16px rgba(139,92,246,.4)}
+.rec-pl{background:var(--rbg);border:1px solid #7f1d1d;border-radius:10px;color:var(--r);padding:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;font-weight:500;width:100%;margin-top:6px;box-shadow:0 0 6px rgba(239,68,68,.2);transition:all .2s}
+.rec-pl.on{background:var(--r);color:#fff;animation:recPulse 1s infinite;box-shadow:0 0 14px rgba(239,68,68,.6)}
+/* BT */
+.bt-wrap{padding:14px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.bt-disc{width:150px;height:150px;border-radius:50%;position:relative;cursor:pointer;box-shadow:0 0 0 8px #1a1a1f,0 0 0 9px var(--p),0 0 30px var(--p),0 0 60px rgba(139,92,246,.4)}
+.bt-face{position:absolute;inset:0;border-radius:50%;animation:spin 8s linear infinite}
+.bt-ctr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;border-radius:50%;background:var(--bg);border:2px solid var(--br);display:flex;align-items:center;justify-content:center;z-index:2}
+.bt-scores{display:flex;gap:24px;justify-content:center}
+.bt-sc{text-align:center}
+.bt-sn{font-size:22px;font-weight:700;text-shadow:0 0 10px currentColor,0 0 25px currentColor}
+.bt-sl{font-size:9px;color:var(--t2);margin-top:2px;letter-spacing:1px;font-family:"DM Serif Display",serif;font-style:italic}
+.bt-display{background:var(--s2);border:1px solid var(--br);border-radius:14px;padding:18px;width:100%;text-align:center}
+.bt-artist{font-size:26px;font-weight:700;letter-spacing:2px;margin-bottom:4px;font-family:"DM Serif Display",serif;font-style:italic}
+.bt-sub{font-size:11px;color:var(--t2);font-family:"DM Serif Display",serif;font-style:italic}
+.bt-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%}
+.bto{padding:11px;border-radius:10px;border:1px solid var(--br);background:var(--s);color:#fff;font-size:12px;cursor:pointer;transition:all .15s;text-align:center}
+.bto:hover{background:var(--s2)}
+.bto.ok{background:var(--gbg);border-color:var(--gd);color:var(--g);box-shadow:0 0 8px rgba(16,185,129,.3)}
+.bto.ko{background:var(--rbg);border-color:#7f1d1d;color:var(--r)}
+/* CAL */
+.cal-wrap{padding:14px}
+.cal-legend{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.leg{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--t2)}
+.leg-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.cal-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.cal-mn{font-size:15px;font-weight:600}
+.cal-nav-b{background:none;border:none;color:var(--t2);cursor:pointer;font-size:20px;padding:4px}
+.cal-gh{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:3px}
+.cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:14px}
+.cal-dh{font-size:9px;color:#444;text-align:center}
+.cd{width:100%;aspect-ratio:1;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:#444;cursor:pointer;gap:1px;position:relative}
+.cd:hover{background:var(--s)}
+.cd.today{font-weight:700;color:#fff;background:rgba(139,92,246,.15)}
+.cd .dots{display:flex;gap:2px;position:absolute;bottom:2px}
+.cd .dot{width:4px;height:4px;border-radius:50%}
+.ev-list{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.ev-item{background:var(--s);border:1px solid var(--br);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px}
+.ev-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.ev-del{margin-left:auto;background:none;border:none;color:#444;cursor:pointer;font-size:14px;padding:2px 4px;border-radius:4px}
+.ev-del:hover{color:var(--r)}
+/* BADGES */
+.badge-cats{padding:14px;display:flex;flex-direction:column;gap:16px}
+.bcat-title{font-size:11px;letter-spacing:2px;margin-bottom:8px;font-weight:700;margin-top:20px;padding-top:16px;border-top:1px solid var(--br)}
+.badge-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.bdg{background:var(--s);border:1px solid #111;border-radius:10px;padding:8px 4px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;filter:grayscale(1);opacity:.3;transition:all .3s}
+.bdg.earned{filter:none;opacity:1;border-color:var(--o);background:var(--obg);box-shadow:0 0 8px rgba(249,115,22,.3)}
+.bdg-icon{font-size:20px}
+.bdg-name{font-size:7.5px;color:#333;line-height:1.2;text-align:center;font-family:"DM Serif Display",serif}
+.bdg.earned .bdg-name{color:var(--o)}
+.mx-badge{background:linear-gradient(135deg,var(--pbg),var(--gbg));border:2px solid #222;border-radius:14px;padding:16px;display:flex;align-items:center;gap:14px;margin-bottom:12px;filter:grayscale(1);opacity:.3;transition:all .3s}
+.mx-badge.earned{filter:none;opacity:1;border-color:var(--g);box-shadow:0 0 15px rgba(16,185,129,.3)}
+.congrats{padding:32px 24px;text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;pointer-events:none;visibility:hidden}
+.ov.show{display:flex;pointer-events:auto;visibility:visible}
+.modal{background:var(--s2);border:1px solid var(--br);border-radius:20px;padding:24px;width:100%;max-width:360px;text-align:center;animation:slideUp .25s ease;max-height:90vh;overflow-y:auto}
+@keyframes slideUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal h3{font-size:22px!important;font-weight:400;margin:10px 0 8px;font-family:"DM Serif Display",serif!important;font-style:italic!important;letter-spacing:1px!important;text-shadow:0 0 4px rgba(255,255,255,.25)!important;color:#fff!important}
+.modal p{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:14px;font-family:"Righteous","Syne",sans-serif;letter-spacing:.3px;font-style:normal}
+.modal input[type=text],.modal input[type=date]{width:100%;padding:10px 12px;background:#111;border:1px solid var(--br);border-radius:10px;color:#fff;font-size:13px;margin-bottom:8px;outline:none}
+.modal input:focus{border-color:var(--g)}
+.reward{font-size:12px;font-weight:500;padding:6px 12px;border-radius:8px;display:inline-block;margin-bottom:12px}
+</style>
+<script src="https://w.soundcloud.com/player/api.js"></script>
+</head>
+<body>
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import{getFirestore,doc,setDoc,getDoc}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import{getStorage,ref as sref,uploadBytes,getDownloadURL,deleteObject}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
+import{getAuth,signInAnonymously}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+const FC={apiKey:"AIzaSyBuoIXFhsGnQBz7CSJ7IkriJ9HfGj0xfM0",authDomain:"noanniversaire-1b5b0.firebaseapp.com",projectId:"noanniversaire-1b5b0",storageBucket:"noanniversaire-1b5b0.firebasestorage.app",messagingSenderId:"1047215604351",appId:"1:1047215604351:web:5fb7e4c4e315a37c16754a"};
+const fbApp=initializeApp(FC);
+const db=getFirestore(fbApp);
+const storage=getStorage(fbApp);
+const auth=getAuth(fbApp);
+signInAnonymously(auth).then(c=>{
+  window.FB={db,storage,uid:c.user.uid,doc,setDoc,getDoc,sref,uploadBytes,getDownloadURL,deleteObject};
+  window.fbReady=true;
+  if(window.onFBReady)window.onFBReady();
+}).catch(e=>console.error("Auth:",e));
+</script>
+
+<div id="ov-force">
+<span class="ph-anim" style="font-size:52px">&#128241;</span>
+<div style="font-size:28px">&#8635;</div>
+<div style="font-size:17px;font-weight:700">Tourne ton telephone</div>
+<div style="font-size:13px;color:var(--t2);max-width:280px;line-height:1.6">Console optimisee en <strong style="color:#8B5CF6">mode paysage</strong></div>
+<button class="btn" id="ov-force-stay" onclick="toggleStayPortrait(true)" style="max-width:240px;background:var(--p);border-color:var(--p);color:#fff;font-weight:700;box-shadow:0 0 14px var(--p)"><i class="ti ti-device-mobile"></i> Rester en portrait</button>
+</div>
+<div class="confetti-container" id="confetti-container"></div>
+
+<div class="ov" id="modal-choose-profile">
+<div class="modal" style="max-width:340px">
+  <div style="font-size:48px;margin-bottom:10px">&#127926;</div>
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px">Qui es-tu ?</h3>
+  <p style="margin-bottom:6px">Choisis ton profil pour que la progression soit sauvegardee separement.</p>
+  <button class="btn btng" onclick="selectProfile('noa')" style="margin-top:10px">
+    <i class="ti ti-user"></i> Je suis Noa
+  </button>
+  <button class="btn" onclick="selectProfile('test')" style="margin-top:8px;border-color:#555;color:#888">
+    <i class="ti ti-bug"></i> Mode test (ne touche pas a la vraie progression)
+  </button>
+  <div style="font-size:10px;color:#444;margin-top:12px">Ce choix sera memorise sur cet appareil.</div>
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="page active" id="page-home">
+<div class="console-home">
+<div style="display:flex;justify-content:flex-end">
+  <button class="pt-toggle" onclick="toggleStayPortrait()"><i class="ti ti-device-mobile-rotated"></i><span class="pt-lbl">Rester en portrait</span></button>
+</div>
+<div class="info-bar">
+  <div><div class="bpm-lbl">BPM</div><div class="bpm-num" id="bpm-val">140</div></div>
+  <div style="flex:1;padding:0 12px">
+    <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--t2);margin-bottom:3px"><span>PROGRESSION</span><span id="hp-txt">0/22</span></div>
+    <div style="height:3px;background:var(--br);border-radius:2px;overflow:hidden"><div class="pf" id="hp-bar" style="width:0%;background:var(--p)"></div></div>
+    <div style="font-size:8px;color:var(--t2);margin-top:2px;text-align:center;letter-spacing:1px">NOA &bull; 22 ANS</div>
+  </div>
+  <div style="text-align:right">
+    <div style="font-size:8px;color:var(--t2)">TECH</div><div style="font-size:12px;font-weight:700;color:var(--g);text-shadow:0 0 8px var(--g),0 0 18px #00ff88" id="hp-tech">0/9</div>
+    <div style="font-size:8px;color:var(--t2)">DANSE</div><div style="font-size:12px;font-weight:700;color:var(--p);text-shadow:0 0 8px var(--p),0 0 18px #a855f7" id="hp-danse">0/9</div>
+    <div style="font-size:8px;color:var(--t2)">BLINDTEST</div><div style="font-size:12px;font-weight:700;color:var(--pk);text-shadow:0 0 8px var(--pk),0 0 18px #f472b6" id="hp-bt">0/4</div>
+  </div>
+</div>
+<div class="cdj-row">
+  <div class="cdj-unit" onclick="goTo('blindtest')">
+    <div style="font-size:7px;color:var(--t2);letter-spacing:1px">CDJ-L &bull; BLINDTEST</div>
+    <div class="jog"><div class="jog-outer"></div><div class="jog-ridges"></div><div class="jog-center"><i class="ti ti-music" style="font-size:14px;color:var(--p)"></i></div></div>
+    <div style="width:100%;background:#000;border:1px solid #1a3a5a;border-radius:5px;padding:5px 7px"><div style="color:#00cc66;font-weight:700;font-size:9px;font-family:monospace">BLINDTEST</div><div style="color:#444;font-size:8px;margin-top:1px">Appuyer pour jouer</div></div>
+    <div style="display:flex;gap:3px"><div class="sbtn" style="height:14px;min-width:24px" onclick="sbtnClick(this)">CUE</div><div class="sbtn" style="height:14px;min-width:24px" onclick="sbtnClick(this)">PLAY</div><div class="sbtn lit" style="height:14px;min-width:24px" onclick="sbtnClick(this)">BT</div></div>
+  </div>
+  <div class="mixer-center">
+    <div style="font-size:7px;color:var(--t2);letter-spacing:1px">MIX</div>
+    <div style="display:flex;gap:6px;align-items:flex-end">
+      <div class="fdr"><input type="range" min="0" max="100" value="75" step="1"><div class="fdr-l">REV</div></div>
+      <div class="fdr"><input type="range" min="0" max="100" value="45" step="1"><div class="fdr-l">DEL</div></div>
+      <div class="fdr"><input type="range" min="0" max="100" value="60" step="1"><div class="fdr-l">FLT</div></div>
+    </div>
+    <div class="knob-h" onclick="goTo('platine')"><i class="ti ti-volume" style="font-size:14px;color:var(--g)"></i></div>
+    <div style="font-size:6px;color:var(--t2)">MASTER</div>
+  </div>
+  <div class="cdj-unit" onclick="goTo('platine')">
+    <div style="font-size:7px;color:var(--t2);letter-spacing:1px">CDJ-R &bull; KORG</div>
+    <div class="jog" style="transform:scaleX(-1)"><div class="jog-outer"></div><div class="jog-ridges"></div><div class="jog-center" style="transform:translate(-50%,-50%) scaleX(-1)"><i class="ti ti-device-audio-tape" style="font-size:14px;color:var(--o)"></i></div></div>
+    <div style="width:100%;background:#000;border:1px solid #1a3a5a;border-radius:5px;padding:5px 7px"><div style="color:var(--o);font-weight:700;font-size:9px;font-family:monospace">KORG ELECTRIBE</div><div style="color:#444;font-size:8px;margin-top:1px" id="cdj-r-s">Missions requises</div></div>
+    <div style="display:flex;gap:3px"><div class="sbtn" style="height:14px;min-width:24px" onclick="sbtnClick(this)">CUE</div><div class="sbtn" style="height:14px;min-width:24px" onclick="sbtnClick(this)">PLAY</div><div class="sbtn lit" style="height:14px;min-width:24px" onclick="sbtnClick(this)">REC</div></div>
+  </div>
+</div>
+<div style="font-size:10px;font-weight:800;font-style:italic;color:var(--g);letter-spacing:2px;padding:2px 0;margin-top:14px;text-shadow:0 0 6px var(--g),0 0 14px #00ff88;font-family:'Russo One',sans-serif">TECH MISSIONS</div>
+<div class="action-row">
+  <div class="ab ag" onclick="goTo('interactions')"><i class="ti ti-microphone"></i><span>INTERACTIONS</span><span class="chip cg" style="font-size:8px;margin-top:2px" id="h-inter">0/5</span></div>
+  <div class="ab ag" onclick="goTo('photos-dj')"><i class="ti ti-camera"></i><span>CAPTURES DJ</span><span class="chip cg" style="font-size:8px;margin-top:2px" id="h-dj">0/4</span></div>
+  <div class="ab ao" onclick="goTo('platine')" style="position:relative"><i class="ti ti-adjustments-horizontal"></i><span>KORG PLATINE</span><span id="platine-lk" style="position:absolute;top:3px;right:4px;font-size:9px">&#128274;</span></div>
+</div>
+<div style="font-size:10px;font-weight:800;font-style:italic;color:var(--p);letter-spacing:2px;padding:2px 0;margin-top:14px;text-shadow:0 0 6px var(--p),0 0 14px #a855f7;font-family:'Russo One',sans-serif">DANSE MISSIONS</div>
+<div class="action-row">
+  <div class="ab ap" onclick="goTo('moves')"><i class="ti ti-user"></i><span>VIDEOS MOVES</span><span class="chip cp" style="font-size:8px;margin-top:2px" id="h-moves">0/5</span></div>
+  <div class="ab ap" onclick="goTo('apprentissage')"><i class="ti ti-users"></i><span>APPRENTISSAGE</span><span class="chip cp" style="font-size:8px;margin-top:2px" id="h-appr">0/4</span></div>
+  <div class="ab ap" onclick="goTo('photos-battle')"><i class="ti ti-camera-selfie"></i><span>BATTLES</span></div>
+</div>
+<div class="spec-row">
+  <div class="sp" onclick="goTo('blindtest')" style="flex:2;border:1px solid var(--pd)"><i class="ti ti-music" style="color:var(--p)"></i><span style="color:var(--p)">BLINDTEST</span></div>
+  <div class="sp" onclick="goTo('badges')"><i class="ti ti-star" style="color:var(--o)"></i><span style="color:var(--o)">BADGES</span></div>
+  <div class="sp" onclick="goTo('cal')"><i class="ti ti-plug" style="color:var(--o)"></i><span>AGENDA</span></div>
+  <div class="sp" onclick="goTo('profil')"><i class="ti ti-user-circle" style="color:var(--pk)"></i><span style="color:var(--pk)">PROFIL</span></div><div class="sp" onclick="showModal('notif')"><i class="ti ti-bell" style="color:var(--p)"></i><span style="color:var(--p)">VEN.</span></div>
+</div>
+<div id="sync-status" style="font-size:10px;color:#444;text-align:center;padding:4px 0">Connexion au cloud...</div>
+</div>
+<nav class="nav"><button class="nb act" onclick="goTo('home')"><i class="ti ti-home"></i><span>Accueil</span></button><button class="nb" onclick="goTo('blindtest')"><i class="ti ti-music"></i><span>Blindtest</span></button><button class="nb" onclick="goTo('moves')"><i class="ti ti-user"></i><span>Danse</span></button><button class="nb" onclick="goTo('platine')"><i class="ti ti-device-audio-tape"></i><span>Platine</span></button><button class="nb" onclick="goTo('cal')"><i class="ti ti-calendar"></i><span>Agenda</span></button></nav>
+</div>
+
+<div class="page" id="page-interactions">
+<div class="sh"><button class="back" onclick="goTo('home')"><i class="ti ti-arrow-left" style="font-size:20px"></i></button><div class="sh-title" style="color:var(--g);text-shadow:0 0 8px var(--g),0 0 20px var(--g),0 0 40px #00ff88">Interactions</div><span class="chip cg" id="inter-badge">0/5</span></div>
+<div class="pb"><div class="pf" id="inter-prog" style="width:0%;background:var(--g)"></div></div>
+<div class="ml" id="interactions-list">
+  <div class="mc" data-id="i1">
+    <div class="mt"><span class="chip co">Magnetophone 1/5</span></div>
+    <div class="mtitle mtitle-tech">Fais lire a voix haute</div>
+    <div class="mdesc">Enregistre quelqu'un : <strong style="color:#fff">"Polyrhythmic Modular Oscillator Sequencer Bassline"</strong></div>
+    
+    <div class="fz" id="fz-i1"><i class="ti ti-upload" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer l'enregistrement</div><div class="fn" id="fn-i1"></div><input type="file" accept="audio/*,video/*" onchange="fileSelected(this,'i1','interactions')"></div>
+    <button class="btn btng" onclick="validateM('i1','interactions')"><i class="ti ti-check"></i> Valider</button>
+  </div>
+  <div class="mc locked" data-id="i2">
+    <div class="mt"><span class="chip co">Magnetophone 2/5</span></div>
+    <div class="mtitle mtitle-tech">Fais lire a voix haute</div>
+    <div class="mdesc"><strong style="color:#fff">"Euclidean Kick Snare Hi-Hat Stochastic Shuffle"</strong></div>
+    
+    <div class="fz" id="fz-i2"><i class="ti ti-upload" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer</div><div class="fn" id="fn-i2"></div><input type="file" accept="audio/*,video/*" onchange="fileSelected(this,'i2','interactions')"></div>
+    <button class="btn btng" onclick="validateM('i2','interactions')"><i class="ti ti-check"></i> Valider</button>
+  </div>
+  <div class="mc locked" data-id="i3">
+    <div class="mt"><span class="chip co">Magnetophone 3/5</span></div>
+    <div class="mtitle mtitle-tech">Fais lire a voix haute</div>
+    <div class="mdesc"><strong style="color:#fff">"Transient Shaper Parallel Sidechain Pumping Technique"</strong></div>
+    
+    <div class="fz" id="fz-i3"><i class="ti ti-upload" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer</div><div class="fn" id="fn-i3"></div><input type="file" accept="audio/*,video/*" onchange="fileSelected(this,'i3','interactions')"></div>
+    <button class="btn btng" onclick="validateM('i3','interactions')"><i class="ti ti-check"></i> Valider</button>
+  </div>
+  <div class="mc locked" data-id="i4">
+    <div class="mt"><span class="chip co">Magnetophone 4/5</span></div>
+    <div class="mtitle mtitle-tech">Fais lire a voix haute</div>
+    <div class="mdesc"><strong style="color:#fff">"Subharmonic Frequency Wobble LFO Automation Sweep"</strong></div>
+    
+    <div class="fz" id="fz-i4"><i class="ti ti-upload" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer</div><div class="fn" id="fn-i4"></div><input type="file" accept="audio/*,video/*" onchange="fileSelected(this,'i4','interactions')"></div>
+    <button class="btn btng" onclick="validateM('i4','interactions')"><i class="ti ti-check"></i> Valider</button>
+  </div>
+  <div class="mc locked" data-id="i5">
+    <div class="mt"><span class="chip co">Magnetophone 5/5</span></div>
+    <div class="mtitle mtitle-tech">Fais lire a voix haute</div>
+    <div class="mdesc"><strong style="color:#fff">"Granular Synthesis Spectral Morphing Convolution Reverb"</strong></div>
+    
+    <div class="fz" id="fz-i5"><i class="ti ti-upload" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer</div><div class="fn" id="fn-i5"></div><input type="file" accept="audio/*,video/*" onchange="fileSelected(this,'i5','interactions')"></div>
+    <button class="btn btng" onclick="validateM('i5','interactions')"><i class="ti ti-check"></i> Valider</button>
+  </div></div>
+<button class="btn" id="reset-cat-interactions" style="display:none;max-width:calc(100% - 32px);margin:0 16px 8px 16px;color:var(--r);border-color:var(--r)" onclick="confirmResetCategory('interactions')"><i class="ti ti-refresh"></i> Recommencer depuis le debut</button>
+<nav class="nav"><button class="nb" onclick="goTo('home')"><i class="ti ti-home"></i><span>Accueil</span></button><button class="nb" onclick="goTo('blindtest')"><i class="ti ti-music"></i><span>Blindtest</span></button><button class="nb" onclick="goTo('moves')"><i class="ti ti-user"></i><span>Danse</span></button><button class="nb act" onclick="goTo('platine')"><i class="ti ti-device-audio-tape"></i><span>Platine</span></button><button class="nb" onclick="goTo('cal')"><i class="ti ti-calendar"></i><span>Agenda</span></button></nav>
+</div>
+<div class="page" id="page-photos-dj">
+<div class="sh"><button class="back" onclick="goTo('home')"><i class="ti ti-arrow-left" style="font-size:20px"></i></button><div class="sh-title" style="color:var(--g);text-shadow:0 0 8px var(--g),0 0 20px var(--g),0 0 40px #00ff88">Captures DJ</div><span class="chip cg" id="dj-badge">0/4</span></div>
+<div class="pb"><div class="pf" id="dj-prog" style="width:0%;background:var(--g)"></div></div>
+<div class="ml" id="photos-dj-list">
+  <div class="mc" data-id="dj1">
+    <div class="mt"><span class="chip cr">Capture 1/4</span></div>
+    <div class="mtitle mtitle-tech">Capture ton DJ préféré</div>
+    <div class="mdesc">En concert ou festival. Photo avec lui visible.</div>
+    
+    <div class="fz" id="fz-dj1"><i class="ti ti-camera" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer la photo</div><div class="fn" id="fn-dj1"></div><input type="file" accept="image/*" onchange="fileSelected(this,'dj1','photos-dj')"></div>
+    <button class="btn btng" onclick="validateM('dj1','photos-dj')"><i class="ti ti-check"></i> Valider</button>
+  </div>
+  <div class="mc locked" data-id="dj2">
+    <div class="mt"><span class="chip cr">Capture 2/4</span></div>
+    <div class="mtitle mtitle-tech">Capture un débutant... qui déchire</div>
+    <div class="mdesc">En action pendant un set. Preuve obligatoire.</div>
+    
+    <div class="fz" id="fz-dj2"><i class="ti ti-camera" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer la photo</div><div class="fn" id="fn-dj2"></div><input type="file" accept="image/*" onchange="fileSelected(this,'dj2','photos-dj')"></div>
+    <button class="btn btng" onclick="validateM('dj2','photos-dj')"><i class="ti ti-check"></i> Valider</button>
+  </div>
+  <div class="mc locked" data-id="dj3">
+    <div class="mt"><span class="chip cr">Capture 3/4</span></div>
+    <div class="mtitle mtitle-tech">Capture une légende</div>
+    <div class="mdesc">Casque visible si possible. Bonne chance.</div>
+    
+    <div class="fz" id="fz-dj3"><i class="ti ti-camera" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer la photo</div><div class="fn" id="fn-dj3"></div><input type="file" accept="image/*" onchange="fileSelected(this,'dj3','photos-dj')"></div>
+    <button class="btn btng" onclick="validateM('dj3','photos-dj')"><i class="ti ti-check"></i> Valider</button>
+  </div>
+  <div class="mc locked" data-id="dj4">
+    <div class="mt"><span class="chip cr">Capture 4/4</span></div>
+    <div class="mtitle mtitle-tech">Capture le headliner</div>
+    <div class="mdesc">La derniere capture. Tu tiens le bon bout.</div>
+    
+    <div class="fz" id="fz-dj4"><i class="ti ti-camera" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer la photo</div><div class="fn" id="fn-dj4"></div><input type="file" accept="image/*" onchange="fileSelected(this,'dj4','photos-dj')"></div>
+    <button class="btn btng" onclick="validateM('dj4','photos-dj')"><i class="ti ti-check"></i> Valider</button>
+  </div></div>
+<button class="btn" id="reset-cat-photos-dj" style="display:none;max-width:calc(100% - 32px);margin:0 16px 8px 16px;color:var(--r);border-color:var(--r)" onclick="confirmResetCategory('photos-dj')"><i class="ti ti-refresh"></i> Recommencer depuis le debut</button>
+<nav class="nav"><button class="nb" onclick="goTo('home')"><i class="ti ti-home"></i><span>Accueil</span></button><button class="nb" onclick="goTo('blindtest')"><i class="ti ti-music"></i><span>Blindtest</span></button><button class="nb" onclick="goTo('moves')"><i class="ti ti-user"></i><span>Danse</span></button><button class="nb act" onclick="goTo('platine')"><i class="ti ti-device-audio-tape"></i><span>Platine</span></button><button class="nb" onclick="goTo('cal')"><i class="ti ti-calendar"></i><span>Agenda</span></button></nav>
+</div>
+<div class="page" id="page-moves">
+<div class="sh"><button class="back" onclick="goTo('home')"><i class="ti ti-arrow-left" style="font-size:20px"></i></button><div class="sh-title" style="color:var(--p);text-shadow:0 0 8px var(--p),0 0 20px var(--p),0 0 40px #a855f7">Videos Moves</div><span class="chip cp" id="moves-badge">0/5</span></div>
+<div class="pb"><div class="pf" id="moves-prog" style="width:0%;background:var(--p)"></div></div>
+<div class="ml" id="moves-list">
+  <div class="mc" data-id="m1">
+    <div class="mt"><span class="chip cp">Solo 1/5</span></div>
+    <div class="mtitle">Windmill - B-boy Basics</div>
+    <div class="mdesc">Le classique. Filme-toi.</div>
+    <a href="https://www.youtube.com/results?search_query=windmill+breakdance+tutorial" target="_blank" style="font-size:11px;color:var(--p);display:inline-flex;align-items:center;gap:4px;margin-top:6px;text-decoration:none"><i class="ti ti-external-link"></i> Voir le move</a>
+    <div class="fz" id="fz-m1"><i class="ti ti-video" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer la video</div><div class="fn" id="fn-m1"></div><input type="file" accept="video/*" onchange="fileSelected(this,'m1','moves')"></div>
+    <button class="btn btnp" onclick="validateM('m1','moves')"><i class="ti ti-check"></i> Valider</button>
+  </div>
+  <div class="mc locked" data-id="m2">
+    <div class="mt"><span class="chip cp">Solo 2/5</span></div>
+    <div class="mtitle">Afro - Shoki Step</div>
+    <div class="mdesc">Energie pure. Aucune excuse.</div>
+    <a href="https://www.youtube.com/results?search_query=shoki+step+afro+dance" target="_blank" style="font-size:11px;color:var(--p);display:inline-flex;align-items:center;gap:4px;margin-top:6px;text-decoration:none"><i class="ti ti-external-link"></i> Voir le move</a>
+    <div class="fz" id="fz-m2"><i class="ti ti-video" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer la video</div><div class="fn" id="fn-m2"></div><input type="file" accept="video/*" onchange="fileSelected(this,'m2','moves')"></div>
+    <button class="btn btnp" onclick="validateM('m2','moves')"><i class="ti ti-check"></i> Valider</button>
+  </div>
+  <div class="mc locked" data-id="m3">
+    <div class="mt"><span class="chip cp">Solo 3/5</span></div>
+    <div class="mtitle">Hip-Hop - Toprock</div>
+    <div class="mdesc">La posture, le flow, le regard.</div>
+    <a href="https://www.youtube.com/results?search_query=toprock+bboy+tutorial" target="_blank" style="font-size:11px;color:var(--p);display:inline-flex;align-items:center;gap:4px;margin-top:6px;text-decoration:none"><i class="ti ti-external-link"></i> Voir le move</a>
+    <div class="fz" id="fz-m3"><i class="ti ti-video" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer la video</div><div class="fn" id="fn-m3"></div><input type="file" accept="video/*" onchange="fileSelected(this,'m3','moves')"></div>
+    <button class="btn btnp" onclick="validateM('m3','moves')"><i class="ti ti-check"></i> Valider</button>
+  </div>
+  <div class="mc locked" data-id="m4">
+    <div class="mt"><span class="chip cp">Solo 4/5</span></div>
+    <div class="mtitle">Afro - Azonto Step</div>
+    <div class="mdesc">Le groove d'Accra dans tes pieds.</div>
+    <a href="https://www.youtube.com/results?search_query=azonto+dance+tutorial" target="_blank" style="font-size:11px;color:var(--p);display:inline-flex;align-items:center;gap:4px;margin-top:6px;text-decoration:none"><i class="ti ti-external-link"></i> Voir le move</a>
+    <div class="fz" id="fz-m4"><i class="ti ti-video" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer la video</div><div class="fn" id="fn-m4"></div><input type="file" accept="video/*" onchange="fileSelected(this,'m4','moves')"></div>
+    <button class="btn btnp" onclick="validateM('m4','moves')"><i class="ti ti-check"></i> Valider</button>
+  </div>
+  <div class="mc locked" data-id="m5">
+    <div class="mt"><span class="chip cp">Solo 5/5</span></div>
+    <div class="mtitle">B-boy - Freeze</div>
+    <div class="mdesc">Tu tiens la pose ou tu tombes.</div>
+    <a href="https://www.youtube.com/results?search_query=bboy+freeze+tutorial" target="_blank" style="font-size:11px;color:var(--p);display:inline-flex;align-items:center;gap:4px;margin-top:6px;text-decoration:none"><i class="ti ti-external-link"></i> Voir le move</a>
+    <div class="fz" id="fz-m5"><i class="ti ti-video" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer la video</div><div class="fn" id="fn-m5"></div><input type="file" accept="video/*" onchange="fileSelected(this,'m5','moves')"></div>
+    <button class="btn btnp" onclick="validateM('m5','moves')"><i class="ti ti-check"></i> Valider</button>
+  </div></div>
+<button class="btn" id="reset-cat-moves" style="display:none;max-width:calc(100% - 32px);margin:0 16px 8px 16px;color:var(--r);border-color:var(--r)" onclick="confirmResetCategory('moves')"><i class="ti ti-refresh"></i> Recommencer depuis le debut</button>
+<nav class="nav"><button class="nb" onclick="goTo('home')"><i class="ti ti-home"></i><span>Accueil</span></button><button class="nb" onclick="goTo('blindtest')"><i class="ti ti-music"></i><span>Blindtest</span></button><button class="nb act" onclick="goTo('moves')"><i class="ti ti-user"></i><span>Danse</span></button><button class="nb" onclick="goTo('platine')"><i class="ti ti-device-audio-tape"></i><span>Platine</span></button><button class="nb" onclick="goTo('cal')"><i class="ti ti-calendar"></i><span>Agenda</span></button></nav>
+</div>
+<div class="page" id="page-apprentissage">
+<div class="sh"><button class="back" onclick="goTo('home')"><i class="ti ti-arrow-left" style="font-size:20px"></i></button><div class="sh-title" style="color:var(--pk);text-shadow:0 0 8px var(--pk),0 0 20px var(--pk),0 0 40px #f472b6">Apprentissages</div><span class="chip cpk" id="appr-badge">0/4</span></div>
+<div class="pb"><div class="pf" id="appr-prog" style="width:0%;background:var(--pk)"></div></div>
+<div class="ml" id="apprentissage-list">
+  <div class="mc" data-id="a1">
+    <div class="mt"><span class="chip cpk">Enseignement 1/4</span></div>
+    <div class="mtitle">Apprends le Toprock</div>
+    <div class="mdesc">Trouve un inconnu. Filme la scene complete.</div>
+    
+    <div class="fz" id="fz-a1"><i class="ti ti-video" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer la video (obligatoire)</div><div class="fn" id="fn-a1"></div><input type="file" accept="video/*" onchange="fileSelected(this,'a1','apprentissage')"></div>
+    <button class="btn btnpk" onclick="validateM('a1','apprentissage')"><i class="ti ti-check"></i> Valider</button>
+  </div>
+  <div class="mc locked" data-id="a2">
+    <div class="mt"><span class="chip cpk">Enseignement 2/4</span></div>
+    <div class="mtitle">Apprends l'Azonto</div>
+    <div class="mdesc">Un inconnu. L'eleve doit y arriver. Filme.</div>
+    
+    <div class="fz" id="fz-a2"><i class="ti ti-video" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer la video</div><div class="fn" id="fn-a2"></div><input type="file" accept="video/*" onchange="fileSelected(this,'a2','apprentissage')"></div>
+    <button class="btn btnpk" onclick="validateM('a2','apprentissage')"><i class="ti ti-check"></i> Valider</button>
+  </div>
+  <div class="mc locked" data-id="a3">
+    <div class="mt"><span class="chip cpk">Enseignement 3/4</span></div>
+    <div class="mtitle">Apprends le Shoki Step</div>
+    <div class="mdesc">Tu choisis qui. Resultat filme. Pas de triche.</div>
+    
+    <div class="fz" id="fz-a3"><i class="ti ti-video" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer la video</div><div class="fn" id="fn-a3"></div><input type="file" accept="video/*" onchange="fileSelected(this,'a3','apprentissage')"></div>
+    <button class="btn btnpk" onclick="validateM('a3','apprentissage')"><i class="ti ti-check"></i> Valider</button>
+  </div>
+  <div class="mc locked" data-id="a4">
+    <div class="mt"><span class="chip cpk">Enseignement 4/4</span></div>
+    <div class="mtitle">Apprends le Windmill</div>
+    <div class="mdesc">Oui, le Windmill. A quelqu'un d'autre. Bonne chance a vous deux.</div>
+    
+    <div class="fz" id="fz-a4"><i class="ti ti-video" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer la video</div><div class="fn" id="fn-a4"></div><input type="file" accept="video/*" onchange="fileSelected(this,'a4','apprentissage')"></div>
+    <button class="btn btnpk" onclick="validateM('a4','apprentissage')"><i class="ti ti-check"></i> Valider</button>
+  </div></div>
+<button class="btn" id="reset-cat-apprentissage" style="display:none;max-width:calc(100% - 32px);margin:0 16px 8px 16px;color:var(--r);border-color:var(--r)" onclick="confirmResetCategory('apprentissage')"><i class="ti ti-refresh"></i> Recommencer depuis le debut</button>
+<nav class="nav"><button class="nb" onclick="goTo('home')"><i class="ti ti-home"></i><span>Accueil</span></button><button class="nb" onclick="goTo('blindtest')"><i class="ti ti-music"></i><span>Blindtest</span></button><button class="nb act" onclick="goTo('moves')"><i class="ti ti-user"></i><span>Danse</span></button><button class="nb" onclick="goTo('platine')"><i class="ti ti-device-audio-tape"></i><span>Platine</span></button><button class="nb" onclick="goTo('cal')"><i class="ti ti-calendar"></i><span>Agenda</span></button></nav>
+</div>
+<div class="page" id="page-photos-battle">
+<div class="sh"><button class="back" onclick="goTo('home')"><i class="ti ti-arrow-left" style="font-size:20px"></i></button><div class="sh-title" style="color:var(--p)">Photos Battle</div><span class="chip cp">Illimite</span></div>
+<div class="ml">
+  <div class="mc" style="border-color:var(--pd);text-align:center">
+    <i class="ti ti-camera-selfie" style="font-size:32px;color:var(--p)"></i>
+    <div class="mtitle" style="text-align:center;margin-top:8px">Avant chaque battle</div>
+    <div class="mdesc" style="text-align:center">Facultatif - photo de ton adversaire. Cloud save optionnel.</div>
+    <div class="fz" style="margin-top:12px"><i class="ti ti-camera" style="font-size:20px;color:var(--t2)"></i><div style="font-size:11px;color:var(--t2);margin-top:4px">Deposer la photo</div><input type="file" accept="image/*" onchange="battlePhotoAdd(this)"></div>
+    <button class="btn btnp" style="margin-top:8px" onclick="showModal('add-battle')"><i class="ti ti-plus"></i> Ajouter au calendrier</button>
+  </div>
+  <div id="battle-photos-list" style="display:flex;flex-direction:column;gap:6px;margin-top:6px"></div>
+</div>
+<nav class="nav"><button class="nb" onclick="goTo('home')"><i class="ti ti-home"></i><span>Accueil</span></button><button class="nb" onclick="goTo('blindtest')"><i class="ti ti-music"></i><span>Blindtest</span></button><button class="nb act"><i class="ti ti-user"></i><span>Danse</span></button><button class="nb" onclick="goTo('platine')"><i class="ti ti-device-audio-tape"></i><span>Platine</span></button><button class="nb" onclick="goTo('cal')"><i class="ti ti-calendar"></i><span>Agenda</span></button></nav>
+</div>
+
+<div class="page" id="page-blindtest">
+<div class="sh"><button class="back" onclick="goTo('home')"><i class="ti ti-arrow-left" style="font-size:20px"></i></button><div class="sh-title" id="bt-rainbow-title" style="color:inherit;text-shadow:none;letter-spacing:2px">
+<span style="color:#8B5CF6;text-shadow:0 0 8px #8B5CF6,0 0 20px #8B5CF6;animation:neonPulse 2.0s ease-in-out infinite">B</span><span style="color:#EC4899;text-shadow:0 0 8px #EC4899,0 0 20px #EC4899;animation:neonPulse 2.2s ease-in-out infinite">l</span><span style="color:#10B981;text-shadow:0 0 8px #10B981,0 0 20px #10B981;animation:neonPulse 1.8s ease-in-out infinite">i</span><span style="color:#F97316;text-shadow:0 0 8px #F97316,0 0 20px #F97316;animation:neonPulse 2.4s ease-in-out infinite">n</span><span style="color:#EF4444;text-shadow:0 0 8px #EF4444,0 0 20px #EF4444;animation:neonPulse 1.6s ease-in-out infinite">d</span><span style="color:#8B5CF6;text-shadow:0 0 8px #8B5CF6,0 0 20px #8B5CF6;animation:neonPulse 2.1s ease-in-out infinite">t</span><span style="color:#EC4899;text-shadow:0 0 8px #EC4899,0 0 20px #EC4899;animation:neonPulse 1.9s ease-in-out infinite">e</span><span style="color:#10B981;text-shadow:0 0 8px #10B981,0 0 20px #10B981;animation:neonPulse 2.3s ease-in-out infinite">s</span><span style="color:#F97316;text-shadow:0 0 8px #F97316,0 0 20px #F97316;animation:neonPulse 1.7s ease-in-out infinite">t</span>
+</div><span class="chip cp" id="bt-counter">0/50+</span></div>
+<div class="bt-wrap">
+  <div class="bt-scores">
+    <div class="bt-sc"><div class="bt-sn" style="color:var(--g)" id="bt-ok">0</div><div class="bt-sl">BONS</div></div>
+    <div class="bt-sc"><div class="bt-sn" style="color:var(--r)" id="bt-ko">0</div><div class="bt-sl">RATES</div></div>
+    <div class="bt-sc"><div class="bt-sn" style="color:var(--o)" id="bt-streak">0</div><div class="bt-sl">SERIE</div></div>
+  </div>
+  <div class="bt-disc" id="bt-disc" onclick="playBT()">
+    <div class="bt-face" id="bt-face" style="background:conic-gradient(#8B5CF6 0deg,#EC4899 90deg,#10B981 180deg,#F97316 270deg,#8B5CF6 360deg)"></div>
+    <div class="bt-ctr"><i class="ti ti-player-play" style="font-size:20px;color:var(--p)" id="bt-play-ico"></i></div>
+  </div>
+  <div class="bt-display">
+    <div class="bt-artist" id="bt-artist">?</div>
+    <div class="bt-sub" id="bt-hint">Appuie sur le disque pour lancer l'écoute</div>
+    <div id="bt-yt-preview" style="margin-top:10px;width:100%"></div>
+    <div id="bt-yt-link" style="margin-top:8px"></div>
+  </div>
+  <div class="bt-opts" id="bt-opts"></div>
+  <button class="btn btnp" id="bt-next" onclick="nextBT()" style="display:none"><i class="ti ti-arrow-right"></i> Question suivante</button>
+</div>
+<nav class="nav"><button class="nb" onclick="goTo('home')"><i class="ti ti-home"></i><span>Accueil</span></button><button class="nb act"><i class="ti ti-music"></i><span>Blindtest</span></button><button class="nb" onclick="goTo('moves')"><i class="ti ti-user"></i><span>Danse</span></button><button class="nb" onclick="goTo('platine')"><i class="ti ti-device-audio-tape"></i><span>Platine</span></button><button class="nb" onclick="goTo('cal')"><i class="ti ti-calendar"></i><span>Agenda</span></button></nav>
+</div>
+
+<div class="page" id="page-platine">
+<div class="sh"><button class="back" onclick="goTo('home')"><i class="ti ti-arrow-left" style="font-size:20px"></i></button><div class="sh-title"style="text-shadow:0 0 8px var(--o),0 0 20px var(--o),0 0 40px #fb923c">Korg Electribe</div><button class="pt-toggle" onclick="toggleStayPortrait()"><i class="ti ti-device-mobile-rotated"></i><span class="pt-lbl">Rester en portrait</span></button><span class="chip co" id="platine-count">0/22</span></div>
+<div class="korg-wrap">
+<div id="platine-locked" style="background:var(--s);border:2px solid var(--o);border-radius:14px;padding:20px;text-align:center;margin-bottom:10px">
+  <div style="font-size:48px;margin-bottom:10px">&#128274;</div>
+  <div style="font-size:16px;font-weight:700;color:var(--o)">T'es trop impatient !</div>
+  <div style="font-size:13px;color:var(--t2);margin-top:8px;line-height:1.5" id="platine-locked-txt">Finis tes 22 missions. La Korg sera a toi.</div>
+  <div style="height:4px;background:var(--br);border-radius:2px;margin-top:14px;overflow:hidden"><div class="pf" id="platine-prog-bar" style="width:0%;background:var(--o)"></div></div>
+  <div style="font-size:11px;color:var(--t2);margin-top:6px" id="platine-prog-txt">0 / 22 missions</div>
+</div>
+<div id="platine-content" style="display:none">
+<div class="korg-body">
+  <div class="k-top">
+    <div>
+      <div class="k-screen">
+        <div class="k-screen-num" id="k-num">000</div>
+        <div class="k-screen-txt" id="k-txt">Noa 22 Missions<br>KORG ELECTRIBE</div>
+        <div class="k-screen-bar"><div class="k-screen-fill" id="k-bar" style="width:100%"></div></div>
+      </div>
+      <div style="display:flex;gap:3px;margin-top:5px">
+        <div class="sbtn lit" style="width:16px;height:12px;border-radius:50%;flex:none;padding:0" onclick="sbtnClick(this)"></div>
+        <div class="sbtn" style="width:16px;height:12px;border-radius:50%;flex:none;padding:0" onclick="sbtnClick(this)"></div>
+        <div class="sbtn lit-r" style="width:16px;height:12px;border-radius:50%;flex:none;padding:0" onclick="sbtnClick(this)"></div>
+      </div>
+    </div>
+    <div style="flex:1;padding:0 6px">
+      <div class="slbl-row"><div class="slbl">Oscillator</div><div class="slbl">Filter</div><div class="slbl">Modulation</div><div class="slbl">Amp/EG</div><div class="slbl">Insert Fx</div></div>
+      <div class="knobs-row">
+        <div class="kw"><div class="kbig" onmousedown="knobHold(this,440)" onmouseup="knobRelease()" onmouseleave="knobRelease()" ontouchstart="knobHold(this,440)" ontouchend="knobRelease()"></div></div>
+        <div class="kw"><div class="kbig" onmousedown="knobHold(this,330)" onmouseup="knobRelease()" onmouseleave="knobRelease()" ontouchstart="knobHold(this,330)" ontouchend="knobRelease()"></div></div>
+        <div class="kw"><div class="kbig" onmousedown="knobHold(this,550)" onmouseup="knobRelease()" onmouseleave="knobRelease()" ontouchstart="knobHold(this,550)" ontouchend="knobRelease()"></div></div>
+        <div class="kw"><div class="kbig" onmousedown="knobHold(this,660)" onmouseup="knobRelease()" onmouseleave="knobRelease()" ontouchstart="knobHold(this,660)" ontouchend="knobRelease()"></div></div>
+        <div class="kw"><div class="kbig" onmousedown="knobHold(this,880)" onmouseup="knobRelease()" onmouseleave="knobRelease()" ontouchstart="knobHold(this,880)" ontouchend="knobRelease()"></div></div>
+      </div>
+    </div>
+    <div class="k-brand">
+      <div class="k-brand-e">electribe</div>
+      <div class="k-brand-k">KORG</div>
+      <div style="font-size:9px;color:var(--g);font-weight:700;text-shadow:0 0 5px var(--g)" id="k-stat">READY</div>
+      <div style="font-size:7px;color:#4a7aaa;font-family:monospace;margin-top:2px" id="k-bpm">BPM:140</div>
+    </div>
+  </div>
+  <div class="knobs-row" style="padding:0 2px">
+    <div class="kw"><div class="ksml" onmousedown="knobHold(this,220)" onmouseup="knobRelease()" onmouseleave="knobRelease()" ontouchstart="knobHold(this,220)" ontouchend="knobRelease()"></div><div class="klbl">Wave</div></div>
+    <div class="kw"><div class="ksml" onmousedown="knobHold(this,260)" onmouseup="knobRelease()" onmouseleave="knobRelease()" ontouchstart="knobHold(this,260)" ontouchend="knobRelease()"></div><div class="klbl">Pitch</div></div>
+    <div class="kw"><div class="ksml" onmousedown="knobHold(this,300)" onmouseup="knobRelease()" onmouseleave="knobRelease()" ontouchstart="knobHold(this,300)" ontouchend="knobRelease()"></div><div class="klbl">Cutoff</div></div>
+    <div class="kw"><div class="ksml" onmousedown="knobHold(this,340)" onmouseup="knobRelease()" onmouseleave="knobRelease()" ontouchstart="knobHold(this,340)" ontouchend="knobRelease()"></div><div class="klbl">Res</div></div>
+    <div class="kw"><div class="ksml" onmousedown="knobHold(this,380)" onmouseup="knobRelease()" onmouseleave="knobRelease()" ontouchstart="knobHold(this,380)" ontouchend="knobRelease()"></div><div class="klbl">Env</div></div>
+    <div class="kw"><div class="ksml" onmousedown="knobHold(this,420)" onmouseup="knobRelease()" onmouseleave="knobRelease()" ontouchstart="knobHold(this,420)" ontouchend="knobRelease()"></div><div class="klbl">Lfo</div></div>
+    <div class="kw"><div class="ksml" onmousedown="knobHold(this,460)" onmouseup="knobRelease()" onmouseleave="knobRelease()" ontouchstart="knobHold(this,460)" ontouchend="knobRelease()"></div><div class="klbl">Decay</div></div>
+    <div class="kw"><div class="ksml" onmousedown="knobHold(this,500)" onmouseup="knobRelease()" onmouseleave="knobRelease()" ontouchstart="knobHold(this,500)" ontouchend="knobRelease()"></div><div class="klbl">Level</div></div>
+  </div>
+  <div class="sbtns"><div class="sbtn lit" onclick="sbtnClick(this)">Routine</div><div class="sbtn" onclick="sbtnClick(this)">Act</div><div class="sbtn" onclick="sbtnClick(this)">Motion</div><div class="sbtn" onclick="sbtnClick(this)">Oversaved</div><div class="sbtn" onclick="sbtnClick(this)">Effect</div><div class="sbtn" onclick="sbtnClick(this)">Scale</div><div class="sbtn" onclick="sbtnClick(this)">Mute</div><div class="sbtn" onclick="sbtnClick(this)">Midi Rel.</div><div class="sbtn" onclick="sbtnClick(this)">Off</div></div>
+  <div class="sbtns"><div class="sbtn" onclick="sbtnClick(this)">1/4</div><div class="sbtn" onclick="sbtnClick(this)">1/4t</div><div class="sbtn" onclick="sbtnClick(this)">1/8</div><div class="sbtn" onclick="sbtnClick(this)">1/8t</div><div class="sbtn" onclick="sbtnClick(this)">1/16</div><div class="sbtn" onclick="sbtnClick(this)">1/16t</div><div class="sbtn" onclick="sbtnClick(this)">1/32</div><div class="sbtn" onclick="sbtnClick(this)">Save</div><div class="sbtn lit-r" onclick="sbtnClick(this)">Delete</div></div>
+  <div class="sbtns"><div class="sbtn" onclick="sbtnClick(this)">Fx1</div><div class="sbtn" onclick="sbtnClick(this)">Fx2</div><div class="sbtn lit-r" onclick="sbtnClick(this)">Accent</div><div class="sbtn" onclick="sbtnClick(this)">Prop</div><div class="sbtn" onclick="sbtnClick(this)">Project</div><div class="sbtn" onclick="sbtnClick(this)">Groove</div><div class="sbtn" onclick="sbtnClick(this)">Next</div><div class="sbtn" onclick="sbtnClick(this)">Backcomp</div><div class="sbtn lit-b" onclick="sbtnClick(this)">Waitirm</div></div>
+  <div class="transport">
+    <div class="tbtn stop" onclick="stopKorg()">&#9646;&#9646;</div>
+    <div class="tbtn play" id="k-play" onclick="togglePlay()">&#9654;</div>
+    <div class="tbtn rec" id="k-rec" onclick="toggleRecK()">&#9679;</div>
+    <div class="led-strip">
+      <div class="led" id="kl1"></div><div class="led" id="kl2"></div><div class="led g" id="kl3"></div>
+      <div class="led" id="kl4"></div><div class="led r" id="kl5"></div><div class="led" id="kl6"></div>
+      <div class="led b" id="kl7"></div><div class="led" id="kl8"></div>
+    </div>
+    <div class="bpm-k" id="k-bpm-strip">BPM:140</div>
+  </div>
+  <div class="fx-section">
+    <div class="fx-title">EFFETS FX</div>
+    <div class="fx-row">
+      <div class="fx-fader"><input type="range" min="0" max="100" value="70" step="1" oninput="korgFX.reverb=this.value/100;syncFX()"><div class="fx-lbl">REVERB</div></div>
+      <div class="fx-fader"><input type="range" min="0" max="100" value="40" step="1" oninput="korgFX.delay=this.value/100;syncFX()"><div class="fx-lbl">DELAY</div></div>
+      <div class="fx-fader"><input type="range" min="0" max="100" value="55" step="1" oninput="korgFX.filter=this.value/100;syncFX()"><div class="fx-lbl">FILTER</div></div>
+      <div class="fx-fader"><input type="range" min="0" max="100" value="60" step="1" oninput="korgFX.chorus=this.value/100;syncFX()"><div class="fx-lbl">CHORUS</div></div>
+      <div class="fx-fader"><input type="range" min="0" max="100" value="80" step="1" oninput="korgFX.volume=this.value/100;syncFX()"><div class="fx-lbl">VOLUME</div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+        <div class="vol-knob" onmousedown="knobHold(this,440)" onmouseup="knobRelease()" onmouseleave="knobRelease()" ontouchstart="knobHold(this,440)" ontouchend="knobRelease()"><i class="ti ti-volume" style="font-size:16px;color:var(--g)"></i></div>
+        <div class="fx-lbl">MASTER</div>
+      </div>
+    </div>
+  </div>
+  <div class="pads-area">
+    <div class="touchpad" id="k-touchpad" onclick="toggleTouchpad()">
+      <i class="ti ti-hand-finger" id="tp-ico" style="font-size:18px;color:#1a3a6a"></i>
+      <div style="font-size:6px;color:#1a3a6a;letter-spacing:1px">TOUCH</div>
+    </div>
+    <div class="pads-grid-k" id="korg-pads-grid"></div>
+  </div>
+  <div class="dance-master-btn" onclick="activateDM()">
+    <div style="width:40px;height:40px;border-radius:50%;background:var(--pbg);border:2px solid var(--p);display:flex;align-items:center;justify-content:center;box-shadow:0 0 10px rgba(139,92,246,.4)"><i class="ti ti-user" style="font-size:18px;color:var(--p)"></i></div>
+    <div style="flex:1"><div style="font-size:14px;font-weight:600;color:var(--p);text-shadow:0 0 6px rgba(139,92,246,.5)">DANSE MASTER</div><div style="font-size:11px;color:var(--t2);margin-top:2px">Masterise un son - mode BandLab</div></div>
+    <i class="ti ti-chevron-right" style="color:var(--p)"></i>
+  </div>
+  <div class="pads-section"><div class="pads-title">SAMPLES TECH</div><div class="pads-pl-grid" id="tech-pads-pl"></div></div>
+  <div class="pads-section"><div class="pads-title">PADS DANSE</div><div class="pads-pl-grid" id="danse-pads-pl"></div></div>
+  <button class="rec-pl" id="rec-pl-btn" onclick="toggleRecPl()"><i class="ti ti-circle" id="rec-pl-ico"></i> <span id="rec-pl-lbl">Enregistrer un mix</span></button>
+</div>
+</div>
+</div>
+<nav class="nav"><button class="nb" onclick="goTo('home')"><i class="ti ti-home"></i><span>Accueil</span></button><button class="nb" onclick="goTo('blindtest')"><i class="ti ti-music"></i><span>Blindtest</span></button><button class="nb" onclick="goTo('moves')"><i class="ti ti-user"></i><span>Danse</span></button><button class="nb act"><i class="ti ti-device-audio-tape"></i><span>Platine</span></button><button class="nb" onclick="goTo('cal')"><i class="ti ti-calendar"></i><span>Agenda</span></button></nav>
+</div>
+
+<div class="page" id="page-cal">
+<div class="sh"><button class="back" onclick="goTo('home')"><i class="ti ti-arrow-left" style="font-size:20px"></i></button><div class="sh-title">Calendrier</div><button style="background:none;border:none;cursor:pointer;color:var(--g);font-size:12px;font-weight:600" onclick="showModal('add-event')"><i class="ti ti-plus"></i> Ajout</button></div>
+<div class="cal-wrap">
+  <div class="cal-legend">
+    <div class="leg"><div class="leg-dot" style="background:var(--g)"></div>Soiree</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--p)"></div>Battle</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--r)"></div>Photo DJ</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--pk)"></div>Video</div>
+    <div class="leg"><div class="leg-dot" style="background:var(--o)"></div>Mix</div>
+  </div>
+  <div class="cal-hdr">
+    <button class="cal-nav-b" onclick="calNav(-1)"><i class="ti ti-chevron-left"></i></button>
+    <div class="cal-mn" id="cal-month-lbl"></div>
+    <button class="cal-nav-b" onclick="calNav(1)"><i class="ti ti-chevron-right"></i></button>
+  </div>
+  <div class="cal-gh"><div class="cal-dh">L</div><div class="cal-dh">M</div><div class="cal-dh">M</div><div class="cal-dh">J</div><div class="cal-dh">V</div><div class="cal-dh">S</div><div class="cal-dh">D</div></div>
+  <div class="cal-g" id="cal-grid"></div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><span style="font-size:11px;color:var(--t2);font-weight:600;letter-spacing:1px">TOUT L'HISTORIQUE</span></div>
+  <div class="ev-list" id="ev-list"></div>
+  <div style="background:var(--s);border:1px solid var(--gd);border-radius:12px;padding:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px"><span style="font-size:12px;font-weight:600;color:var(--g)">Badge Noctambule</span><span style="font-size:11px;color:var(--t2)" id="bdg-sc-txt">0/3</span></div>
+    <div style="height:3px;background:var(--br);border-radius:2px;overflow:hidden"><div class="pf" id="bdg-sc-bar" style="width:0%;background:var(--g)"></div></div>
+    <div style="font-size:11px;color:var(--t2);margin-top:5px" id="bdg-sc-hint">Ajoute des soirees pour progresser</div>
+  </div>
+</div>
+<nav class="nav"><button class="nb" onclick="goTo('home')"><i class="ti ti-home"></i><span>Accueil</span></button><button class="nb" onclick="goTo('blindtest')"><i class="ti ti-music"></i><span>Blindtest</span></button><button class="nb" onclick="goTo('moves')"><i class="ti ti-user"></i><span>Danse</span></button><button class="nb" onclick="goTo('platine')"><i class="ti ti-device-audio-tape"></i><span>Platine</span></button><button class="nb act"><i class="ti ti-calendar"></i><span>Agenda</span></button></nav>
+</div>
+
+<div class="page" id="page-badges">
+<div class="sh"><button class="back" onclick="goTo('home')"><i class="ti ti-arrow-left" style="font-size:20px"></i></button><div class="sh-title" style="color:var(--o);text-shadow:0 0 8px var(--o),0 0 20px var(--o),0 0 40px #fb923c">Badges</div><span class="chip co" id="bdg-count-lbl">0/50</span></div>
+<div class="badge-cats">
+  <div class="mx-badge" id="bdg-mixeur">
+    <div style="font-size:44px">&#127925;</div>
+    <div><div style="font-size:16px;font-weight:700;color:var(--p)">THE MIXEUR</div><div style="font-size:12px;color:var(--t2);margin-top:4px">Completer les 22 missions</div><div style="font-size:11px;color:#444;margin-top:4px" id="mixeur-status">Non debloque</div></div>
+  </div>
+  <div id="badges-container"></div>
+</div>
+<nav class="nav"><button class="nb" onclick="goTo('home')"><i class="ti ti-home"></i><span>Accueil</span></button><button class="nb" onclick="goTo('blindtest')"><i class="ti ti-music"></i><span>Blindtest</span></button><button class="nb" onclick="goTo('moves')"><i class="ti ti-user"></i><span>Danse</span></button><button class="nb" onclick="goTo('platine')"><i class="ti ti-device-audio-tape"></i><span>Platine</span></button><button class="nb act"><i class="ti ti-star"></i><span>Badges</span></button></nav>
+</div>
+
+<div class="page" id="page-congrats">
+<div class="congrats">
+  <div style="font-size:64px" id="cg-icon">&#127881;</div>
+  <div style="font-size:22px;font-weight:700" id="cg-title">Bravo !</div>
+  <div style="font-size:13px;color:var(--t2);line-height:1.7;max-width:300px;text-align:center" id="cg-msg"></div>
+  <div style="font-size:13px;color:var(--p);margin-top:4px;font-style:italic" id="cg-extra"></div>
+  <button class="btn btnp" style="max-width:220px;margin-top:14px;display:none" id="cg-continue-bt" onclick="goTo('blindtest')"><i class="ti ti-music"></i> Continuer le blindtest</button>
+  <button class="btn btnp" style="max-width:220px;margin-top:14px" onclick="goTo('home')"><i class="ti ti-home"></i> Retour</button>
+</div>
+</div>
+
+<div class="ov" id="modal-validate-tech"><div class="modal"><div style="font-size:48px;margin-bottom:6px" id="vm-t-icon">&#9989;</div><h3 style="color:var(--g)" id="vm-t-title">Mission validee !</h3><p id="vm-t-msg"></p><div class="reward" style="background:var(--gbg);color:var(--g)" id="vm-t-reward">+ Sample debloque</div><button class="btn btng" onclick="closeModals()" style="background:var(--g);color:#000;border-color:var(--g);font-weight:700"><i class="ti ti-arrow-right"></i> Continuer</button></div></div>
+<div class="ov" id="modal-validate-danse"><div class="modal"><div style="font-size:48px;margin-bottom:6px" id="vm-d-icon">&#9989;</div><h3 style="color:var(--p)" id="vm-d-title">Move valide !</h3><p id="vm-d-msg"></p><div class="reward" style="background:var(--pbg);color:var(--p)" id="vm-d-reward">+ Pad danse debloque</div><button class="btn btnp" onclick="closeModals()" style="background:var(--p);color:#fff;border-color:var(--p);font-weight:700"><i class="ti ti-arrow-right"></i> Continuer</button></div></div>
+<div class="ov" id="modal-bt-result"><div class="modal"><div style="font-size:48px;margin-bottom:6px" id="bt-res-icon">&#9989;</div><h3 id="bt-res-title">Bonne reponse !</h3><p id="bt-res-msg"></p><button class="btn btnp" onclick="closeModals()" style="background:var(--p);color:#fff;border-color:var(--p);font-weight:700"><i class="ti ti-arrow-right"></i> Continuer</button></div></div>
+<div class="ov" id="modal-badge-earned"><div class="modal"><div style="font-size:52px;margin-bottom:8px" id="be-icon">&#127942;</div><h3 style="color:var(--o)" id="be-name">Badge gagne !</h3><p id="be-desc"></p><button class="btn btno" onclick="closeModals()">Super !</button></div></div>
+<div class="ov" id="modal-save-cloud"><div class="modal"><div style="font-size:40px;margin-bottom:8px">&#9729;</div><h3>Sauvegarder dans le cloud ?</h3><p id="modal-save-desc">Ce fichier sera sauvegarde sur Firebase.</p><button class="btn btng" onclick="confirmCloudSave(true)"><i class="ti ti-cloud-upload"></i> Oui, sauvegarder</button><button class="btn" onclick="confirmCloudSave(false)" style="margin-top:6px;color:var(--t2)">Non, garder en local</button></div></div>
+<div class="ov" id="modal-notif"><div class="modal"><div style="font-size:40px;margin-bottom:8px">&#127381;</div><h3>C'est vendredi !</h3><p>Soiree ce soir ? Battle cette semaine ?</p><button class="btn btng" onclick="closeModals();showModal('add-soiree')"><i class="ti ti-music"></i> Soiree techno</button><button class="btn btnp" onclick="closeModals();showModal('add-battle')" style="margin-top:6px"><i class="ti ti-user"></i> Battle</button><button class="btn" onclick="closeModals()" style="margin-top:6px;color:var(--t2)">Plus tard</button></div></div>
+<div class="ov" id="modal-add-soiree"><div class="modal"><div style="font-size:36px;margin-bottom:8px">&#127925;</div><h3>Soiree techno</h3><input type="text" placeholder="Lieu (ex: Metronum, Toulouse)" id="soiree-lieu"><input type="date" id="soiree-date"><button class="btn btng" onclick="addEvent('soiree')"><i class="ti ti-check"></i> Enregistrer</button><button class="btn" onclick="closeModals()" style="margin-top:6px;color:var(--t2)">Annuler</button></div></div>
+<div class="ov" id="modal-add-battle"><div class="modal" style="max-height:90vh;overflow-y:auto"><div style="font-size:36px;margin-bottom:8px">&#129354;</div><h3>Battle</h3><input type="text" placeholder="Lieu / Evenement" id="battle-lieu"><input type="date" id="battle-date">
+  <div style="margin-bottom:8px">
+    <div style="font-size:12px;color:var(--t2);margin-bottom:6px">Note sur l'adversaire :</div>
+    <textarea id="battle-note" placeholder="Nom, style, niveau... tout ce que tu veux retenir de lui." style="width:100%;background:var(--s);border:1px solid var(--br);border-radius:8px;color:#fff;font-size:12px;padding:10px;resize:none;height:72px;font-family:'Saira',sans-serif;line-height:1.5"></textarea>
+  </div>
+  <div style="margin-bottom:8px">
+    <div style="font-size:12px;color:var(--t2);margin-bottom:6px"><i class="ti ti-camera"></i> Photo avec l'adversaire :</div>
+    <div id="battle-photo-preview" style="display:none;margin-bottom:8px;position:relative">
+      <img id="battle-photo-img" style="width:100%;border-radius:8px;max-height:140px;object-fit:cover">
+      <button onclick="clearBattlePhoto()" style="position:absolute;top:4px;right:4px;background:rgba(0,0,0,.7);border:none;border-radius:50%;width:24px;height:24px;color:#fff;cursor:pointer;font-size:12px;line-height:1;display:flex;align-items:center;justify-content:center"><i class="ti ti-x"></i></button>
+    </div>
+    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:var(--s);border:1px dashed var(--br);border-radius:8px;padding:10px;font-size:12px;color:var(--t2)">
+      <i class="ti ti-photo" style="font-size:18px;color:var(--p)"></i> Photo avec l'ennemi 📸
+      <input type="file" accept="image/*" style="display:none" onchange="setBattlePhoto(this)">
+    </label>
+  </div>
+<button class="btn btnp" onclick="addEvent('battle')"><i class="ti ti-check"></i> Enregistrer</button><button class="btn" onclick="closeModals()" style="margin-top:6px;color:var(--t2)">Annuler</button></div></div>
+<div class="ov" id="modal-add-event"><div class="modal"><h3>Ajouter un evenement</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px"><button class="btn btng" onclick="closeModals();showModal('add-soiree')"><i class="ti ti-music"></i><br>Soiree</button><button class="btn btnp" onclick="closeModals();showModal('add-battle')"><i class="ti ti-user"></i><br>Battle</button></div><button class="btn" onclick="closeModals()" style="margin-top:8px;color:var(--t2)">Annuler</button></div></div>
+<div class="ov" id="modal-farewell"><div class="modal"><div style="font-size:52px;margin-bottom:10px">&#128591;</div><h3 style="color:var(--p)">On s'est bien amuses...</h3><p>T'as boucle les 22 missions. Ma job est terminee. Je disparais, mais la Korg, elle, reste a toi pour toujours. Continue de danser, de capturer, de jouer. Tu n'as plus besoin de moi pour ca. Bonne route Noa.</p><div style="font-size:12px;color:var(--t2);font-style:italic;margin-bottom:14px">, Les messages de coaching</div><button class="btn btnp" onclick="closeModals()">Au revoir &#128075;</button></div></div>
+<script>
+const S={
+  done:{i:new Set(),dj:new Set(),m:new Set(),a:new Set(),bt:new Set()},
+  events:[],soireeCount:0,battleCount:0,battlePhotoCount:0,
+  bt:{ok:0,ko:0,streak:0,total:0,current:null,answered:false},
+  recPl:false,recK:false,playing:false,tpOn:false,
+  earnedBadges:new Set(),
+  calYear:new Date().getFullYear(),calMonth:new Date().getMonth(),
+  farewellShown:false,allDone:false,btMissionShown:false,
+  pendingFile:null,pendingMission:null,pendingMissionType:null
+};
+// Total de missions du jeu : 18 missions classiques (interactions, photos-dj,
+// moves, apprentissage) + 4 (mission blindtest = 4 premieres bonnes reponses) = 22.
+const TOTAL_MISSIONS=22;
+const TECH_MISSIONS_MAX=9;
+const DANSE_MISSIONS_MAX=9;
+
+const MISSION_MSG={
+  i1:{icon:'&#129395;',title:'Mission 1, Validee !',msg:'"Quelqu\'un a vraiment prononce ca. T\'es diabolique. J\'adore."',reward:'Sample KICK debloque'},
+  i2:{icon:'&#128514;',title:'Mission 2, Fait !',msg:'"La tete de la personne... j\'aurais voulu etre la. Continue."',reward:'Sample BASS debloque'},
+  i3:{icon:'&#129315;',title:'Mission 3, Valide !',msg:'"Transient Shaper Parallel... tu leur as pas fait de cadeau."',reward:'Sample LEAD debloque'},
+  i4:{icon:'&#127775;',title:'Mission 4, Dans la boite !',msg:'"LFO Automation Sweep prononce par un inconnu. Artiste du chaos."',reward:'Sample CLAP debloque'},
+  i5:{icon:'&#128293;',title:'Mission 5, COMPLETE !',msg:'"Les 5 interactions. Fiere de toi, un peu effrayee aussi."',reward:'Sample HH debloque + confettis !'},
+  dj1:{icon:'&#128248;',title:'Premiere capture !',msg:'"So La Lune dans ta camera. T\'as chasse ton premier DJ."',reward:'Sample SUB debloque'},
+  dj2:{icon:'&#128293;',title:'2eme capture !',msg:'"Zamdane capture. Tu commences a devenir dangereux."',reward:'Sample SYN debloque'},
+  dj3:{icon:'&#127942;',title:'3eme capture !',msg:'"Vladimir Cauchemar, le casque, le style. T\'as tout compris."',reward:'Sample ARP debloque'},
+  dj4:{icon:'&#128081;',title:'4 captures, COMPLETE !',msg:'"Houdi dans la boite. 4 DJs captures. Respect absolu."',reward:'Sample PERC debloque + confettis !'},
+  m1:{icon:'&#128131;',title:'Windmill valide !',msg:'"Le Windmill filme valide. 15 ans de danse et ca se voit."',reward:'Pad WIND debloque'},
+  m2:{icon:'&#127775;',title:'Shoki Step valide !',msg:'"L\'energie d\'Accra dans tes pieds. Impeccable."',reward:'Pad SHOKI debloque'},
+  m3:{icon:'&#128293;',title:'Toprock valide !',msg:'"La posture, le flow, le regard. Tout y etait."',reward:'Pad TOPRO debloque'},
+  m4:{icon:'&#129395;',title:'Azonto valide !',msg:'"L\'Azonto c\'est du bonheur en mouvement. T\'as du groove."',reward:'Pad AZONT debloque'},
+  m5:{icon:'&#128081;',title:'Freeze valide, COMPLETE !',msg:'"Tu tiens la pose. 5 moves. Beau travail."',reward:'Pad FREEZ debloque + confettis !'},
+  a1:{icon:'&#127891;',title:'Premier enseignement !',msg:'"T\'as appris le Toprock a un inconnu. Professeur non diplome."',reward:'Pad TEACH debloque'},
+  a2:{icon:'&#129351;',title:'2eme eleve forme !',msg:'"L\'Azonto transmis. Le groove se propage."',reward:'Pad FLOW debloque'},
+  a3:{icon:'&#127942;',title:'3eme cours donne !',msg:'"Le Shoki Step dans de nouvelles jambes grace a toi."',reward:'Pad VIBE debloque'},
+  a4:{icon:'&#128081;',title:'Windmill enseigne, COMPLETE !',msg:'"T\'as appris le Windmill a quelqu\'un. Les 9 missions danse sont completes."',reward:'Pad FREE debloque + confettis !'}
+};
+
+const BT_OK=[
+  `"T'as reconnu en 3 secondes. Impressionnant, vraiment."`,
+  `"Une oreille aussi bien formee que tes fesses 🍑 (je rigole). Bonne reponse."`,
+  `"Bonne reponse. Je savais pas que t'etais aussi cultive musicalement. 😌😂"`,
+  `"Ta maitrise de ce blindtest surpasse la maitrise de ton corps en danse. Bon, le prochain message sera meilleur."`,
+  `"Oui, c'etait ca. La concentration te va bien Noa."`,
+  `"Eeeeeet non, mauvaise reponse ! Nan j'rigole, Bonne reponse. Je m'amuse a te taquiner hehe."`,
+  `"Bonne reponse. T'as les bons gouts en plus du reste, toute reference au fait que j'aurais pu critiquer ton style vestimentaire est fortuite !"`,
+  `"Juste ! La serie continue. Tu t'en sors pas mal du tout."`,
+  `"Correct. J'aurais aime te voir rater mais non, c'etait bien lui."`,
+  `"Bonne reponse. T'as l'air de tout reussir sans trop forcer."`,
+  `"Oui. Et honnêtement ca m'agace un peu que tu sois aussi fort."`,
+  `"Wooa mais il est incroyable ce petit bonhomme !"`,
+  `"Juste. La musique t'a bien forme, ca se voit dans tout ce que tu fais."`,
+  `"Bonne reponse. Tu peux etre fier, et tu le sais deja."`,
+  `"Correct ! Reconnu en 3 secondes. Decidement t'es plein de surprises."`,
+  `"Bah tu dead en vrai. Boss lady 🤏✨"`,
+  `"Addict on dirait, mais ca paie princesse. Bonne reponse."`,
+  `"J'ai plus d'inspi Noa, fais genre je te felicite."`,
+  `"Correct. T'aurais reconnu ca les yeux fermes. Respect."`,
+  `"Meme plus surprise. Tu connais ton karate, et je ne peux qu'applaudir 👏"`
+];
+
+const BT_KO=[
+  `"Rate. Maintenant tu sais, oublie pas."`,
+  `"Loupe. T'etais si sur de toi aussi..."`,
+  `"Mauvaise reponse. Retourne ecouter ses tracks."`,
+  `"Non. Et la serie s'arrete la. Ca fait mal hein."`,
+  `"Rate. C'etait pourtant son son le plus reconnaissable."`,
+  `"MWAAAAA, je me regale. Mauvaise reponse mais ca arrive, reessaie."`,
+  `"Ca arrive meme au meilleur, j'ai utilise le singulier 😉"`,
+  `"Mauvaise reponse. Ta concentration etait ou ?"`,
+  `"Rate. On en reparle quand t'auras ecoute l'album en entier."`,
+  `"Cata cata cata ! Mauvaise reponse."`,
+  `"Faux. Mais t'as quand meme plus de bonnes que de mauvaises alors..."`,
+  `"Rate. Je commence a croire que tu fais expres."`,
+  `"Loupe. La prochaine sera la bonne, j'en suis sure."`,
+  `"Mauvaise reponse. T'as besoin de revisions apparemment."`,
+  `"Non. Bien essaye quand meme, enfin presque."`,
+  `"Ce qui ne te tue pas te rend plus fort. Reessaie."`,
+  `"Faux. Mais au moins t'as essaye avec conviction."`,
+  `"Loupe. C'etait lui pourtant. Ecoute mieux la prochaine fois."`,
+  `"Mauvaise reponse. Je te croyais plus fort que ca sur ce son-la."`,
+  `"Rate. Mais je vais pas m'etaler la-dessus, prochaine question."`
+];
+
+const TECH_PADS=['KICK','BASS','LEAD','CLAP','HH','SUB','SYN','ARP','PERC','FX1','FX2','LOOP','DROP','REESE'];
+const DANSE_PADS=['WIND','SHOKI','TOPRO','AZONT','FREEZ','TEACH','FLOW','VIBE','FREE'];
+const PAD_COLS=['cr','cg','cb','co2','cp2','cr','cg','cb','co2','cp2','cr','cg','cb','co2','cp2','cr'];
+const PAD_FREQS={KICK:55,BASS:80,LEAD:440,CLAP:1200,HH:8000,SUB:40,SYN:330,ARP:550,PERC:200,FX1:600,FX2:900,LOOP:120,DROP:50,REESE:100,WIND:220,SHOKI:330,TOPRO:440,AZONT:550,FREEZ:660,TEACH:770,FLOW:880,VIBE:990,FREE:1100};
+const PAD_TYPES={KICK:'sine',BASS:'sine',SUB:'sine',DROP:'sine',REESE:'sawtooth',HH:'square'};
+const MONTHS=['Janvier','Fevrier','Mars','Avril','Mai','Juin','Juillet','Aout','Septembre','Octobre','Novembre','Decembre'];
+
+// Titres pour le blindtest — {a: artiste, t: titre, q: requete Deezer}
+// src:'yt' => YouTube iframe embed | src:'sc' => SoundCloud widget embed
+const BT_TRACKS=[
+  // So La Lune x8 (SoundCloud - titres solo officiels, compte solalune)
+  {a:'So La Lune',t:'Eternelle',src:'mp3',file:'2026/Éternelle.mp3'},
+  {a:'So La Lune',t:'Pacifique',src:'mp3',file:'2026/Pacifique.mp3'},
+  {a:'So La Lune',t:'Tsukithese',src:'mp3',file:'2026/So La Lune Tsukithèse EnAttendantFissureDeVie.mp3'},
+  {a:'So La Lune',t:'Zodiac',src:'mp3',file:'2026/So La Lune ft Green Montana Zodiac Visualiser.mp3'},
+  {a:'So La Lune',t:'Yah 09',src:'mp3',file:'2026/Yah 09.mp3'},
+  {a:'So La Lune',t:'Numero 11',src:'mp3',file:'2026/Numéro 11.mp3'},
+  {a:'So La Lune',t:'Balade',src:'mp3',file:'2026/Balade.mp3'},
+  {a:'So La Lune',t:'Rode',src:'mp3',file:'2026/Rodé So la lune.mp3'},
+  // Zamdane x7 (SoundCloud)
+  {a:'Zamdane',t:'Vital',src:'sc',url:'https://soundcloud.com/zamdane/affame-6-vital'},
+  {a:'Zamdane',t:'Youm Wara Youm',src:'sc',url:'https://soundcloud.com/zamdane/youm-wara-youm',feat:'feat. Kekra'},
+  {a:'Zamdane',t:'Melancolie criminelle',src:'sc',url:'https://soundcloud.com/zamdane/melancolie-criminelle',feat:'feat. Sofiane Pamart'},
+  {a:'Zamdane',t:'Le monde par ma fenetre',src:'sc',url:'https://soundcloud.com/zamdane/le-monde-par-ma-fenetre'},
+  {a:'Zamdane',t:'Fauves',src:'sc',url:'https://soundcloud.com/zamdane/fauves',feat:'feat. Jazzy Bazz'},
+  {a:'Zamdane',t:'Poussiere',src:'sc',url:'https://soundcloud.com/zamdane/poussiere-affame-14'},
+  {a:'Zamdane',t:'Boboalam',src:'sc',url:'https://soundcloud.com/zamdane/boboalam',feat:'feat. So La Lune'},
+  // Vladimir Cauchemar x5 (SoundCloud)
+  {a:'Vladimir Cauchemar',t:'Aulos',src:'mp3',file:'2026/Vladimir Cauchemar 6IX9INE Aulos Reloaded WSHH Exclusive Official Music Vidéo.mp3'},
+  {a:'Vladimir Cauchemar',t:'Elevation',src:'sc',url:'https://soundcloud.com/vladimircauchemar/elevation',feat:'feat. Vald'},
+  {a:'Vladimir Cauchemar',t:'Brrr',src:'sc',url:'https://soundcloud.com/vladimircauchemar/brrr-feat-laylow-rimk',feat:"feat. Laylow, Rim'K & Asdek"},
+  {a:'Vladimir Cauchemar',t:'Extendo',src:'sc',url:'https://soundcloud.com/vladimircauchemar/extendo',feat:'feat. SCH & Unknown T'},
+  {a:'Vladimir Cauchemar',t:'Oratores',src:'sc',url:'https://soundcloud.com/vladimircauchemar/oratores'},
+  // Meryl x4 (SoundCloud)
+  {a:'Meryl',t:'Champagne Ke Fraise',src:'mp3',file:'2026/Meryl Champagne ké fraises Clip officiel.mp3'},
+  {a:'Meryl',t:'Beni',src:'mp3',file:'2026/Meryl Béni.mp3'},
+  {a:'Meryl',t:'Coca-Cola Mentos',src:'mp3',file:'2026/Meryl Coca Cola Mentos Clip officiel.mp3'},
+  {a:'Meryl',t:'Ah lala',src:'mp3',file:'2026/Meryl AH LALA.mp3'},
+  // Aya Nakamura x6 (SoundCloud)
+  {a:'Aya Nakamura',t:'Djadja',src:'sc',url:'https://soundcloud.com/ayanakamura/djadja'},
+  {a:'Aya Nakamura',t:'Pookie',src:'sc',url:'https://soundcloud.com/ayanakamura/pookie'},
+  {a:'Aya Nakamura',t:'Copines',src:'sc',url:'https://soundcloud.com/ayanakamura/copines'},
+  {a:'Aya Nakamura',t:'Baby',src:'sc',url:'https://soundcloud.com/ayanakamura/baby'},
+  {a:'Aya Nakamura',t:'Degaine',src:'sc',url:'https://soundcloud.com/ayanakamura/degaine-feat-damso',feat:'feat. Damso'},
+  {a:'Aya Nakamura',t:'Jolie nana',src:'sc',url:'https://soundcloud.com/ayanakamura/jolie-nana'},
+  // PNL x5 (SoundCloud)
+  {a:'PNL',t:'Au DD',src:'sc',url:'https://soundcloud.com/pnl_music/au-dd'},
+  {a:'PNL',t:"Jusqu'au dernier gramme",src:'sc',url:'https://soundcloud.com/pnl_music/jusquau-dernier-gramme'},
+  {a:'PNL',t:'Onizuka',src:'sc',url:'https://soundcloud.com/pnl_music/onizuka'},
+  {a:'PNL',t:'Naha',src:'sc',url:'https://soundcloud.com/pnl_music/naha'},
+  {a:'PNL',t:'Bene',src:'sc',url:'https://soundcloud.com/pnl_music/bene'},
+  // Ziak x3 (SoundCloud)
+  {a:'Ziak',t:'Raspoutine',src:'mp3',file:'2026/Ziak Raspoutine Prod Jango.mp3'},
+  {a:'Ziak',t:'Galerie',src:'mp3',file:'2026/Ziak Galerie Prod Devil.mp3'},
+  {a:'Ziak',t:'Double Dash',src:'sc',url:'https://soundcloud.com/lemouv/ziak-double-dash-prod-munroe-x-tr'},
+  // La Feve x3 (SoundCloud)
+  {a:'La Feve',t:'Mauvais Payeur',src:'mp3',file:'2026/LA FÈVE MAUVAIS PAYEUR.mp3'},
+  {a:'La Feve',t:'Voir ailleurs',src:'mp3',file:'2026/VOIR AILLEURS feat Zamdane.mp3',feat:'feat. Zamdane'},
+  {a:'La Feve',t:'Belek',src:'mp3',file:'2026/BELEK.mp3'},
+  // Houdi x5 (SoundCloud)
+  {a:'Houdi',t:'Monaco',src:'mp3',file:'2026/HOUDI MONACO.mp3'},
+  {a:'Houdi',t:'Totally Spies',src:'mp3',file:'2026/HOUDI TOTALLY SPIES.mp3'},
+  {a:'Houdi',t:'Sensation',src:'mp3',file:'2026/HOUDI SENSATION.mp3'},
+  {a:'Houdi',t:'Mode Hardcore',src:'mp3',file:'2026/HOUDI MODE HARDCORE Ft ZIAK.mp3',feat:'feat. Ziak'},
+  {a:'Houdi',t:'Belle Chanson',src:'mp3',file:'2026/HOUDI BELLE CHANSON.mp3'},
+  // Mikado x5 (SoundCloud)
+  {a:'Mikado',t:'Bienvenue a Saint-Pierre',src:'sc',url:'https://soundcloud.com/dj-mikado-amc/bienvenue-a-saint-pierre-rmx-pierrotine-riddim-by-mikado',feat:'remix, Mixx Steph'},
+  {a:'Mikado',t:'Ou Pani',src:'sc',url:'https://soundcloud.com/dj-mikado-amc/le-jemss-mikado-ou-pani',feat:"Le Jèm'ss & Mikado"},
+  {a:'Mikado',t:'Wasav',src:'sc',url:'https://soundcloud.com/dj-mikado-amc/le-jemss-mikado-wasav',feat:"Le Jèm'ss & Mikado"},
+  {a:'Mikado',t:'Sa Merite An Feat',src:'sc',url:'https://soundcloud.com/dj-mikado-amc/mikado-sa-merite-an-feat-ft-dj-malade-dj-kingz-dj-keys',feat:"feat. DJ Malade, DJ Kingz & DJ Key's"},
+  {a:'Mikado',t:'Mechancete Riddim',src:'sc',url:'https://soundcloud.com/dj-mikado-amc/dj-dionyx-x-mikado-cutty-ranks-mechancete-riddim-2023_master',feat:'DJ Dionyx x Mikado & Cutty Ranks'},
+  // Miimii KDS x4 (SoundCloud uniquement, Castries retire car pas trouve sans pub)
+  {a:'Miimii KDS',t:'In Di Corner',src:'mp3',file:'2026/1T1 In Di corner Ft Miimii KDS.mp3',feat:'1T1 feat. Miimii KDS'},
+  {a:'Miimii KDS',t:'Se Miimii',src:'sc',url:'https://soundcloud.com/theo-roger/se-miimii-feat-dj-skycee',feat:'feat. DJ Skycee'},
+  {a:'Miimii KDS',t:'Coming',src:'sc',url:'https://soundcloud.com/cyan-moueza/miimii-kds-coming'},
+  {a:'Miimii KDS',t:'Lollipop',src:'sc',url:'https://soundcloud.com/une-goo/lollipop-miimii-x-eloo-x-zaza-bouyon',feat:'Miimii x Eloo x Zaza'},
+  // Vladimir Cauchemar techno deja inclus plus haut
+  // Gesaffelstein x2 (SoundCloud)
+  {a:'Gesaffelstein',t:'Pursuit',src:'sc',url:'https://soundcloud.com/gesaffelstein/pursuit'},
+  {a:'Gesaffelstein',t:'Viol',src:'mp3',file:'2026/Viol.mp3'},
+  {a:'Gesaffelstein',t:'Hate or Glory',src:'sc',url:'https://soundcloud.com/gesaffelstein/hate-or-glory'},
+  // Irène Drésel
+  {a:'Irène Drésel',t:'Vestale',src:'sc',url:'https://soundcloud.com/irenedresel/vestale-1'}
+];
+
+// Liste unique des artistes pour les faux choix
+const BT_ARTISTS=[...new Set(BT_TRACKS.map(t=>t.a))];
+
+let BT_POOL=[...BT_TRACKS];
+BT_POOL=shuffle([...BT_TRACKS]);
+let btIdx=0;
+
+const BADGE_CATS=[
+  {key:'tech',label:'TECH',color:'var(--g)',badges:[
+    {id:'t1',name:'Apprenti son',icon:'&#127911;',desc:'1ere mission tech'},
+    {id:'t2',name:'Oreille fine',icon:'&#127908;',desc:'5 missions tech'},
+    {id:'t3',name:'Magnetophone',icon:'&#127902;',desc:'2 interactions'},
+    {id:'t4',name:'Recordman',icon:'&#127897;',desc:'3 interactions'},
+    {id:'t5',name:'Voix d\'or',icon:'&#127895;',desc:'5 interactions'},
+    {id:'t6',name:'Chasseur',icon:'&#128247;',desc:'1 capture DJ'},
+    {id:'t7',name:'Traqueur',icon:'&#128248;',desc:'2 captures DJ'},
+    {id:'t8',name:'Hunter Pro',icon:'&#128249;',desc:'4 captures DJ'},
+    {id:'t9',name:'Blindtest x5',icon:'&#128251;',desc:'5 bons blindtest'},
+    {id:'t10',name:'Techno Master',icon:'&#127927;',desc:'9 missions tech'}
+  ]},
+  {key:'danse',label:'DANSE',color:'var(--p)',badges:[
+    {id:'d1',name:'Premier pas',icon:'&#128131;',desc:'1er move'},
+    {id:'d2',name:'Groove',icon:'&#128132;',desc:'2 moves'},
+    {id:'d3',name:'Style',icon:'&#129337;',desc:'3 moves'},
+    {id:'d4',name:'Flow',icon:'&#129336;',desc:'4 moves'},
+    {id:'d5',name:'Danseur',icon:'&#128378;',desc:'5 moves'},
+    {id:'d6',name:'Professeur',icon:'&#127891;',desc:'1er apprentissage'},
+    {id:'d7',name:'Coach',icon:'&#127942;',desc:'2 apprentissages'},
+    {id:'d8',name:'Mentor',icon:'&#129351;',desc:'3 apprentissages'},
+    {id:'d9',name:'Maitre',icon:'&#129352;',desc:'4 apprentissages'},
+    {id:'d10',name:'Danse Master',icon:'&#128081;',desc:'9 missions danse'}
+  ]},
+  {key:'soiree',label:'SOIREES',color:'var(--g)',badges:[
+    {id:'s1',name:'Noctambule',icon:'&#127761;',desc:'3 soirees'},
+    {id:'s2',name:'Clubber',icon:'&#127880;',desc:'5 soirees'},
+    {id:'s3',name:'Rave goer',icon:'&#127882;',desc:'8 soirees'},
+    {id:'s4',name:'Pilier',icon:'&#127873;',desc:'12 soirees'},
+    {id:'s5',name:'Legendaire',icon:'&#128293;',desc:'20 soirees'},
+    {id:'s6',name:'Vendredi saint',icon:'&#9829;',desc:'4 vendredis'},
+    {id:'s7',name:'Festival',icon:'&#127914;',desc:'Hors Toulouse'},
+    {id:'s8',name:'Techno pure',icon:'&#128248;',desc:'Soiree hard techno'},
+    {id:'s9',name:'After',icon:'&#127774;',desc:'Jusqu\'au matin'},
+    {id:'s10',name:'Legendary',icon:'&#127956;',desc:'20+ soirees'}
+  ]},
+  {key:'battle',label:'BATTLES',color:'var(--p)',badges:[
+    {id:'b1',name:'Challenger',icon:'&#128400;',desc:'1er battle'},
+    {id:'b2',name:'Combattant',icon:'&#129354;',desc:'3 battles'},
+    {id:'b3',name:'Guerrier',icon:'&#129355;',desc:'5 battles'},
+    {id:'b4',name:'Champion',icon:'&#127942;',desc:'10 battles'},
+    {id:'b5',name:'Inarretable',icon:'&#128081;',desc:'20 battles'},
+    {id:'b6',name:'Photographe',icon:'&#128247;',desc:'1 photo adversaire'},
+    {id:'b7',name:'Memoire',icon:'&#128248;',desc:'5 photos adversaires'},
+    {id:'b8',name:'Archive',icon:'&#128249;',desc:'10 photos adversaires'},
+    {id:'b9',name:'Battle trip',icon:'&#128664;',desc:'Battle hors ville'},
+    {id:'b10',name:'Battle king',icon:'&#128081;',desc:'20 battles'}
+  ]},
+  {key:'blindtest',label:'BLINDTEST',color:'var(--pk)',badges:[
+    {id:'bt1',name:'1ere note',icon:'&#127925;',desc:'1er bon'},
+    {id:'bt2',name:'Melodie',icon:'&#127926;',desc:'5 bons'},
+    {id:'bt3',name:'Frequence',icon:'&#127927;',desc:'10 bons'},
+    {id:'bt4',name:'Onde',icon:'&#127928;',desc:'20 bons'},
+    {id:'bt5',name:'Oreille or',icon:'&#127929;',desc:'30 bons'},
+    {id:'bt6',name:'Serie x3',icon:'&#128293;',desc:'3 bonnes de suite'},
+    {id:'bt7',name:'Serie x5',icon:'&#128293;',desc:'5 bonnes de suite'},
+    {id:'bt8',name:'Serie x10',icon:'&#128293;',desc:'10 bonnes de suite'},
+    {id:'bt9',name:'Encyclopedie',icon:'&#128218;',desc:'50 questions'},
+    {id:'bt10',name:'Omniscient',icon:'&#128220;',desc:'100 questions'}
+  ]}
+];
+const TOTAL_BADGES=BADGE_CATS.reduce((n,c)=>n+c.badges.length,0);
+
+// AUDIO
+let audioCtx=null;
+function getAC(){
+  if(!audioCtx)try{audioCtx=new(window.AudioContext||window.webkitAudioContext)();}catch(e){}
+  if(audioCtx&&audioCtx.state==='suspended')audioCtx.resume();
+  return audioCtx;
+}
+function playTone(freq,type,dur,vol){
+  const ac=getAC();if(!ac)return;
+  const o=ac.createOscillator(),g=ac.createGain();
+  o.connect(g);g.connect(ac.destination);
+  o.type=type||'sawtooth';o.frequency.value=freq||220;
+  g.gain.setValueAtTime(vol||0.3,ac.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001,ac.currentTime+(dur||0.3));
+  o.start();o.stop(ac.currentTime+(dur||0.3));
+}
+
+// UTILS
+function shuffle(a){return[...a].sort(()=>Math.random()-.5);}
+function setText(id,v){const e=document.getElementById(id);if(e)e.innerHTML=v;}
+function setTxt(id,v){const e=document.getElementById(id);if(e)e.textContent=v;}
+function setW(id,pct){const e=document.getElementById(id);if(e)e.style.width=Math.min(Math.round(pct),100)+'%';}
+function totalDone(){return S.done.i.size+S.done.dj.size+S.done.m.size+S.done.a.size+S.done.bt.size;}
+function techDone(){return S.done.i.size+S.done.dj.size;}
+function danseDone(){return S.done.m.size+S.done.a.size;}
+function showToast(msg,dur=3000){
+  const t=document.getElementById('toast');if(!t)return;
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),dur);
+}
+
+// FIREBASE
+async function saveToFirebase(){
+  if(!window.FB)return;
+  const{db,uid,doc,setDoc}=window.FB;
+  const data={
+    done:{i:[...S.done.i],dj:[...S.done.dj],m:[...S.done.m],a:[...S.done.a],bt:[...S.done.bt]},
+    earnedBadges:[...S.earnedBadges],
+    events:S.events,
+    soireeCount:S.soireeCount,battleCount:S.battleCount,battlePhotoCount:S.battlePhotoCount,
+    bt:{ok:S.bt.ok,ko:S.bt.ko,streak:S.bt.streak,total:S.bt.total,bestStreak:S.bt.bestStreak||0},
+    allDone:S.allDone,farewellShown:S.farewellShown,btMissionShown:S.btMissionShown,
+    updatedAt:new Date().toISOString()
+  };
+  try{
+    await setDoc(doc(db,'users',window.PROFILE_ID||'noa'),data);
+    setTxt('sync-status','Sync cloud OK');
+  }catch(e){setTxt('sync-status','Erreur sync: '+e.message);}
+}
+
+async function loadFromFirebase(){
+  if(!window.FB){setTimeout(loadFromFirebase,1000);return;}
+  const{db,doc,getDoc}=window.FB;
+  setTxt('sync-status','Chargement...');
+  try{
+    const snap=await getDoc(doc(db,'users',window.PROFILE_ID||'noa'));
+    if(snap.exists()){
+      const d=snap.data();
+      S.done.i=new Set(d.done?.i||[]);
+      S.done.dj=new Set(d.done?.dj||[]);
+      S.done.m=new Set(d.done?.m||[]);
+      S.done.a=new Set(d.done?.a||[]);
+      S.done.bt=new Set(d.done?.bt||[]);
+      S.earnedBadges=new Set(d.earnedBadges||[]);
+      S.events=d.events||[];
+      S.soireeCount=d.soireeCount||0;
+      S.battleCount=d.battleCount||0;
+      S.battlePhotoCount=d.battlePhotoCount||0;
+      S.bt.ok=d.bt?.ok||0;S.bt.ko=d.bt?.ko||0;
+      S.bt.streak=d.bt?.streak||0;S.bt.total=d.bt?.total||0;S.bt.bestStreak=d.bt?.bestStreak||0;
+      S.allDone=d.allDone||false;
+      S.farewellShown=d.farewellShown||false;
+      S.btMissionShown=d.btMissionShown||false;
+      setTxt('sync-status','Progression chargee');
+    }else{
+      setTxt('sync-status','Nouvelle partie');
+    }
+    updateAllUI();
+    restoreAllMissions();
+    renderBadges();
+    renderCal();
+    checkFridayNotif();
+  }catch(e){setTxt('sync-status','Erreur: '+e.message);}
+}
+
+// onFBReady is managed by initProfileChooser
+
+async function uploadFileToCloud(file,path){
+  if(!window.FB)return null;
+  const{storage,sref,uploadBytes,getDownloadURL}=window.FB;
+  try{
+    const r=sref(storage,path);
+    const snap=await uploadBytes(r,file);
+    return await getDownloadURL(snap.ref);
+  }catch(e){showToast('Erreur upload: '+e.message);return null;}
+}
+
+async function deleteFileFromCloud(path){
+  if(!window.FB)return;
+  const{storage,sref,deleteObject}=window.FB;
+  try{await deleteObject(sref(storage,path));}catch(e){console.log('del err',e);}
+}
+
+// FILE HANDLING
+function fileSelected(input,missionId,type){
+  if(!input.files||!input.files[0])return;
+  const file=input.files[0];
+  const fn=document.getElementById('fn-'+missionId);
+  if(fn){fn.textContent=file.name;fn.style.display='block';}
+  S.pendingFile=file;S.pendingMission=missionId;S.pendingMissionType=type||null;
+  setText('modal-save-desc','Fichier : '+file.name+'<br>Sauvegarder dans le cloud Firebase ?');
+  showModal('save-cloud');
+}
+
+async function confirmCloudSave(saveCloud){
+  closeModals();
+  if(saveCloud&&S.pendingFile&&window.FB){
+    showToast('Upload en cours...',8000);
+    const path='files/'+(window.PROFILE_ID||'noa')+'/'+S.pendingMission+'_'+Date.now()+'_'+S.pendingFile.name;
+    const url=await uploadFileToCloud(S.pendingFile,path);
+    if(url){
+      showToast('Fichier sauvegarde !');
+      const _fName=S.pendingFile.name;const _fExt=_fName.toLowerCase().split('.').pop();
+      const _fMediaType=['jpg','jpeg','png','gif','webp','heic'].includes(_fExt)?'photo-upload':['mp4','mov','avi','webm','mkv'].includes(_fExt)?'video-upload':['mp3','wav','m4a','ogg','aac','flac'].includes(_fExt)?'audio-upload':'file';
+      S.events.push({type:_fMediaType,name:_fName,url,path,missionId:S.pendingMission,date:new Date().toISOString().split('T')[0]});
+      await saveToFirebase();
+    }
+  }else{
+    showToast('Fichier garde en local uniquement');
+  }
+  S.pendingFile=null;S.pendingMission=null;S.pendingMissionType=null;
+}
+
+function battlePhotoAdd(input){
+  if(!input.files||!input.files[0])return;
+  S.pendingFile=input.files[0];
+  S.pendingMission='battle-photo';
+  setText('modal-save-desc','Photo : '+input.files[0].name+'<br>Sauvegarder dans Firebase ?');
+  showModal('save-cloud');
+  S.battlePhotoCount++;
+  if(S.battlePhotoCount>=1)earnBadge('b6');
+  if(S.battlePhotoCount>=5)earnBadge('b7');
+  if(S.battlePhotoCount>=10)earnBadge('b8');
+  const list=document.getElementById('battle-photos-list');
+  if(list){
+    const el=document.createElement('div');
+    el.style.cssText='background:var(--s);border:1px solid var(--br);border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:12px;';
+    el.innerHTML='<i class="ti ti-photo" style="color:var(--p)"></i><span>'+input.files[0].name+'</span>';
+    list.appendChild(el);
+  }
+  saveToFirebase();
+}
+
+// NAVIGATION
+let currentPage='home';
+function goTo(page){stopBTAudio();document.documentElement.classList.toggle('no-scroll',page==='home');
+  getAC();
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  currentPage=page;
+  if(page==='blindtest')initBT();
+  if(page==='platine')renderPlatine();
+  if(page==='cal')renderCal();
+  if(page==='badges')renderBadges();
+  if(page==='home')checkFarewell();
+  if(page==='profil')renderProfile();
+  updateAllUI();
+  checkOrient(page);
+}
+
+// UPDATE UI
+function updateAllUI(){
+  const tot=totalDone(),td=techDone(),dd=danseDone();
+  const bpm=140+Math.floor(tot*1.5);
+  setTxt('bpm-val',bpm);
+  setTxt('hp-txt',tot+'/'+TOTAL_MISSIONS);setW('hp-bar',tot/TOTAL_MISSIONS*100);
+  setTxt('hp-tech',td+'/'+TECH_MISSIONS_MAX);setTxt('hp-danse',dd+'/'+DANSE_MISSIONS_MAX);
+  setTxt('hp-bt',S.done.bt.size+'/4');
+  setTxt('h-inter',S.done.i.size+'/5');setTxt('h-dj',S.done.dj.size+'/4');
+  setTxt('h-moves',S.done.m.size+'/5');setTxt('h-appr',S.done.a.size+'/4');
+  setTxt('inter-badge',S.done.i.size+'/5');setTxt('dj-badge',S.done.dj.size+'/4');
+  setTxt('moves-badge',S.done.m.size+'/5');setTxt('appr-badge',S.done.a.size+'/4');
+  setW('inter-prog',S.done.i.size/5*100);setW('dj-prog',S.done.dj.size/4*100);
+  setW('moves-prog',S.done.m.size/5*100);setW('appr-prog',S.done.a.size/4*100);
+  setTxt('platine-count',tot+'/'+TOTAL_MISSIONS);
+  setW('platine-prog-bar',tot/TOTAL_MISSIONS*100);
+  setTxt('platine-prog-txt',tot+' / '+TOTAL_MISSIONS+' missions');
+  const platineUnlocked=tot>=TOTAL_MISSIONS||window.PROFILE_ID==='test';
+  setTxt('platine-locked-txt',tot>=TOTAL_MISSIONS?'Platine debloquee !':(window.PROFILE_ID==='test'?'Apercu mode test : Korg debloquee pour tester.':'Il te reste '+(TOTAL_MISSIONS-tot)+' mission'+(TOTAL_MISSIONS-tot>1?'s':'')+'. Finis-les.'));
+  const lk=document.getElementById('platine-lk');if(lk)lk.style.display=platineUnlocked?'none':'block';
+  setTxt('cdj-r-s',platineUnlocked?'Korg prete !':'Missions: '+tot+'/'+TOTAL_MISSIONS);
+  setText('bt-ok',S.bt.ok);setText('bt-ko',S.bt.ko);setText('bt-streak',S.bt.streak);
+  setTxt('bt-counter',S.bt.total+'/'+BT_TRACKS.length);
+  setTxt('k-num',String(tot).padStart(3,'0'));
+  setTxt('k-bpm','BPM:'+bpm);setTxt('k-bpm-strip','BPM:'+bpm);
+  updateBadgeCount();animLeds(tot);
+  const rci=document.getElementById('reset-cat-interactions');if(rci)rci.style.display=S.done.i.size>=5?'flex':'none';
+  const rcdj=document.getElementById('reset-cat-photos-dj');if(rcdj)rcdj.style.display=S.done.dj.size>=4?'flex':'none';
+  const rcm=document.getElementById('reset-cat-moves');if(rcm)rcm.style.display=S.done.m.size>=5?'flex':'none';
+  const rca=document.getElementById('reset-cat-apprentissage');if(rca)rca.style.display=S.done.a.size>=4?'flex':'none';
+}
+
+function animLeds(tot){
+  const cols=['g','g','r','b','o','g','r','b'];
+  for(let i=1;i<=8;i++){
+    const l=document.getElementById('kl'+i);if(!l)continue;
+    l.className='led';
+    if(i<=Math.ceil(tot/3))l.classList.add(cols[i-1]);
+  }
+}
+
+// MISSIONS
+function validateM(id,type){
+  getAC();
+  const prefMap={interactions:'i','photos-dj':'dj',moves:'m',apprentissage:'a'};
+  const pref=prefMap[type];
+  if(!pref)return;
+  S.done[pref].add(id);
+  unlockNext(type,pref);
+  const mdata=MISSION_MSG[id]||{icon:'&#9989;',title:'Mission validee !',msg:'"Bien joue !"',reward:'Progression +1'};
+  const isTech=type==='interactions'||type==='photos-dj';
+  if(isTech){
+    setText('vm-t-icon',mdata.icon);setTxt('vm-t-title',mdata.title);
+    setText('vm-t-msg',mdata.msg);setTxt('vm-t-reward',mdata.reward);
+    showModal('validate-tech');
+  }else{
+    setText('vm-d-icon',mdata.icon);setTxt('vm-d-title',mdata.title);
+    setText('vm-d-msg',mdata.msg);setTxt('vm-d-reward',mdata.reward);
+    showModal('validate-danse');
+  }
+  playTone(isTech?440:330,'sawtooth',0.4);
+  updateAllUI();buildKorgPads();
+  checkBadgesForMission(type);
+  checkCompletions(type);
+  saveToFirebase();
+  const done=S.done[pref];
+  if(done.size===5||done.size===4||id.endsWith('5')||id.endsWith('4'))launchConfetti();
+}
+
+function unlockNext(type,pref){
+  const listId=type+'-list';
+  const list=document.getElementById(listId);if(!list)return;
+  const done=S.done[pref];
+  list.querySelectorAll('.mc').forEach(el=>{
+    const eid=el.dataset.id;
+    if(!eid)return;
+    if(done.has(eid)){
+      el.classList.remove('locked');
+      el.classList.add(type==='interactions'||type==='photos-dj'?'done':'donep');
+      el.querySelectorAll('.btn').forEach(b=>{b.disabled=true;b.style.opacity='.5';});
+      if(!el.querySelector('.chk-i')){
+        const top=el.querySelector('.mt');
+        if(top){const c=document.createElement('i');c.className='ti ti-check chk-i';c.style.cssText='font-size:18px;color:'+(type==='interactions'||type==='photos-dj'?'var(--g)':'var(--p)');top.appendChild(c);}
+      }
+    }
+  });
+  const nextN=done.size+1;
+  const next=list.querySelector('[data-id="'+pref+nextN+'"]');
+  if(next)next.classList.remove('locked');
+}
+
+function confirmResetCategory(type){
+  const prefMap={interactions:'i','photos-dj':'dj',moves:'m',apprentissage:'a'};
+  const pref=prefMap[type];
+  if(!pref)return;
+  if(!confirm('Veux-tu vraiment perdre ta progression et recommencer cette categorie ?'))return;
+  S.done[pref]=new Set();
+  // S.allDone et le badge "mixeur" restent acquis pour toujours, meme si
+  // une categorie est recommencee apres avoir tout termine une fois.
+  restoreAllMissions();
+  updateAllUI();
+  saveToFirebase();
+  showToast('Categorie reinitialisee !');
+}
+
+function restoreAllMissions(){
+  const types=['interactions','photos-dj','moves','apprentissage'];
+  const prefs=['i','dj','m','a'];
+  types.forEach((type,idx)=>{
+    const pref=prefs[idx];
+    const list=document.getElementById(type+'-list');
+    if(!list)return;
+    const done=S.done[pref];
+    list.querySelectorAll('.mc').forEach(el=>{
+      const eid=el.dataset.id;
+      if(!eid)return;
+      const isFirst=eid===pref+'1';
+      if(done.has(eid)){
+        unlockNextForId(eid,type,pref);
+      }else{
+        // Remet la carte dans son etat verrouille d'origine (sauf la 1ere,
+        // toujours accessible) : utile apres un reset de progression ou les
+        // cartes precedemment validees restaient visuellement debloquees.
+        el.classList.toggle('locked',!isFirst);
+        el.classList.remove('done','donep');
+        el.querySelectorAll('.btn').forEach(b=>{b.disabled=false;b.style.opacity='';});
+        const chk=el.querySelector('.chk-i');if(chk)chk.remove();
+      }
+    });
+    const nextN=done.size+1;
+    const next=list.querySelector('[data-id="'+pref+nextN+'"]');
+    if(next)next.classList.remove('locked');
+  });
+  buildKorgPads();renderPlatine();
+}
+
+function unlockNextForId(id,type,pref){
+  const list=document.getElementById(type+'-list');if(!list)return;
+  const el=list.querySelector('[data-id="'+id+'"]');if(!el)return;
+  el.classList.remove('locked');
+  el.classList.add(type==='interactions'||type==='photos-dj'?'done':'donep');
+  el.querySelectorAll('.btn').forEach(b=>{b.disabled=true;b.style.opacity='.5';});
+  if(!el.querySelector('.chk-i')){
+    const top=el.querySelector('.mt');
+    if(top){const c=document.createElement('i');c.className='ti ti-check chk-i';c.style.cssText='font-size:18px;color:'+(type==='interactions'||type==='photos-dj'?'var(--g)':'var(--p)');top.appendChild(c);}
+  }
+}
+
+// COMPLETIONS
+const COMP={
+  interactions:{icon:'&#127908;',title:'Interactions completes !',msg:'5 enregistrements. 5 victimes innocentes. Diabolique mais on s\'en plaint pas.',extra:'Mode infini continue.'},
+  'photos-dj':{icon:'&#128247;',title:'4 captures DJ !',msg:'T\'as traque 4 DJs. Pokemon GO aurait du te recruter.',extra:'Captures illimitees pour toujours.'},
+  moves:{icon:'&#128131;',title:'5 moves maitrise !',msg:'15 ans de danse et ca se voit. C\'etait beau, fluide, trop style.',extra:'Continue avec les apprentissages.'},
+  apprentissage:{icon:'&#127891;',title:'4 eleves formes !',msg:'T\'as appris le Windmill a quelqu\'un. Genie ou tyran. Les deux peut-etre.',extra:'Bravo Professeur Noa.'},
+  blindtest:{icon:'&#127925;',title:'4 bonnes reponses, mission complete !',msg:'T\'as une bonne oreille. 4 titres trouves, mission blindtest validee.',extra:'Le blindtest continue a l\'infini, autant de fois que tu veux.'},
+  all:{icon:'&#127925;',title:'22 missions. La Korg est a toi.',msg:'Tu l\'as fait. Les 22. Joyeux anniversaire Noa. La Korg Electribe est entierement a toi pour toujours.',extra:'Mode infini active. 50+ sons. Calendrier. Badges. Tout continue sans limite.'}
+};
+
+function checkCompletions(type){
+  const tot=totalDone();
+  setTimeout(()=>{
+    let d=null;
+    if(type==='interactions'&&S.done.i.size===5)d=COMP.interactions;
+    else if(type==='photos-dj'&&S.done.dj.size===4)d=COMP['photos-dj'];
+    else if(type==='moves'&&S.done.m.size===5)d=COMP.moves;
+    else if(type==='apprentissage'&&S.done.a.size===4)d=COMP.apprentissage;
+    else if(type==='blindtest'&&S.done.bt.size===4&&!S.btMissionShown){S.btMissionShown=true;d=COMP.blindtest;}
+    if(tot===TOTAL_MISSIONS&&!S.allDone){S.allDone=true;d=COMP.all;earnBadge('mixeur');launchConfetti();saveToFirebase();}
+    if(d){
+      closeModals();
+      setText('cg-icon',d.icon);setTxt('cg-title',d.title);
+      setTxt('cg-msg',d.msg);setTxt('cg-extra',d.extra);
+      const cgBt=document.getElementById('cg-continue-bt');
+      if(cgBt)cgBt.style.display=(d===COMP.blindtest)?'flex':'none';
+      goTo('congrats');launchConfetti();
+    }
+  },450);
+}
+
+function checkFarewell(){
+  if(S.allDone&&!S.farewellShown){
+    S.farewellShown=true;
+    setTimeout(()=>showModal('farewell'),700);
+    saveToFirebase();
+  }
+}
+
+// BLINDTEST
+function initBT(){if(!S.bt.answered||!S.bt.current)nextBT();}
+
+function nextBT(){
+  if(btIdx>=BT_POOL.length){btIdx=0;BT_POOL=shuffle([...BT_TRACKS]);btIdx=0;}
+  S.bt.current=BT_POOL[btIdx++];
+  S.bt.answered=false;
+  setText('bt-artist','?');
+  setTxt('bt-hint','Appuie sur le disque pour un extrait de 3 sec');
+  const no=document.getElementById('bt-next');if(no)no.style.display='none';
+  const opts=document.getElementById('bt-opts');if(opts)opts.innerHTML='';
+  const yl=document.getElementById('bt-yt-link');if(yl)yl.innerHTML='';
+  const yp=document.getElementById('bt-yt-preview');if(yp)yp.innerHTML='';
+  const ico=document.getElementById('bt-play-ico');
+  if(ico){ico.className='ti ti-player-play';ico.style.color='var(--p)';}
+  const f=document.getElementById('bt-face');
+  if(f){f.style.animation='none';void f.offsetWidth;f.style.animation='spin 8s linear infinite';}
+}
+
+let btPreviewTimer=null;
+let btSCWidget=null;
+let btMp3Audio=null;
+
+function logBTFail(track,reason){
+  try{
+    const key='noa_bt_fails';
+    let fails=JSON.parse(localStorage.getItem(key)||'[]');
+    const entry=track.a+' - '+track.t+' ('+(track.url||track.id)+') ['+(reason||'timeout')+']';
+    if(!fails.includes(entry))fails.push(entry);
+    localStorage.setItem(key,JSON.stringify(fails));
+  }catch(e){}
+}
+
+function showBTFailsLog(){
+  try{
+    const fails=JSON.parse(localStorage.getItem('noa_bt_fails')||'[]');
+    if(fails.length===0){
+      alert('Aucun titre en echec enregistre pour le moment !');
+      return;
+    }
+    const txt=fails.join('\n');
+    if(navigator.clipboard){
+      navigator.clipboard.writeText(txt).then(()=>{
+        alert('Titres en echec (copies dans le presse-papier) :\n\n'+txt);
+      }).catch(()=>{
+        alert('Titres en echec :\n\n'+txt);
+      });
+    } else {
+      alert('Titres en echec :\n\n'+txt);
+    }
+  }catch(e){
+    alert('Erreur lecture du log.');
+  }
+}
+
+function clearBTFailsLog(){
+  localStorage.removeItem('noa_bt_fails');
+  alert('Log des echecs blindtest efface.');
+}
+
+function stopBTAudio(){
+  if(btPreviewTimer){clearTimeout(btPreviewTimer);btPreviewTimer=null;}
+  if(btSCWidget){try{btSCWidget.pause();}catch(e){}btSCWidget=null;}
+  if(btMp3Audio){try{btMp3Audio.pause();btMp3Audio.src='';}catch(e){}btMp3Audio=null;}
+  const yp=document.getElementById('bt-yt-preview');
+  if(yp)yp.innerHTML='';
+}
+
+function playBT(){
+  try{
+    playBTInner();
+  }catch(e){
+    // Filet de diagnostic : affiche l'erreur directement a l'ecran (utile
+    // pour debugger depuis un telephone, sans acces a la console).
+    const hint=document.getElementById('bt-hint');
+    if(hint)hint.textContent='ERREUR: '+(e.message||e);
+    console.error('playBT error:',e);
+  }
+}
+
+function playBTInner(){
+  if(S.bt.answered)return;
+  getAC();
+  stopBTAudio();
+  const track=S.bt.current; // {a, t, src, id|url}
+  const f=document.getElementById('bt-face');
+  const hint=document.getElementById('bt-hint');
+  const ico=document.getElementById('bt-play-ico');
+  const yp=document.getElementById('bt-yt-preview');
+
+  if(f)f.style.animation='spin 1s linear infinite';
+  if(hint)hint.textContent='⏳ Chargement...';
+  if(ico)ico.className='ti ti-loader';
+  if(yp)yp.innerHTML='';
+
+  let started=false;
+
+  function startCountdown(){
+    if(started)return;
+    started=true;
+    if(f)f.style.animation='spin 0.6s linear infinite';
+    if(hint)hint.textContent='♪ Écoute bien...';
+    if(ico)ico.className='ti ti-headphones';
+    if(yp){
+      const bar=document.createElement('div');
+      bar.style.cssText='height:4px;background:var(--br);border-radius:2px;overflow:hidden;margin-top:4px';
+      bar.innerHTML='<div id="bt-prog-bar" style="height:100%;background:var(--p);border-radius:2px;width:0%;transition:width 3s linear"></div>';
+      yp.appendChild(bar);
+      requestAnimationFrame(()=>{const pb=document.getElementById('bt-prog-bar');if(pb)pb.style.width='100%';});
+    }
+    btPreviewTimer=setTimeout(()=>{
+      stopBTAudio();
+      if(f)f.style.animation='spin 8s linear infinite';
+      if(hint)hint.textContent="C'est qui ?";
+      if(ico)ico.className='ti ti-player-play';
+      showBTOpts();
+    },3000);
+  }
+
+  function failSafe(reason){
+    if(started)return;
+    started=true;
+    stopBTAudio();
+    if(f)f.style.animation='spin 8s linear infinite';
+    if(hint)hint.textContent="C'est qui ? (son indispo)";
+    if(ico)ico.className='ti ti-player-play';
+    logBTFail(track,reason);
+    showBTOpts();
+  }
+
+  // Securite: si rien ne se lance en 8s (apres 2 tentatives de relance), on passe directement aux choix
+  const failTimer=setTimeout(()=>failSafe('TIMEOUT_8S'),8000);
+
+  if(track.src==='mp3'){
+    // Fichier audio local heberge sur le meme domaine : aucun widget tiers,
+    // aucune iframe, donc aucun risque d'afficher le titre/artiste, et
+    // aucun blocage d'API externe (contrairement a SoundCloud pour ces
+    // comptes precis). play() est appele directement dans le clic de
+    // l'utilisateur sur le disque : geste utilisateur synchrone, fonctionne
+    // sur mobile sans probleme d'autoplay.
+    const audio=new Audio(track.file);
+    audio.preload='auto';
+    btMp3Audio=audio;
+    let started2=false;
+    audio.addEventListener('loadedmetadata',()=>{
+      const middle=audio.duration>0?audio.duration/2:0;
+      try{audio.currentTime=middle;}catch(e){}
+      audio.play().then(()=>{
+        if(!started2){started2=true;clearTimeout(failTimer);startCountdown();}
+      }).catch(()=>{
+        clearTimeout(failTimer);
+        failSafe('MP3_PLAY_ERROR');
+      });
+    });
+    audio.addEventListener('error',()=>{
+      clearTimeout(failTimer);
+      failSafe('MP3_LOAD_ERROR');
+    });
+    audio.load();
+    return;
+  }
+
+  if(track.src==='yt'){
+    if(yp){
+      const ifr=document.createElement('iframe');
+      ifr.width='300';ifr.height='80';
+      ifr.style.opacity='0';ifr.style.position='absolute';ifr.style.pointerEvents='none';ifr.style.top='0';ifr.style.left='0';
+      ifr.src='https://www.youtube.com/embed/'+track.id+'?autoplay=1&start=70&controls=0';
+      ifr.allow='autoplay';
+      yp.appendChild(ifr);
+      // YouTube ne donne pas d'evenement fiable cross-origin sans API key, on estime 700ms de chargement
+      setTimeout(()=>{clearTimeout(failTimer);startCountdown();},700);
+    }
+  } else if(track.src==='sc'){
+    if(yp){
+      if(window.SC&&window.SC.Widget){
+        const ifr=document.createElement('iframe');
+        ifr.id='bt-sc-iframe';
+        ifr.width='300';ifr.height='166';
+        ifr.style.opacity='0';ifr.style.position='absolute';ifr.style.pointerEvents='none';ifr.style.top='0';ifr.style.left='0';
+        ifr.allow='autoplay';
+        ifr.src='https://w.soundcloud.com/player/?url='+encodeURIComponent(track.url)+'&auto_play=true&show_artwork=false&show_comments=false&show_user=false&show_reposts=false&visual=false';
+        yp.appendChild(ifr);
+        const widget=SC.Widget(ifr);
+        btSCWidget=widget;
+        let confirmed=false;
+        widget.bind(SC.Widget.Events.READY,function(){
+          widget.getDuration(function(durationMs){
+            const middleMs=durationMs>0?Math.floor(durationMs/2):0;
+            widget.seekTo(middleMs);
+            widget.play();
+          });
+        });
+        widget.bind(SC.Widget.Events.PLAY_PROGRESS,function(){
+          if(!confirmed){
+            confirmed=true;
+            clearTimeout(failTimer);
+            startCountdown();
+          }
+        });
+        widget.bind(SC.Widget.Events.ERROR,function(){
+          clearTimeout(failTimer);
+          failSafe('SC_ERROR');
+        });
+      } else {
+        // SC API JS pas chargee a temps : on lance direct en autoplay (sans seek precis au milieu)
+        const ifr=document.createElement('iframe');
+        ifr.id='bt-sc-iframe';
+        ifr.width='300';ifr.height='166';
+        ifr.style.opacity='0';ifr.style.position='absolute';ifr.style.pointerEvents='none';ifr.style.top='0';ifr.style.left='0';
+        ifr.allow='autoplay';
+        ifr.src='https://w.soundcloud.com/player/?url='+encodeURIComponent(track.url)+'&auto_play=true&show_artwork=false&show_comments=false&show_user=false&show_reposts=false&visual=false';
+        yp.appendChild(ifr);
+        clearTimeout(failTimer);
+        setTimeout(startCountdown,900);
+      }
+    }
+  }
+}
+
+function showBTOpts(){
+  const current=S.bt.current; // {a, t}
+  const allTitles=BT_TRACKS.map(t=>t.t);
+  const wrong=allTitles.filter(t=>t!==current.t).sort(()=>Math.random()-.5).slice(0,3);
+  const opts=[...wrong,current.t].sort(()=>Math.random()-.5);
+  const c=document.getElementById('bt-opts');if(!c)return;
+  c.innerHTML='';
+  opts.forEach(opt=>{
+    const b=document.createElement('button');b.className='bto';b.textContent=opt;
+    b.onclick=()=>answerBT(opt,b);c.appendChild(b);
+  });
+}
+
+function answerBT(answer,btn){
+  if(S.bt.answered)return;
+  stopBTAudio();
+  S.bt.answered=true;S.bt.total++;
+  const current=S.bt.current;
+  const ok=answer===current.t;
+  btn.classList.add(ok?'ok':'ko');
+  if(ok){S.bt.ok++;S.bt.streak++;if(S.bt.streak>(S.bt.bestStreak||0))S.bt.bestStreak=S.bt.streak;}
+  else{S.bt.ko++;S.bt.streak=0;}
+  document.querySelectorAll('.bto').forEach(b=>{if(b.textContent===current.t)b.classList.add('ok');});
+  const featLine=current.feat?'<br><span style="font-size:11px;color:var(--t2);font-style:italic">'+current.feat+'</span>':'';
+  setText('bt-artist',current.t+' — '+current.a+featLine);
+  setTxt('bt-hint','');
+  const yl=document.getElementById('bt-yt-link');
+  if(yl)yl.innerHTML='<a href="https://www.youtube.com/results?search_query='+encodeURIComponent(current.a+' '+current.t)+'" target="_blank" style="font-size:12px;color:var(--r);display:inline-flex;align-items:center;gap:4px;text-decoration:none"><i class="ti ti-brand-youtube"></i> Écouter sur YouTube</a>';
+  const no=document.getElementById('bt-next');if(no)no.style.display='flex';
+  const msgs=ok?BT_OK:BT_KO;
+  const msg=msgs[Math.floor(Math.random()*msgs.length)];
+  setText('bt-res-icon',ok?'&#9989;':'&#10060;');
+  setTxt('bt-res-title',ok?'Bonne reponse !':'Loupe !');
+  setText('bt-res-msg',msg);
+  setTimeout(()=>showModal('bt-result'),250);
+  if(ok)launchMiniConfetti();
+  playTone(ok?660:180,ok?'sine':'square',0.3,0.3);
+  if(ok&&S.done.bt.size<4){
+    S.done.bt.add('bt'+(S.done.bt.size+1));
+  }
+  updateAllUI();checkBadgesForBT();
+  if(ok)checkCompletions('blindtest');
+  saveToFirebase();
+}
+
+// KORG
+let seqInterval=null;
+function togglePlay(){
+  S.playing=!S.playing;
+  setTxt('k-stat',S.playing?'PLAYING':'STOPPED');
+  if(S.playing){getAC();startKorgSeq();}else{stopKorgSeq();}
+}
+function stopKorg(){S.playing=false;stopKorgSeq();setTxt('k-stat','STOPPED');}
+function startSeq(){startKorgSeq();}
+function stopSeq(){stopKorgSeq();}
+function toggleRecK(){
+  S.recK=!S.recK;
+  const btn=document.getElementById('k-rec');if(btn)btn.classList.toggle('on',S.recK);
+  if(S.recK&&!S.playing)togglePlay();
+}
+// Noeud d'effets global pour la KORG
+let korgFX={reverb:0.7,delay:0.4,filter:0.55,chorus:0.6,volume:0.8};
+let korgFilterNode=null,korgMasterGain=null;
+
+function getKorgChain(){
+  const ac=getAC();if(!ac)return null;
+  if(!korgMasterGain){
+    korgMasterGain=ac.createGain();
+    korgMasterGain.gain.value=korgFX.volume;
+    korgMasterGain.connect(ac.destination);
+  }
+  if(!korgFilterNode){
+    korgFilterNode=ac.createBiquadFilter();
+    korgFilterNode.type='lowpass';
+    korgFilterNode.frequency.value=200+korgFX.filter*18000;
+    korgFilterNode.connect(korgMasterGain);
+  }
+  return{filter:korgFilterNode,master:korgMasterGain,dest:korgFilterNode};
+}
+
+// ===== KORG AUDIO ENGINE =====
+function playKick(time){
+  const ac=getAC();if(!ac)return;
+  const chain=getKorgChain();
+  const o=ac.createOscillator(),g=ac.createGain();
+  o.connect(g);g.connect(chain.dest);
+  o.type='sine';
+  o.frequency.setValueAtTime(180,time);
+  o.frequency.exponentialRampToValueAtTime(30,time+0.08);
+  g.gain.setValueAtTime(1.0*korgFX.volume,time);
+  g.gain.exponentialRampToValueAtTime(0.001,time+0.18);
+  o.start(time);o.stop(time+0.2);
+  // Click attack
+  const o2=ac.createOscillator(),g2=ac.createGain();
+  o2.connect(g2);g2.connect(chain.dest);
+  o2.type='sine';o2.frequency.value=800;
+  g2.gain.setValueAtTime(0.6*korgFX.volume,time);
+  g2.gain.exponentialRampToValueAtTime(0.001,time+0.015);
+  o2.start(time);o2.stop(time+0.02);
+}
+function playSnare(time){
+  const ac=getAC();if(!ac)return;
+  const chain=getKorgChain();
+  const buf=ac.createBuffer(1,ac.sampleRate*0.15,ac.sampleRate);
+  const d=buf.getChannelData(0);
+  for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1);
+  const s=ac.createBufferSource(),g=ac.createGain();
+  const bpf=ac.createBiquadFilter();bpf.type='bandpass';bpf.frequency.value=1200;bpf.Q.value=0.8;
+  s.buffer=buf;s.connect(bpf);bpf.connect(g);g.connect(chain.dest);
+  g.gain.setValueAtTime(0.55*korgFX.volume,time);
+  g.gain.exponentialRampToValueAtTime(0.001,time+0.12);
+  s.start(time);s.stop(time+0.15);
+  // Body tone
+  const o=ac.createOscillator(),gv=ac.createGain();
+  o.connect(gv);gv.connect(chain.dest);
+  o.type='triangle';o.frequency.setValueAtTime(220,time);
+  o.frequency.exponentialRampToValueAtTime(90,time+0.06);
+  gv.gain.setValueAtTime(0.35*korgFX.volume,time);
+  gv.gain.exponentialRampToValueAtTime(0.001,time+0.07);
+  o.start(time);o.stop(time+0.08);
+}
+function playHihat(time,open){
+  const ac=getAC();if(!ac)return;
+  const chain=getKorgChain();
+  const buf=ac.createBuffer(1,ac.sampleRate*0.08,ac.sampleRate);
+  const d=buf.getChannelData(0);
+  for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1);
+  const s=ac.createBufferSource(),g=ac.createGain();
+  const hpf=ac.createBiquadFilter();hpf.type='highpass';hpf.frequency.value=7000;
+  s.buffer=buf;s.connect(hpf);hpf.connect(g);g.connect(chain.dest);
+  const dur=open?0.25:0.04;
+  g.gain.setValueAtTime(0.3*korgFX.volume,time);
+  g.gain.exponentialRampToValueAtTime(0.001,time+dur);
+  s.start(time);s.stop(time+dur+0.01);
+}
+function playClap(time){
+  const ac=getAC();if(!ac)return;
+  const chain=getKorgChain();
+  for(let i=0;i<3;i++){
+    const t=time+i*0.01;
+    const buf=ac.createBuffer(1,ac.sampleRate*0.05,ac.sampleRate);
+    const d=buf.getChannelData(0);for(let j=0;j<d.length;j++)d[j]=(Math.random()*2-1);
+    const s=ac.createBufferSource(),g=ac.createGain();
+    const bpf=ac.createBiquadFilter();bpf.type='bandpass';bpf.frequency.value=1800;
+    s.buffer=buf;s.connect(bpf);bpf.connect(g);g.connect(chain.dest);
+    g.gain.setValueAtTime((0.35-i*0.05)*korgFX.volume,t);
+    g.gain.exponentialRampToValueAtTime(0.001,t+0.05);
+    s.start(t);s.stop(t+0.06);
+  }
+}
+function playBass(time,freq){
+  const ac=getAC();if(!ac)return;
+  const chain=getKorgChain();
+  const o=ac.createOscillator(),g=ac.createGain();
+  const lpf=ac.createBiquadFilter();lpf.type='lowpass';lpf.frequency.value=400+korgFX.filter*800;
+  o.connect(lpf);lpf.connect(g);g.connect(chain.dest);
+  o.type='sawtooth';o.frequency.value=freq||80;
+  g.gain.setValueAtTime(0.4*korgFX.volume,time);
+  g.gain.exponentialRampToValueAtTime(0.001,time+0.18);
+  o.start(time);o.stop(time+0.2);
+}
+function playKorgTone(freq,type,dur,vol){
+  const ac=getAC();if(!ac)return;
+  const chain=getKorgChain();
+  const o=ac.createOscillator(),g=ac.createGain();
+  const delayNode=ac.createDelay(1.0);
+  delayNode.delayTime.value=korgFX.delay*0.5;
+  const delayGain=ac.createGain();delayGain.gain.value=korgFX.reverb*0.4;
+  delayNode.connect(delayGain);delayGain.connect(chain.dest);
+  o.connect(g);g.connect(chain.dest);g.connect(delayNode);
+  o.type=type||'sawtooth';o.frequency.value=freq||220;
+  const v=vol*korgFX.volume;
+  g.gain.setValueAtTime(v,ac.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001,ac.currentTime+dur);
+  o.start();o.stop(ac.currentTime+dur+0.05);
+}
+
+// ===== SÉQUENCEUR KORG =====
+let korgSeqInterval=null;
+let korgStep=0;
+let korgBPM=140;
+// Pattern techno 16 steps : kick, snare, hihat, bass
+const KORG_PATTERN={
+  kick:  [1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0],
+  snare: [0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0],
+  hihat: [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,1],
+  clap:  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],
+  bass:  [1,0,0,1,0,0,1,0,1,0,0,1,0,0,0,1],
+};
+const BASS_NOTES=[60,60,65,60,67,60,65,62];let bassIdx=0;
+function noteToHz(midi){return 440*Math.pow(2,(midi-69)/12);}
+function korgSeqTick(){
+  const ac=getAC();if(!ac)return;
+  const t=ac.currentTime;
+  if(KORG_PATTERN.kick[korgStep]) playKick(t);
+  if(KORG_PATTERN.snare[korgStep]) playSnare(t);
+  if(KORG_PATTERN.hihat[korgStep]) playHihat(t,korgStep%8===6);
+  if(KORG_PATTERN.clap[korgStep]) playClap(t);
+  if(KORG_PATTERN.bass[korgStep]) playBass(t,noteToHz(BASS_NOTES[Math.floor(korgStep/2)%BASS_NOTES.length]-12));
+  // Highlight pad actif
+  const pads=document.querySelectorAll('#korg-pads-grid .pad-k');
+  pads.forEach((p,i)=>p.classList.toggle('seq-active',i===korgStep));
+  korgStep=(korgStep+1)%16;
+}
+function startKorgSeq(){
+  if(korgSeqInterval)return;
+  korgStep=0;
+  const stepMs=(60/korgBPM/4)*1000;
+  korgSeqInterval=setInterval(korgSeqTick,stepMs);
+  const btn=document.getElementById('k-play');if(btn)btn.classList.add('on');
+}
+function stopKorgSeq(){
+  if(korgSeqInterval){clearInterval(korgSeqInterval);korgSeqInterval=null;}
+  korgStep=0;
+  document.querySelectorAll('#korg-pads-grid .pad-k').forEach(p=>p.classList.remove('seq-active'));
+  const btn=document.getElementById('k-play');if(btn)btn.classList.remove('on');
+}
+function updateKorgBPM(val){
+  korgBPM=parseInt(val)||140;
+  S.bpm=korgBPM;
+  const el=document.getElementById('bpm-val');if(el)el.textContent=korgBPM;
+  const ks=document.getElementById('k-num');if(ks)ks.textContent=korgBPM;
+  if(korgSeqInterval){stopKorgSeq();startKorgSeq();}
+}
+
+// Knob rotatif : clic = rotation + son, hold = son continu
+let knobHoldInterval=null;
+function knobTurn(el,freq){
+  if(!el)return;
+  let angle=parseInt(el.dataset.angle||'0');
+  angle=(angle+25)%360;
+  el.dataset.angle=angle;
+  el.style.transform='rotate('+angle+'deg)';
+  playKorgTone(freq+(Math.random()*60-30),'sine',0.18,0.15);
+}
+function knobHold(el,freq){
+  if(!el)return;
+  knobTurn(el,freq);
+  knobHoldInterval=setInterval(()=>knobTurn(el,freq),180);
+}
+function knobRelease(){
+  if(knobHoldInterval){clearInterval(knobHoldInterval);knobHoldInterval=null;}
+}
+// Sync effets FX vers chain
+function syncFX(){
+  if(korgFilterNode)korgFilterNode.frequency.value=200+korgFX.filter*18000;
+  if(korgMasterGain)korgMasterGain.gain.value=korgFX.volume;
+}
+function sbtnClick(el){
+  el.classList.toggle('lit');
+  // son de confirmation du step
+  const ac=getAC();if(ac){
+    const o=ac.createOscillator(),g=ac.createGain();
+    o.connect(g);g.connect(ac.destination);
+    o.type='square';o.frequency.value=600+Math.random()*300;
+    g.gain.setValueAtTime(0.06*korgFX.volume,ac.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001,ac.currentTime+0.05);
+    o.start();o.stop(ac.currentTime+0.06);
+  }
+}
+function toggleTouchpad(){
+  S.tpOn=!S.tpOn;
+  const tp=document.getElementById('k-touchpad');if(tp)tp.classList.toggle('on',S.tpOn);
+  const ico=document.getElementById('tp-ico');if(ico)ico.style.color=S.tpOn?'#4a8aff':'#1a3a6a';
+  playKorgTone(S.tpOn?220:110,'sine',0.3,0.18);
+}
+function activateDM(){
+  playKorgTone(220,'sine',0.5,0.22);setTimeout(()=>playKorgTone(330,'sine',0.4,0.18),200);
+  alert('Dance Master active ! Utilise les pads Danse pour masteriser et moduler ton son.');
+}
+function buildKorgPads(){
+  const c=document.getElementById('korg-pads-grid');if(!c)return;
+  c.innerHTML='';
+  const allNames=[...TECH_PADS,...DANSE_PADS];
+  const testPreview=window.PROFILE_ID==='test'&&totalDone()<TOTAL_MISSIONS;
+  // Pads issus directement des missions (1 pad par mission validee)
+  const missionDone=[...S.done.i,...S.done.dj,...S.done.m,...S.done.a];
+  // Mode infini : une fois toutes les missions terminees, tous les pads bonus
+  // (FX1, FX2, LOOP, DROP, REESE) se debloquent aussi, comme promis par le
+  // message de fin ("Mode infini active. 50+ sons.").
+  const allDone=testPreview?allNames:(S.allDone?allNames:missionDone);
+  for(let i=0;i<16;i++){
+    const p=document.createElement('div');
+    const col=PAD_COLS[i%PAD_COLS.length];
+    if(allDone[i]){
+      p.className='pad-k '+col;
+      const span=document.createElement('div');span.className='pad-txt-k';span.textContent=allNames[i]||'PAD';
+      p.appendChild(span);
+      const n=allNames[i]||'KICK';
+      let padHold=null;
+      const padPress=()=>{p.classList.add('on');playKorgTone(PAD_FREQS[n]||220,PAD_TYPES[n]||'sawtooth',0.3,0.35);padHold=setTimeout(()=>{if(p.classList.contains('on'))playKorgTone(PAD_FREQS[n]||220,'sawtooth',0.5,0.28);},300);};
+      const padRelease=()=>{p.classList.remove('on');if(padHold)clearTimeout(padHold);};
+      p.addEventListener('mousedown',padPress);p.addEventListener('mouseup',padRelease);p.addEventListener('mouseleave',padRelease);
+      p.addEventListener('touchstart',(e)=>{e.preventDefault();padPress();},{passive:false});
+      p.addEventListener('touchend',(e)=>{e.preventDefault();padRelease();},{passive:false});
+    }else{
+      p.className='pad-k locked-k '+col;
+      const span=document.createElement('div');span.className='pad-txt-k';span.style.color='#1a1a2a';span.textContent='?';
+      p.appendChild(span);
+    }
+    c.appendChild(p);
+  }
+}
+
+function renderPlatine(){
+  const tot=totalDone();
+  const lk=document.getElementById('platine-locked');
+  const ct=document.getElementById('platine-content');
+  const unlocked=tot>=TOTAL_MISSIONS||window.PROFILE_ID==='test';
+  if(unlocked){if(lk)lk.style.display='none';if(ct)ct.style.display='block';}
+  else{if(lk)lk.style.display='block';if(ct)ct.style.display='none';}
+  buildKorgPads();
+  if(window.PROFILE_ID==='test'&&tot<TOTAL_MISSIONS){
+    buildPlatinePads('tech-pads-pl',TECH_PADS,TECH_PADS,'var(--g)',14);
+    buildPlatinePads('danse-pads-pl',DANSE_PADS,DANSE_PADS,'var(--p)',9);
+  }else{
+    // Mode infini : tous les pads tech bonus (FX1, FX2, LOOP, DROP, REESE)
+    // se debloquent aussi une fois les 22 missions terminees.
+    buildPlatinePads('tech-pads-pl',S.allDone?TECH_PADS:[...S.done.i,...S.done.dj],TECH_PADS,'var(--g)',14);
+    buildPlatinePads('danse-pads-pl',[...S.done.m,...S.done.a],DANSE_PADS,'var(--p)',9);
+  }
+}
+
+function buildPlatinePads(cid,doneArr,names,color,total){
+  const c=document.getElementById(cid);if(!c)return;
+  c.innerHTML='';
+  for(let i=0;i<total;i++){
+    const p=document.createElement('div');p.className='pad-pl';
+    if(doneArr[i]){
+      p.style.borderColor=color;p.style.color=color;
+      p.style.background='rgba(0,0,0,0.5)';
+      p.style.boxShadow='0 0 8px '+color+',0 0 2px '+color;
+      p.textContent=names[i]||'PAD';
+      const n=names[i]||'KICK';
+      const plPress=()=>{p.style.transform='scale(.86)';playKorgTone(PAD_FREQS[n]||220,PAD_TYPES[n]||'sawtooth',0.35,0.4);};
+      const plRelease=()=>{p.style.transform='';};
+      p.addEventListener('mousedown',plPress);p.addEventListener('mouseup',plRelease);p.addEventListener('mouseleave',plRelease);
+      p.addEventListener('touchstart',(e)=>{e.preventDefault();plPress();},{passive:false});
+      p.addEventListener('touchend',(e)=>{e.preventDefault();plRelease();},{passive:false});
+    }else{
+      p.style.borderColor='#1a1a2a';p.style.color='#222';p.textContent='?';
+    }
+    c.appendChild(p);
+  }
+}
+
+function toggleRecPl(){
+  S.recPl=!S.recPl;
+  const btn=document.getElementById('rec-pl-btn');
+  const ico=document.getElementById('rec-pl-ico');
+  const lbl=document.getElementById('rec-pl-lbl');
+  if(S.recPl){
+    if(ico)ico.className='ti ti-circle-filled';
+    if(lbl)lbl.textContent="Arreter l'enregistrement";
+    if(btn)btn.classList.add('on');
+    getAC();
+  }else{
+    if(ico)ico.className='ti ti-circle';
+    if(lbl)lbl.textContent='Enregistrer un mix';
+    if(btn)btn.classList.remove('on');
+    addCalEvent('mix','Mix Korg',new Date().toISOString().split('T')[0]);
+    showToast('Mix enregistre dans le calendrier !');
+  }
+}
+
+// CALENDRIER
+function calNav(dir){
+  S.calMonth+=dir;
+  if(S.calMonth>11){S.calMonth=0;S.calYear++;}
+  if(S.calMonth<0){S.calMonth=11;S.calYear--;}
+  renderCal();
+}
+
+function renderCal(){
+  const y=S.calYear,m=S.calMonth;
+  setTxt('cal-month-lbl',MONTHS[m]+' '+y);
+  const grid=document.getElementById('cal-grid');if(!grid)return;
+  const first=new Date(y,m,1).getDay();
+  const days=new Date(y,m+1,0).getDate();
+  const offset=first===0?6:first-1;
+  grid.innerHTML='';
+  for(let i=0;i<offset;i++){const d=document.createElement('div');d.className='cd';grid.appendChild(d);}
+  const evByDay={};
+  const CM={soiree:'var(--g)',battle:'var(--p)','photo-dj':'var(--r)','video-danse':'var(--pk)',mix:'var(--o)',file:'#3B82F6'};
+  S.events.forEach(ev=>{
+    if(!ev.date)return;
+    const ed=new Date(ev.date);
+    if(ed.getFullYear()===y&&ed.getMonth()===m){
+      const dd=ed.getDate();if(!evByDay[dd])evByDay[dd]=[];evByDay[dd].push(ev);
+    }
+  });
+  const now=new Date();
+  for(let i=1;i<=days;i++){
+    const d=document.createElement('div');d.className='cd';
+    if(i===now.getDate()&&m===now.getMonth()&&y===now.getFullYear())d.classList.add('today');
+    d.innerHTML='<span>'+i+'</span>';
+    if(evByDay[i]){
+      d.style.color='#fff';
+      const dots=document.createElement('div');dots.className='dots';
+      [...new Set(evByDay[i].map(e=>e.type))].slice(0,4).forEach(t=>{
+        const dot=document.createElement('div');dot.className='dot';dot.style.background=CM[t]||'var(--t2)';dots.appendChild(dot);
+      });
+      d.appendChild(dots);
+      const evs=evByDay[i];
+      d.onclick=()=>{showDayModal(i,m,y,evs);};
+    }
+    grid.appendChild(d);
+  }
+  renderEvList();
+}
+
+function renderEvList(){
+  const list=document.getElementById('ev-list');if(!list)return;
+  const CM={soiree:'var(--g)',battle:'var(--p)','photo-dj':'var(--r)','video-danse':'var(--pk)',mix:'var(--o)',file:'#3B82F6','battle-result':'var(--p)','photo-upload':'var(--r)','video-upload':'var(--pk)','audio-upload':'#3B82F6'};
+  const LM={soiree:'Soiree techno',battle:'Battle','photo-dj':'Photo DJ','video-danse':'Video danse',mix:'Mix',file:'Fichier','battle-result':'Resultat Battle','photo-upload':'Photo','video-upload':'Video','audio-upload':'Audio'};
+  const ICONS={soiree:'ti-music',battle:'ti-user',file:'ti-file','photo-dj':'ti-camera','video-danse':'ti-video',mix:'ti-device-audio-tape','battle-result':'ti-trophy','photo-upload':'ti-photo','video-upload':'ti-video','audio-upload':'ti-music'};
+  list.innerHTML='';
+  const all=[...S.events].reverse();
+  if(!all.length){list.innerHTML='<div style="font-size:12px;color:var(--t2);text-align:center;padding:12px">Aucun evenement</div>';return;}
+  all.forEach(ev=>{
+    const col=CM[ev.type]||'var(--t2)';
+    const ico=ICONS[ev.type]||'ti-calendar';
+    const el=document.createElement('div');
+    el.className='ev-item';
+    el.style.cssText='background:var(--s);border:1px solid var(--br);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px;margin-bottom:6px';
+    // Header
+    const hdr=document.createElement('div');
+    hdr.style.cssText='display:flex;align-items:center;gap:10px';
+    hdr.innerHTML='<div style="width:36px;height:36px;border-radius:10px;background:'+col+'22;border:1px solid '+col+';display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti '+ico+'" style="color:'+col+';font-size:16px"></i></div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:#fff">'+(LM[ev.type]||ev.type)+(ev.lieu?' — '+ev.lieu:'')+'</div><div style="font-size:11px;color:var(--t2);margin-top:2px">'+(ev.date||'')+(ev.stage?' · '+ev.stage:'')+(ev.result?' · '+(ev.result==='win'?'✓ Victoire':'✗ Defaite'):'')+(ev.name?' · '+ev.name:'')+'</div></div>';
+    const delBtn=document.createElement('button');
+    delBtn.style.cssText='background:none;border:none;color:#444;cursor:pointer;padding:4px;flex-shrink:0';
+    delBtn.innerHTML='<i class="ti ti-trash" style="font-size:16px"></i>';
+    delBtn.onclick=()=>{const i=S.events.lastIndexOf(ev);if(i>-1)S.events.splice(i,1);renderCal();renderEvList();saveToFirebase();showToast('Supprime');};
+    hdr.appendChild(delBtn);el.appendChild(hdr);
+    // Média inline (url du fichier cloud)
+    if(ev.url){
+      const ext=(ev.name||ev.url||'').toLowerCase().split('.').pop();
+      const isImg=['jpg','jpeg','png','gif','webp','heic'].includes(ext);
+      const isVid=['mp4','mov','avi','webm','mkv'].includes(ext);
+      const isAud=['mp3','wav','m4a','ogg','aac','flac'].includes(ext);
+      const media=document.createElement('div');
+      media.style.cssText='border-radius:8px;overflow:hidden;background:#000;border:1px solid var(--br)';
+      if(isImg){
+        media.innerHTML=`<img src="${ev.url}" style="width:100%;max-height:220px;object-fit:cover;display:block;cursor:pointer" onclick="window.open('${ev.url}','_blank')">`;
+      }else if(isVid){
+        media.innerHTML=`<video src="${ev.url}" controls style="width:100%;max-height:200px;display:block" preload="none"></video>`;
+      }else if(isAud){
+        media.innerHTML=`<div style="padding:12px;display:flex;align-items:center;gap:10px"><i class="ti ti-music" style="color:var(--p);font-size:24px"></i><div style="flex:1"><div style="font-size:12px;color:#fff;margin-bottom:6px">${ev.name||'Audio'}</div><audio src="${ev.url}" controls style="width:100%;height:32px"></audio></div></div>`;
+      }else{
+        media.innerHTML=`<div style="padding:10px;display:flex;align-items:center;gap:8px"><i class="ti ti-file" style="color:#3B82F6;font-size:20px"></i><a href="${ev.url}" target="_blank" style="color:#3B82F6;font-size:12px;text-decoration:none">${ev.name||'Voir le fichier'} <i class="ti ti-external-link"></i></a></div>`;
+      }
+      el.appendChild(media);
+    }
+    list.appendChild(el);
+  });
+}
+
+
+function showDayModal(day,month,year,evs){
+  const CM={soiree:'var(--g)',battle:'var(--p)','photo-dj':'var(--r)','video-danse':'var(--pk)',mix:'var(--o)',file:'#3B82F6','battle-result':'var(--p)','photo-upload':'var(--r)','video-upload':'var(--pk)','audio-upload':'#3B82F6'};
+  const LM={soiree:'Soiree techno',battle:'Battle','photo-dj':'Photo DJ','video-danse':'Video danse',mix:'Mix',file:'Fichier','battle-result':'Resultat Battle','photo-upload':'Photo','video-upload':'Video','audio-upload':'Audio'};
+  const ICONS={soiree:'ti-music',battle:'ti-user',file:'ti-file','photo-dj':'ti-camera','video-danse':'ti-video',mix:'ti-device-audio-tape','battle-result':'ti-trophy','photo-upload':'ti-photo','video-upload':'ti-video','audio-upload':'ti-music'};
+  let html='<div style="font-size:16px;font-weight:700;margin-bottom:14px;color:#fff">'+day+' '+MONTHS[month]+' '+year+'</div>';
+  evs.forEach(ev=>{
+    const col=CM[ev.type]||'var(--t2)';
+    const ico=ICONS[ev.type]||'ti-calendar';
+    html+='<div style="background:var(--s);border:1px solid '+col+'44;border-radius:10px;padding:12px;margin-bottom:8px;text-align:left">';
+    html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><i class="ti '+ico+'" style="color:'+col+';font-size:18px"></i><span style="font-weight:600;color:'+col+'">'+(LM[ev.type]||ev.type)+'</span>'+(ev.lieu?'<span style="font-size:11px;color:var(--t2)"> — '+ev.lieu+'</span>':'')+'</div>';
+    if(ev.result){
+      const isW=ev.result==='win';
+      html+='<div style="font-size:12px;color:'+(isW?'var(--g)':'var(--r)')+';margin-bottom:6px;font-weight:600">'+(isW?'🏆 Victoire':'💀 Défaite')+(ev.stage?' · '+ev.stage:'')+'</div>';
+      if(ev.note)html+='<div style="font-size:11px;color:var(--t2);margin-bottom:6px;font-style:italic;line-height:1.5;padding:6px 8px;background:var(--bg);border-radius:6px;border-left:2px solid '+(isW?'var(--g)':'var(--r)')+'\">"'+ev.note+'"</div>';
+      if(ev.photo)html+='<img src="'+ev.photo+'" style="width:100%;border-radius:8px;max-height:180px;object-fit:cover;margin-bottom:6px;display:block">';
+    }
+    if(ev.type==='battle'&&ev.note)html+='<div style="font-size:11px;color:var(--t2);margin-bottom:6px;font-style:italic;line-height:1.5;padding:6px 8px;background:var(--bg);border-radius:6px;border-left:2px solid var(--p)">"'+ev.note+'"</div>';
+    if(ev.type==='battle'&&ev.photo)html+='<img src="'+ev.photo+'" style="width:100%;border-radius:8px;max-height:180px;object-fit:cover;margin-bottom:6px;display:block">';
+    if(ev.name)html+='<div style="font-size:12px;color:var(--t2);margin-bottom:6px">📎 '+ev.name+'</div>';
+    if(ev.url){
+      const ext=(ev.name||ev.url||'').toLowerCase().split('.').pop();
+      const isImg=['jpg','jpeg','png','gif','webp','heic'].includes(ext);
+      const isVid=['mp4','mov','avi','webm','mkv'].includes(ext);
+      const isAud=['mp3','wav','m4a','ogg','aac','flac'].includes(ext);
+      if(isImg) html+=`<img src="${ev.url}" style="width:100%;border-radius:8px;max-height:200px;object-fit:cover;margin-top:4px" onclick="window.open('${ev.url}','_blank')">`;
+      else if(isVid) html+='<video src="'+ev.url+'" controls style="width:100%;border-radius:8px;max-height:180px;margin-top:4px"></video>';
+      else if(isAud) html+='<audio src="'+ev.url+'" controls style="width:100%;margin-top:6px"></audio>';
+      else html+='<a href="'+ev.url+'" target="_blank" style="display:inline-flex;align-items:center;gap:6px;color:#3B82F6;font-size:12px;margin-top:4px">Ouvrir le fichier <i class="ti ti-external-link"></i></a>';
+    }
+    html+='</div>';
+  });
+  setText('day-modal-content',html);
+  showModal('day-detail');
+}
+function addCalEvent(type,lieu,date,note,photo){
+  S.events.push({type,lieu,date,note:note||null,photo:photo||null});
+  if(type==='soiree'){S.soireeCount++;checkSoireeBadges();}
+  if(type==='battle'){S.battleCount++;checkBattleBadges(lieu);}
+  if(currentPage==='cal')renderCal();
+  const sc=S.events.filter(e=>e.type==='soiree').length;
+  setTxt('bdg-sc-txt',sc+'/3');setW('bdg-sc-bar',Math.min(sc/3*100,100));
+  if(sc>=3)setTxt('bdg-sc-hint','Badge Noctambule debloque !');
+}
+
+function addEvent(type){
+  let lieu='',date=new Date().toISOString().split('T')[0];
+  if(type==='soiree'){
+    lieu=(document.getElementById('soiree-lieu')||{}).value||'Toulouse';
+    date=(document.getElementById('soiree-date')||{}).value||date;
+  }
+  if(type==='battle'){
+    lieu=(document.getElementById('battle-lieu')||{}).value||'Toulouse';
+    date=(document.getElementById('battle-date')||{}).value||date;
+  }
+  const battleNote=type==='battle'?((document.getElementById('battle-note')||{}).value||'').trim():'';
+  const battlePhoto=type==='battle'?(battlePhotoDataUrl||null):null;
+  addCalEvent(type,lieu,date,battleNote,battlePhoto);
+  if(type==='battle'){battlePhotoDataUrl=null;clearBattlePhoto();const n=document.getElementById('battle-note');if(n)n.value='';}
+  closeModals();showToast('Evenement ajoute !');saveToFirebase();
+}
+
+// BADGES
+function renderBadges(){
+  const c=document.getElementById('badges-container');if(!c)return;
+  c.innerHTML='';
+  BADGE_CATS.forEach(cat=>{
+    const wrap=document.createElement('div');
+    const title=document.createElement('div');
+    title.className='bcat-title';title.style.color=cat.color;title.textContent=cat.label;
+    wrap.appendChild(title);
+    const grid=document.createElement('div');grid.className='badge-grid';
+    cat.badges.forEach(b=>{
+      const el=document.createElement('div');
+      el.className='bdg'+(S.earnedBadges.has(b.id)?' earned':'');
+      el.id='bdg-'+b.id;el.title=b.desc;
+      el.innerHTML='<div class="bdg-icon">'+b.icon+'</div><div class="bdg-name">'+b.name+'</div>';
+      grid.appendChild(el);
+    });
+    wrap.appendChild(grid);c.appendChild(wrap);
+  });
+  const mx=document.getElementById('bdg-mixeur');
+  if(mx){mx.classList.toggle('earned',S.earnedBadges.has('mixeur'));setTxt('mixeur-status',S.earnedBadges.has('mixeur')?'Debloque !':'Non debloque');}
+}
+
+function earnBadge(id){
+  if(S.earnedBadges.has(id))return;
+  S.earnedBadges.add(id);
+  const el=document.getElementById('bdg-'+id);if(el)el.classList.add('earned');
+  if(id==='mixeur'){
+    const mx=document.getElementById('bdg-mixeur');if(mx)mx.classList.add('earned');
+    setTxt('mixeur-status','Debloque !');updateBadgeCount();return;
+  }
+  const all=BADGE_CATS.flatMap(c=>c.badges);
+  const b=all.find(x=>x.id===id);
+  if(b){
+    setText('be-icon',b.icon);setTxt('be-name',b.name+' gagne !');setTxt('be-desc',b.desc);
+    setTimeout(()=>showModal('badge-earned'),700);
+  }
+  updateBadgeCount();saveToFirebase();
+}
+
+function updateBadgeCount(){setTxt('bdg-count-lbl',S.earnedBadges.size+'/'+TOTAL_BADGES);}
+
+function checkBadgesForMission(type){
+  const td=techDone(),dd=danseDone();
+  if(type==='interactions'){
+    if(S.done.i.size>=1)earnBadge('t1');if(S.done.i.size>=2)earnBadge('t3');
+    if(S.done.i.size>=3)earnBadge('t4');if(S.done.i.size>=5)earnBadge('t5');
+    if(td>=5)earnBadge('t2');if(td>=TECH_MISSIONS_MAX)earnBadge('t10');
+  }
+  if(type==='photos-dj'){
+    if(S.done.dj.size>=1)earnBadge('t6');if(S.done.dj.size>=2)earnBadge('t7');
+    if(S.done.dj.size>=4)earnBadge('t8');if(td>=TECH_MISSIONS_MAX)earnBadge('t10');
+  }
+  if(type==='moves'){
+    if(S.done.m.size>=1)earnBadge('d1');if(S.done.m.size>=2)earnBadge('d2');
+    if(S.done.m.size>=3)earnBadge('d3');if(S.done.m.size>=4)earnBadge('d4');
+    if(S.done.m.size>=5)earnBadge('d5');if(dd>=DANSE_MISSIONS_MAX)earnBadge('d10');
+  }
+  if(type==='apprentissage'){
+    if(S.done.a.size>=1)earnBadge('d6');if(S.done.a.size>=2)earnBadge('d7');
+    if(S.done.a.size>=3)earnBadge('d8');if(S.done.a.size>=4)earnBadge('d9');
+    if(dd>=DANSE_MISSIONS_MAX)earnBadge('d10');
+  }
+}
+
+function checkBadgesForBT(){
+  const ok=S.bt.ok,str=S.bt.streak,tot=S.bt.total;
+  if(ok>=1)earnBadge('bt1');if(ok>=5){earnBadge('bt2');earnBadge('t9');}
+  if(ok>=10)earnBadge('bt3');if(ok>=20)earnBadge('bt4');if(ok>=30)earnBadge('bt5');
+  if(str>=3)earnBadge('bt6');if(str>=5)earnBadge('bt7');if(str>=10)earnBadge('bt8');
+  if(tot>=50)earnBadge('bt9');if(tot>=100)earnBadge('bt10');
+}
+function checkBattleBadges(lieu){
+  if(S.battleCount>=1)earnBadge('b1');if(S.battleCount>=3)earnBadge('b2');
+  if(S.battleCount>=5)earnBadge('b3');if(S.battleCount>=10)earnBadge('b4');
+  if(S.battleCount>=20){earnBadge('b5');earnBadge('b10');}
+  if(lieu&&lieu.trim().toLowerCase()!=='toulouse'&&lieu.trim().toLowerCase()!=='battle')earnBadge('b9');
+}
+function checkSoireeBadges(){
+  if(S.soireeCount>=3)earnBadge('s1');if(S.soireeCount>=5)earnBadge('s2');
+  if(S.soireeCount>=8)earnBadge('s3');if(S.soireeCount>=12)earnBadge('s4');
+  if(S.soireeCount>=20)earnBadge('s5');
+}
+
+// CONFETTI
+const CCOLORS=['#8B5CF6','#10B981','#F97316','#EC4899','#3B82F6','#fff','#F59E0B'];
+function launchConfetti(){
+  const c=document.getElementById('confetti-container');if(!c)return;
+  for(let i=0;i<70;i++){
+    setTimeout(()=>{
+      const p=document.createElement('div');p.className='cpiece';
+      p.style.left=Math.random()*100+'%';
+      p.style.background=CCOLORS[Math.floor(Math.random()*CCOLORS.length)];
+      p.style.borderRadius=Math.random()>.5?'50%':'2px';
+      p.style.width=(4+Math.random()*8)+'px';p.style.height=(4+Math.random()*8)+'px';
+      p.style.animation='cfall '+(1.5+Math.random()*2)+'s ease-in forwards';
+      p.style.animationDelay=(Math.random()*.5)+'s';
+      c.appendChild(p);setTimeout(()=>p.remove(),4000);
+    },i*25);
+  }
+}
+function launchMiniConfetti(){
+  const c=document.getElementById('confetti-container');if(!c)return;
+  for(let i=0;i<20;i++){
+    setTimeout(()=>{
+      const p=document.createElement('div');p.className='cpiece';
+      p.style.left=(20+Math.random()*60)+'%';
+      p.style.background=CCOLORS[Math.floor(Math.random()*CCOLORS.length)];
+      p.style.borderRadius='50%';p.style.width='6px';p.style.height='6px';
+      p.style.animation='cfall '+(1+Math.random()*1.5)+'s ease-in forwards';
+      c.appendChild(p);setTimeout(()=>p.remove(),3000);
+    },i*40);
+  }
+}
+
+// MODALS
+// File d'attente des modals
+let modalQueue=[];
+let modalOpen=false;
+
+function showModal(id){
+  getAC();
+  if(modalOpen){
+    // Un modal est déjà ouvert, on met en file d'attente
+    if(!modalQueue.includes(id))modalQueue.push(id);
+    return;
+  }
+  const el=document.getElementById('modal-'+id);
+  if(el){el.classList.add('show');modalOpen=true;}
+  else{console.warn('Modal not found:',id);processModalQueue();}
+}
+
+function processModalQueue(){
+  modalOpen=false;
+  if(modalQueue.length>0){
+    const next=modalQueue.shift();
+    setTimeout(()=>showModal(next),200);
+  }
+}
+function closeModals(){
+  document.querySelectorAll('.ov.show').forEach(o=>o.classList.remove('show'));
+  processModalQueue();
+}
+
+// ORIENTATION
+window.STAY_PORTRAIT=localStorage.getItem('noa_stay_portrait')==='1';
+function checkOrient(page){
+  const port=window.innerHeight>window.innerWidth;
+  const force=document.getElementById('ov-force');
+  const anyModalOpen=document.querySelector('.ov.show')!==null;
+  const shouldForce=(page==='home'||page==='platine'||page==='blindtest')&&port&&!window.STAY_PORTRAIT&&!anyModalOpen;
+  if(force)force.classList.toggle('show',shouldForce);
+}
+function toggleStayPortrait(forceOn){
+  window.STAY_PORTRAIT=forceOn===true?true:!window.STAY_PORTRAIT;
+  localStorage.setItem('noa_stay_portrait',window.STAY_PORTRAIT?'1':'0');
+  updateStayPortraitUI();
+  checkOrient(currentPage);
+}
+function updateStayPortraitUI(){
+  document.querySelectorAll('.pt-toggle').forEach(el=>{
+    el.classList.toggle('on',window.STAY_PORTRAIT);
+    const lbl=el.querySelector('.pt-lbl');
+    if(lbl)lbl.textContent=window.STAY_PORTRAIT?'Portrait active':'Rester en portrait';
+  });
+}
+// Reset test data
+function resetTestData(){
+  if(window.PROFILE_ID!=='test'){alert('Seulement en mode test !');return;}
+  if(!confirm('Effacer toutes les donnees de test ?'))return;
+  Object.assign(S,{
+    done:{i:new Set(),dj:new Set(),m:new Set(),a:new Set(),bt:new Set()},
+    events:[],soireeCount:0,battleCount:0,battlePhotoCount:0,
+    bt:{ok:0,ko:0,streak:0,total:0,bestStreak:0},
+    earnedBadges:new Set(),allDone:false,farewellShown:false,btMissionShown:false
+  });
+  saveToFirebase();updateAllUI();restoreAllMissions();renderBadges();renderCal();
+  showToast('Donnees test effacees !');
+}
+
+async function resetNoaProgression(){
+  if(!confirm('⚠️ Remettre TOUTE la progression de Noa à zéro ? Cette action est irréversible.'))return;
+  Object.assign(S,{
+    done:{i:new Set(),dj:new Set(),m:new Set(),a:new Set(),bt:new Set()},
+    events:[],soireeCount:0,battleCount:0,battlePhotoCount:0,
+    bt:{ok:0,ko:0,streak:0,total:0,bestStreak:0,current:null,answered:false},
+    earnedBadges:new Set(),allDone:false,farewellShown:false,btMissionShown:false
+  });
+  await saveToFirebase();
+  updateAllUI();
+  restoreAllMissions();
+  renderBadges();
+  renderCal();
+  renderProfile();
+  showToast('Progression remise à zéro !');
+}
+window.addEventListener('resize',()=>checkOrient(currentPage));
+window.addEventListener('orientationchange',()=>setTimeout(()=>checkOrient(currentPage),250));
+
+// FRIDAY NOTIF
+function checkFridayNotif(){
+  if(new Date().getDay()===5)setTimeout(()=>showModal('notif'),2000);
+}
+
+
+
+// PROFILE CHOOSER
+window.PROFILE_ID = localStorage.getItem('noa_profile_id') || null;
+
+function selectProfile(id){
+  window.PROFILE_ID = id;
+  localStorage.setItem('noa_profile_id', id);
+  closeModals();
+  if(id === 'test'){
+    const existing = document.getElementById('test-banner');
+    if(!existing){
+      const banner = document.createElement('div');
+      banner.id = 'test-banner';
+      banner.style.cssText='background:#7c2d12;color:#fb923c;font-size:10px;text-align:center;padding:4px;letter-spacing:1px;position:sticky;top:0;z-index:999';
+      banner.textContent='MODE TEST , La progression de Noa est protegee';
+      document.body.prepend(banner);
+    }
+  }
+  // Now load — Firebase may or may not be ready
+  if(window.fbReady){
+    loadFromFirebase();
+  } else {
+    window.onFBReady = loadFromFirebase;
+  }
+}
+
+function initProfileChooser(){
+  // Set onFBReady to wait for profile selection
+  window.onFBReady = function(){
+    // Firebase is ready but wait for profile selection
+    if(window.PROFILE_ID){
+      loadFromFirebase();
+    }
+    // else: selectProfile will call loadFromFirebase when user chooses
+  };
+  if(!window.PROFILE_ID){
+    // Show chooser — if Firebase already ready, that's fine, we just wait
+    const modal = document.getElementById('modal-choose-profile');
+    if(modal) modal.classList.add('show');
+  } else {
+    // Profile already chosen on previous visit
+    if(window.PROFILE_ID === 'test'){
+      const existing = document.getElementById('test-banner');
+      if(!existing){
+        const banner = document.createElement('div');
+        banner.id = 'test-banner';
+        banner.style.cssText='background:#7c2d12;color:#fb923c;font-size:10px;text-align:center;padding:4px;letter-spacing:1px;position:sticky;top:0;z-index:999';
+        banner.textContent='MODE TEST , La progression de Noa est protegee';
+        document.body.prepend(banner);
+      }
+    }
+    // onFBReady is already set to call loadFromFirebase when profile is set
+    // If Firebase already ready, call directly
+    if(window.fbReady){
+      loadFromFirebase();
+    }
+    // else onFBReady handler will call it
+  }
+}
+
+
+// PROFILE
+let brResult=null, brStage=null;
+
+function renderProfile(){
+  setTxt('profil-prog-lbl', totalDone()+' / '+TOTAL_MISSIONS+' missions');
+  setW('profil-prog-bar', totalDone()/TOTAL_MISSIONS*100);
+  setTxt('profil-soirees', S.soireeCount);
+  setTxt('profil-battles', S.battleCount);
+  setTxt('profil-bt-ok', S.bt.ok);
+  setTxt('profil-streak', S.bt.bestStreak||S.bt.streak);
+  setTxt('profil-badges', S.earnedBadges.size+' / '+TOTAL_BADGES);
+  renderBattleResults();
+}
+
+function renderBattleResults(){
+  const list=document.getElementById('profil-battles-list');
+  if(!list)return;
+  list.innerHTML='';
+  const battles=S.events.filter(e=>e.type==='battle-result').slice().reverse();
+  if(!battles.length){
+    list.innerHTML='<div style="font-size:12px;color:var(--t2);text-align:center;padding:8px">Aucun battle enregistre</div>';
+    return;
+  }
+  battles.forEach(b=>{
+    const el=document.createElement('div');
+    const isWin=b.result==='win';
+    el.style.cssText='background:var(--s);border:1px solid '+(isWin?'var(--gd)':'#7f1d1d')+';border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px;';
+    el.style.cssText='background:var(--s);border:1px solid '+(isWin?'var(--gd)':'#7f1d1d')+';border-radius:10px;padding:10px 12px;';
+    const noteHtml=b.note?'<div style="font-size:11px;color:var(--t2);margin-top:6px;font-style:italic;line-height:1.5;padding:6px 8px;background:var(--bg);border-radius:6px;border-left:2px solid '+(isWin?'var(--g)':'var(--r)')+'">"'+b.note+'"</div>':'';
+    const photoHtml=b.photo?'<img src="'+b.photo+'" style="width:100%;border-radius:8px;max-height:140px;object-fit:cover;margin-top:8px;display:block">':'';
+    el.innerHTML='<div style="display:flex;align-items:center;gap:10px"><div style="font-size:20px">'+(isWin?'&#127942;':'&#129354;')+'</div><div style="flex:1"><div style="font-size:13px;font-weight:600;color:'+(isWin?'var(--g)':'var(--r)')+'">'+b.lieu+'</div><div style="font-size:11px;color:var(--t2);margin-top:2px">'+(b.stage||'')+(b.stage&&b.date?' · ':'')+( b.date||'')+'</div></div><button onclick="deleteBattleResult(this)" data-id="'+b.id+'" style="background:none;border:none;color:#444;cursor:pointer;font-size:14px"><i class="ti ti-trash"></i></button></div>'+noteHtml+photoHtml;
+    list.appendChild(el);
+  });
+}
+
+function setBRResult(r){
+  brResult=r;brStage=null;
+  const wbtn=document.getElementById('br-win');
+  const lbtn=document.getElementById('br-lose');
+  if(wbtn)wbtn.style.opacity=r==='win'?'1':'.4';
+  if(lbtn)lbtn.style.opacity=r==='lose'?'1':'.4';
+  const wrap=document.getElementById('br-stage-wrap');
+  if(wrap)wrap.style.display='block';
+  const sbtn=document.getElementById('br-save-btn');
+  if(sbtn)sbtn.style.display='none';
+}
+
+function setBRStage(stage){
+  brStage=stage;
+  document.querySelectorAll('#br-stages .btn').forEach(b=>{
+    b.style.opacity=b.textContent.trim()===stage?'1':'.4';
+    b.style.borderColor=b.textContent.trim()===stage?'var(--g)':'var(--br)';
+  });
+  const sbtn=document.getElementById('br-save-btn');
+  if(sbtn)sbtn.style.display='flex';
+}
+
+let brPhotoDataUrl=null;
+let battlePhotoDataUrl=null;
+function setBattlePhoto(input){
+  if(!input.files||!input.files[0])return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    battlePhotoDataUrl=e.target.result;
+    const prev=document.getElementById('battle-photo-preview');
+    const img=document.getElementById('battle-photo-img');
+    if(prev)prev.style.display='block';
+    if(img)img.src=battlePhotoDataUrl;
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+function clearBattlePhoto(){
+  battlePhotoDataUrl=null;
+  const prev=document.getElementById('battle-photo-preview');
+  if(prev)prev.style.display='none';
+}
+function setBRPhoto(input){
+  if(!input.files||!input.files[0])return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    brPhotoDataUrl=e.target.result;
+    const prev=document.getElementById('br-photo-preview');
+    const img=document.getElementById('br-photo-img');
+    if(prev)prev.style.display='block';
+    if(img)img.src=brPhotoDataUrl;
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+function clearBRPhoto(){
+  brPhotoDataUrl=null;
+  const prev=document.getElementById('br-photo-preview');
+  if(prev)prev.style.display='none';
+}
+function saveBattleResult(){
+  if(!brResult||!brStage)return;
+  const lieu=(document.getElementById('br-lieu')||{}).value||'Battle';
+  const date=(document.getElementById('br-date')||{}).value||new Date().toISOString().split('T')[0];
+  const note=((document.getElementById('br-note')||{}).value||'').trim();
+  const id='br_'+Date.now();
+  S.events.push({type:'battle-result',result:brResult,stage:brStage,lieu,date,id,note,photo:brPhotoDataUrl||null});
+  S.battleCount++;checkBattleBadges(lieu);
+  const _savedResult=brResult;
+  closeModals();
+  brResult=null;brStage=null;
+  brPhotoDataUrl=null;
+  const noteEl=document.getElementById('br-note');if(noteEl)noteEl.value='';
+  clearBRPhoto();
+  renderProfile();
+  saveToFirebase();
+  showToast(_savedResult==='win'?'Victoire enregistree !':'Battle enregistre !');
+}
+
+function deleteBattleResult(btn){
+  const id=btn.dataset.id;
+  S.events=S.events.filter(e=>e.id!==id);
+  renderProfile();saveToFirebase();showToast('Battle supprime');
+}
+
+// INIT — après que tout le DOM soit parsé
+document.addEventListener('DOMContentLoaded',function(){
+  initProfileChooser();
+  ['interactions-list','photos-dj-list','moves-list','apprentissage-list'].forEach(lid=>{
+    const f=document.querySelector('#'+lid+' .mc');if(f)f.classList.remove('locked');
+  });
+  renderBadges();
+  renderCal();
+  updateAllUI();
+  buildKorgPads();
+  checkOrient('home');document.documentElement.classList.add('no-scroll');
+  updateStayPortraitUI();
+  const today=new Date().toISOString().split('T')[0];
+  ['soiree-date','battle-date'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=today;});
+});
+</script>
+
+<div class="page" id="page-profil">
+<div class="sh"><button class="back" onclick="goTo('home')"><i class="ti ti-arrow-left" style="font-size:20px"></i></button><div class="sh-title" style="color:var(--pk);text-shadow:0 0 8px var(--pk),0 0 20px var(--pk),0 0 40px #f472b6">Mon Profil</div></div>
+<div style="padding:14px;display:flex;flex-direction:column;gap:12px">
+  <div style="background:linear-gradient(135deg,var(--pbg),var(--gbg));border:1px solid var(--pd);border-radius:16px;padding:20px;text-align:center">
+    <div style="font-size:48px;margin-bottom:8px">&#127926;</div>
+    <div style="font-size:36px;font-weight:700;font-family:'DM Serif Display',serif;font-style:italic;letter-spacing:3px;color:#fff;text-shadow:0 0 8px #fff,0 0 20px #fff">Noa</div>
+    <div style="font-size:12px;color:var(--t2);margin-top:4px" id="profil-prog-lbl">0 / 22 missions</div>
+    <div style="height:3px;background:var(--br);border-radius:2px;margin-top:10px;overflow:hidden"><div class="pf" id="profil-prog-bar" style="width:0%;background:var(--p)"></div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+    <div style="background:var(--s);border:1px solid var(--gd);border-radius:12px;padding:14px;text-align:center;box-shadow:0 0 8px rgba(16,185,129,.1)">
+      <div style="font-size:28px;font-weight:700;color:var(--g);text-shadow:0 0 8px var(--g)" id="profil-soirees">0</div>
+      <div style="font-size:11px;color:var(--t2);margin-top:4px">Soirees</div>
+    </div>
+    <div style="background:var(--s);border:1px solid var(--pd);border-radius:12px;padding:14px;text-align:center;box-shadow:0 0 8px rgba(139,92,246,.1)">
+      <div style="font-size:28px;font-weight:700;color:var(--p);text-shadow:0 0 8px var(--p)" id="profil-battles">0</div>
+      <div style="font-size:11px;color:var(--t2);margin-top:4px">Battles</div>
+    </div>
+    <div style="background:var(--s);border:1px solid var(--gd);border-radius:12px;padding:14px;text-align:center;box-shadow:0 0 8px rgba(16,185,129,.1)">
+      <div style="font-size:28px;font-weight:700;color:var(--g);text-shadow:0 0 8px var(--g)" id="profil-bt-ok">0</div>
+      <div style="font-size:11px;color:var(--t2);margin-top:4px">Blindtest bons</div>
+    </div>
+    <div style="background:var(--s);border:1px solid var(--o);border-radius:12px;padding:14px;text-align:center;box-shadow:0 0 8px rgba(249,115,22,.1)">
+      <div style="font-size:28px;font-weight:700;color:var(--o);text-shadow:0 0 8px var(--o)" id="profil-streak">0</div>
+      <div style="font-size:11px;color:var(--t2);margin-top:4px">Meilleur streak</div>
+    </div>
+  </div>
+  <div style="background:var(--s);border:1px solid var(--br);border-radius:12px;padding:14px">
+    <div style="font-size:13px;font-weight:600;margin-bottom:10px;font-family:'Cormorant Garamond',serif;font-size:16px">Historique Battles</div>
+    <div id="profil-battles-list" style="display:flex;flex-direction:column;gap:6px"></div>
+    <button class="btn btnp" style="margin-top:10px" onclick="showModal('add-battle-result')"><i class="ti ti-plus"></i> Ajouter un resultat battle</button>
+  </div>
+  <div style="background:var(--s);border:1px solid var(--br);border-radius:12px;padding:14px">
+    <div style="font-size:16px;font-weight:600;margin-bottom:10px;font-family:'Cormorant Garamond',serif">Badges gagnes</div>
+    <div style="font-size:24px;font-weight:700;color:var(--o)" id="profil-badges">0 / 50</div>
+    <button class="btn btno" style="margin-top:8px" onclick="goTo('badges')"><i class="ti ti-star"></i> Voir tous les badges</button>
+  <button class="btn btnr" style="margin-top:8px;opacity:.7" onclick="resetNoaProgression()"><i class="ti ti-trash"></i> Réinitialiser la progression</button>
+  <button class="btn" style="margin-top:8px;opacity:.6;background:var(--s);border:1px solid var(--br)" onclick="showBTFailsLog()"><i class="ti ti-bug"></i> Voir titres blindtest en echec</button>
+  <button class="btn" style="margin-top:4px;opacity:.5;background:var(--s);border:1px solid var(--br);font-size:11px" onclick="clearBTFailsLog()"><i class="ti ti-x"></i> Effacer ce log</button>
+  </div>
+</div>
+<nav class="nav"><button class="nb" onclick="goTo('home')"><i class="ti ti-home"></i><span>Accueil</span></button><button class="nb" onclick="goTo('blindtest')"><i class="ti ti-music"></i><span>Blindtest</span></button><button class="nb" onclick="goTo('moves')"><i class="ti ti-user"></i><span>Danse</span></button><button class="nb" onclick="goTo('platine')"><i class="ti ti-device-audio-tape"></i><span>Platine</span></button><button class="nb act"><i class="ti ti-user-circle"></i><span>Profil</span></button></nav>
+</div>
+
+<div class="ov" id="modal-add-battle-result">
+<div class="modal" style="max-height:90vh;overflow-y:auto">
+  <div style="font-size:36px;margin-bottom:8px">&#129354;</div>
+  <h3>Resultat de battle</h3>
+  <input type="text" placeholder="Lieu / Evenement" id="br-lieu">
+  <input type="date" id="br-date">
+  <div style="margin-bottom:8px">
+    <div style="font-size:12px;color:var(--t2);margin-bottom:6px">Resultat :</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+      <button class="btn btng" id="br-win" onclick="setBRResult('win')" style="margin-top:0"><i class="ti ti-trophy"></i> Victoire</button>
+      <button class="btn btnr" id="br-lose" onclick="setBRResult('lose')" style="margin-top:0"><i class="ti ti-x"></i> Defaite</button>
+    </div>
+  </div>
+  <div id="br-stage-wrap" style="display:none;margin-bottom:8px">
+    <div style="font-size:12px;color:var(--t2);margin-bottom:6px">Stade atteint :</div>
+    <div style="display:flex;flex-direction:column;gap:4px" id="br-stages">
+      <button class="btn" onclick="setBRStage('Finale')" style="margin-top:0;font-size:12px">Finale</button>
+      <button class="btn" onclick="setBRStage('Demi-finale')" style="margin-top:0;font-size:12px">Demi-finale</button>
+      <button class="btn" onclick="setBRStage('Quarts de finale')" style="margin-top:0;font-size:12px">Quarts de finale</button>
+      <button class="btn" onclick="setBRStage('Top 8')" style="margin-top:0;font-size:12px">Top 8</button>
+      <button class="btn" onclick="setBRStage('Top 16')" style="margin-top:0;font-size:12px">Top 16</button>
+      <button class="btn" onclick="setBRStage('Premier tour')" style="margin-top:0;font-size:12px">Premier tour</button>
+    </div>
+  </div>
+  <div style="margin-bottom:8px">
+    <div style="font-size:12px;color:var(--t2);margin-bottom:6px">Note post-battle (résultat, ressenti, à retenir...) :</div>
+    <textarea id="br-note" placeholder="Ex: Sorti en quarts, il avait un footwork de malade..." style="width:100%;background:var(--s);border:1px solid var(--br);border-radius:8px;color:#fff;font-size:12px;padding:10px;resize:none;height:72px;font-family:'Saira',sans-serif;line-height:1.5"></textarea>
+  </div>
+  <div style="margin-bottom:8px">
+    <div style="font-size:12px;color:var(--t2);margin-bottom:6px"><i class="ti ti-camera"></i> Photo du battle (optionnel) :</div>
+    <div id="br-photo-preview" style="display:none;margin-bottom:8px;position:relative">
+      <img id="br-photo-img" style="width:100%;border-radius:8px;max-height:140px;object-fit:cover">
+      <button onclick="clearBRPhoto()" style="position:absolute;top:4px;right:4px;background:rgba(0,0,0,.7);border:none;border-radius:50%;width:24px;height:24px;color:#fff;cursor:pointer;font-size:12px;line-height:1;display:flex;align-items:center;justify-content:center"><i class="ti ti-x"></i></button>
+    </div>
+    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;background:var(--s);border:1px dashed var(--br);border-radius:8px;padding:10px;font-size:12px;color:var(--t2)">
+      <i class="ti ti-photo" style="font-size:18px;color:var(--p)"></i> Ajouter une photo
+      <input type="file" accept="image/*" style="display:none" onchange="setBRPhoto(this)">
+    </label>
+  </div>
+  <button class="btn btng" id="br-save-btn" onclick="saveBattleResult()" style="display:none"><i class="ti ti-check"></i> Enregistrer</button>
+  <button class="btn" onclick="closeModals()" style="margin-top:6px;color:var(--t2)">Annuler</button>
+</div>
+</div>
+
+<div class="ov" id="modal-day-detail">
+<div class="modal" style="text-align:left;max-height:85vh;overflow-y:auto">
+  <div id="day-modal-content"></div>
+  <button class="btn" onclick="closeModals()" style="margin-top:8px;color:var(--t2)">Fermer</button>
+</div>
+</div>
+</body>
+</html>
